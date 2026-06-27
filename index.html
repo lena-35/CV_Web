@@ -14,10 +14,13 @@
     <header>
         <nav>
             <a href="index.html" class="lien-icone">
-                <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE">
+                <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
-            <div>
-                <a href="index.html">Accueil</a>
+
+            <div class="burger-menu">☰</div>
+
+            <div class="menu">
+                <a href="index.html" class="active">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
                 <a href="athlete-haut-niveau.html">Athlète de haut niveau</a>
@@ -28,8 +31,9 @@
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="accueil-introduction">
+        <section class="introduction">
             <div>
                 <h1>Lénaïg LE MOIGNE</h1>
                 <p>
@@ -38,33 +42,123 @@
                     jeune, Pro A et Elite). Ma réactivité de Libéro est mon meilleur atout pour concevoir, développer et
                     dépanner des systèmes en environnement de production. »
                 </p>
-                <a href="contact.html" class="cta">UN PROJET ? ÉCRIVEZ-MOI</a>
+                <a href="contact.html" class="cta">UN PROJET ? CONTACTEZ-MOI</a>
             </div>
             <img src="images/robbie-lens.png" alt="Portrait avec effet de la photographe Robbie Lens">
         </section>
-        <section class="accueil-parcours">
+
+        <section class="parcours">
             <h2>Mes derniers parcours</h2>
-            <div class="liste-parcours">
-                <div>
-                    Entreprise
+
+            <div class="blocks-parcours">
+
+                <div class="liste-item">
+                    <h3>Compétences</h3>
+                    <div class="liste-savoir">
+                        <ul class="savoir savoir-etre">
+                            <h4>Savoir être</h4>
+                            <li>Travail d'équipe</li>
+                            <li>Communication</li>
+                            <li>Leadership</li>
+                            <a href="competences.html#ancre-savoir-etre" class="voir-detail">Voir
+                                le détail</a>
+                        </ul>
+                        <ul class="savoir savoir-faire">
+                            <h4>Savoir faire</h4>
+                            <li>Python</li>
+                            <li>JavaScript</li>
+                            <li>HTML/CSS</li>
+                            <a href="competences.html#ancre-savoir-faire" class="voir-detail">Voir
+                                le détail</a>
+                        </ul>
+                    </div>
+
                 </div>
-                <div>
-                    Formation
+
+                <div class="timeline-item item-athlete">
+                    <h3>Athlète de haut niveau</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">2025 - Présent</time>
+                        <h4>Libéro REC Volley DEF</h4>
+                        <a href="athlete-haut-niveau.html#ancre-experience-professionnelle-1" class="voir-detail">Voir le
+                            détail</a>
+                    </div>
+                    <div class="timeline-parcours">
+                        <time class="date">2012 - 2014</time>
+                        <h4>Libéro Nancy DEF</h4>
+                        <a href="athlete-haut-niveau.html#ancre-experience-professionnelle-2" class="voir-detail">Voir le
+                            détail</a>
+                    </div>
                 </div>
-                <div>
-                    Bénévolat
+
+                <div class="timeline-item">
+                    <h3>Expérience professionnelle</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">11/2018 - 07/2025</time>
+                        <h4 class="poste">Ingénieure Informatique Industrielle</h4>
+                        <div class="lieu">Oberthur Fiduciaire, Chantepie</div>
+                        <a href="experience-professionnelle.html#ancre-experience-professionnelle-1"
+                            class="voir-detail">Voir le détail</a>
+                    </div>
+                    <div class="timeline-parcours">
+                        <time class="date">02/2018 - 06/2018</time>
+                        <h4>Stage de fin d'études Électronique et Informatique Industrielle </h4>
+                        <div class="lieu">SPIE Ouest-Centre, Le Rheu</div>
+                        <a href="experience-professionnelle.html#ancre-experience-professionnelle-2"
+                            class="voir-detail">Voir le détail</a>
+                    </div>
                 </div>
+
+                <div class="timeline-item">
+                    <h3>Formation</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">2025 - 2026</time>
+                        <h4>Formation en développement web...</h4>
+                        <a href="#ancre-formation-1" class="voir-detail">Voir le détail</a>
+                    </div>
+                    <div class="timeline-parcours">
+                        <time class="date">2025 - Présent</time>
+                        <h4>Formation en développement web...</h4>
+                        <a href="#ancre-formation-2" class="voir-detail">Voir le détail</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3>Engagement associatif</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">2018 - 2022</time>
+                        <h4>Bénévolat dans une association locale</h4>
+                        <a href="#ancre-benevolat" class="voir-detail">Voir le détail</a>
+                    </div>
+                </div>
+
             </div>
+
         </section>
+
     </main>
+
     <footer>
-        <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE">
-        <div>
-            <a target="_blank" href="linkedin.com/in/lénaïg-le-moigne" class="lien-icone">
-                <img src="images/linkedin.png" alt="Logo LinkedIn">
-            </a>
-        </div>
+        <a href="index.html" class="lien-icone">
+            <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
+        </a>
+        <a href="https://fr.linkedin.com/in/lénaïg-le-moigne" target="_blank" class="lien-icone">
+            <img src="images/logo-linkedin.svg" alt="Logo LinkedIn" class="logo-linkedin">
+        </a>
     </footer>
+
+    <script>
+        const burger = document.querySelector('.burger-menu');
+        const menuMobile = document.querySelector('.menu');
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            menuMobile.classList.toggle('active');
+        });
+        document.addEventListener('click', () => {
+            menuMobile.classList.remove('active');
+        });
+    </script>
+
 </body>
 
 </html>
