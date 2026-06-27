@@ -341,8 +341,8 @@ section {
     /*outline: 3px solid red;*/
 }
 
-.savoir.savoir-etre > h4,
-.savoir.savoir-faire > h4 {
+.savoir.savoir-etre>h4,
+.savoir.savoir-faire>h4 {
     /* On force la largeur à la taille du parent */
     width: 100%;
     /* On annule toute marge automatique */
@@ -352,7 +352,8 @@ section {
     text-align: center;
     /* CHIRURGIE : on décale le titre vers la gauche pour compenser le décalage */
     position: relative;
-    left: -1rem; /* Ajuste cette valeur jusqu'à ce que ce soit parfait */
+    left: -1rem;
+    /* Ajuste cette valeur jusqu'à ce que ce soit parfait */
 }
 
 /* Petit visuel de "check" avant chaque compétence */
@@ -525,10 +526,10 @@ section {
     display: block;
     width: 100%;
     grid-column: auto;
-    
+
     /* On réinitialise les marges pour être sûr d'annuler celles de la classe parente */
     margin: 0.5rem 0 0.6rem 0;
-    
+
     text-align: right;
     padding-right: 1rem;
     box-sizing: border-box;
@@ -561,13 +562,25 @@ section {
 }
 
 @media screen and (max-width: 64rem) {
+    header {
+        display: flex;
+        align-items: center;
+        height: var(--hauteur-header);
+    }
+
     .burger-menu {
-        display: block;
-        font-size: 4rem;
-        /* Si tu utilises une icône texte */
-        padding: 1rem;
-        /* Augmente la zone de clic  */
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        height: var(--hauteur-header);
+        margin: 0;
+        padding: 0 1rem;
         cursor: pointer;
+        font-size: 4rem;
+        line-height: 1 !important;
+        vertical-align: middle !important;
+        /* Ajouté pour une sécurité supplémentaire */
+        box-sizing: border-box;
     }
 
     .menu {
