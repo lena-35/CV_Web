@@ -406,9 +406,6 @@ section {
 /*bottom: var(--padding-block);
 }*/
 
-.savoir:hover .voir-detail {
-    display: block;
-}
 
 /* Timeline */
 .liste-item {
@@ -510,7 +507,9 @@ section {
 }
 
 .voir-detail {
-    display: block;
+    display: inline-block; /* Le bouton ne prend plus toute la largeur */
+    width: 100%;           /* On garde la largeur totale pour le parent */
+    text-align: right;     /* Et là, ça fonctionne : le texte se colle à droite */
     grid-column: 2;
     color: #3b3c3c;
     font-style: italic;
@@ -519,6 +518,16 @@ section {
     text-decoration: underline;
     justify-self: end;
     font-weight: bold;
+}
+
+/* On cible le bouton uniquement dans les blocs .savoir */
+.savoir .voir-detail {
+    grid-column: auto; /* On annule la colonne 2 */
+    margin-left: 0;
+    margin-right: auto;
+    /* On ajoute un padding à gauche pour le décoller du bord */
+    padding-right: 1rem; 
+    text-align: right;
 }
 
 /*.timeline-parcours:hover .voir-detail {
