@@ -106,8 +106,17 @@ nav {
 }
 
 main {
-    width: 100%;
-    margin: auto;
+
+    /* La hauteur minimale du main est la hauteur de l'écran 
+       moins la hauteur du header et du footer */
+    min-height: calc(100vh - var(--hauteur-header));
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force la dernière section à prendre tout l'espace disponible */
+section:last-child {
+    flex-grow: 1;
 }
 
 section {
@@ -268,24 +277,24 @@ section {
 
 .blocks-parcours.competences {
     display: grid;
-    width: 60%;
-    margin: auto;
+    /* On force 1 seule colonne qui s'adapte à la largeur dispo */
     grid-template-columns: 1fr;
-    /*grid-template-columns: repeat(2, 1fr);*/
+    /* On définit une largeur maximale pour ne pas que ce soit trop large sur PC */
+    width: 90%;
+    max-width: 600px;
+    /* Centrage du bloc dans la page */
+    margin: 0 auto 1.5rem auto;
     gap: 2.5rem;
-    margin-bottom: 1.5rem;
 }
 
-.liste-item.savoir-etre {
-    grid-row: 1;
-    /*grid-column: 1 / 2;*/
-    padding-bottom: 3rem;
-}
-
+.liste-item.savoir-etre,
 .liste-item.savoir-faire {
-    grid-row: 2;
-    /*grid-row: 2;
-    grid-column: 2 / 3;*/
+    /* Nettoyage des positions forcées */
+    grid-row: auto;
+    grid-column: auto;
+    /* On assure que les éléments ne dépassent pas de la colonne */
+    width: 100%;
+    box-sizing: border-box;
     padding-bottom: 3rem;
 }
 
@@ -332,11 +341,30 @@ section {
     /*outline: 3px solid red;*/
 }
 
+.savoir.savoir-etre > h4,
+.savoir.savoir-faire > h4 {
+    /* On force la largeur à la taille du parent */
+    width: 100%;
+    /* On annule toute marge automatique */
+    margin-left: 0;
+    margin-right: 0;
+    /* On force le centrage du texte */
+    text-align: center;
+    /* CHIRURGIE : on décale le titre vers la gauche pour compenser le décalage */
+    position: relative;
+    left: -1rem; /* Ajuste cette valeur jusqu'à ce que ce soit parfait */
+}
+
 /* Petit visuel de "check" avant chaque compétence */
 .savoir li::before {
     content: "◆";
     margin-right: 10px;
     font-weight: bold;
+}
+
+.savoir.no-hover li::before {
+    /* Ajoute une marge négative pour décaler vers la gauche */
+    margin-left: -1rem;
 }
 
 /* Force le scroll à bien se caler sur le titre */
