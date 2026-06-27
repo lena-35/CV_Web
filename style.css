@@ -549,7 +549,7 @@ section {
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: block;
-        font-size: 2rem;
+        font-size: 3rem;
         /* Si tu utilises une icône texte */
         padding: 1rem;
         /* Augmente la zone de clic  */
@@ -558,6 +558,7 @@ section {
 
     .menu {
         display: none;
+        font-size: 2rem;
         flex-direction: column;
         position: absolute;
         top: 100%;
