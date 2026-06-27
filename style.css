@@ -507,14 +507,14 @@ section {
 }
 
 .voir-detail {
-    display: inline-block; /* Le bouton ne prend plus toute la largeur */
-    width: 100%;           /* On garde la largeur totale pour le parent */
-    text-align: right;     /* Et là, ça fonctionne : le texte se colle à droite */
+    display: inline-block;
+    width: 100%;
+    text-align: right;
     grid-column: 2;
     color: #3b3c3c;
     font-style: italic;
     font-size: 1rem;
-    margin: 0.5rem 0.9375rem 0.625rem 0;
+    margin: 0.5rem 1rem 0.6rem 0;
     text-decoration: underline;
     justify-self: end;
     font-weight: bold;
@@ -522,12 +522,17 @@ section {
 
 /* On cible le bouton uniquement dans les blocs .savoir */
 .savoir .voir-detail {
-    grid-column: auto; /* On annule la colonne 2 */
-    margin-left: 0;
-    margin-right: auto;
-    /* On ajoute un padding à gauche pour le décoller du bord */
-    padding-right: 1rem; 
+    display: block;
+    width: 100%;
+    grid-column: auto;
+    
+    /* On réinitialise les marges pour être sûr d'annuler celles de la classe parente */
+    margin: 0.5rem 0 0.6rem 0;
+    
     text-align: right;
+    padding-right: 1rem;
+    box-sizing: border-box;
+    justify-self: auto;
 }
 
 /*.timeline-parcours:hover .voir-detail {
@@ -558,7 +563,7 @@ section {
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: block;
-        font-size: 3rem;
+        font-size: 4rem;
         /* Si tu utilises une icône texte */
         padding: 1rem;
         /* Augmente la zone de clic  */
