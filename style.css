@@ -562,25 +562,20 @@ section {
 }
 
 @media screen and (max-width: 64rem) {
-    header {
-        display: flex;
-        align-items: center;
-        height: var(--hauteur-header);
+.burger-menu {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 4.5rem !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+        cursor: pointer;
     }
 
-    .burger-menu {
-        display: flex !important;
-        align-items: center;
-        justify-content: center;
-        height: var(--hauteur-header);
-        margin: 0;
-        padding: 0 1rem;
-        cursor: pointer;
-        font-size: 4rem;
-        line-height: 1 !important;
-        vertical-align: middle !important;
-        /* Ajouté pour une sécurité supplémentaire */
-        box-sizing: border-box;
+    .burger-menu .burger-icon {
+        width: 3rem;  /* Ajuste la taille de ton icône */
+        height: auto;   /* Garde les proportions */
+        display: block;
     }
 
     .menu {
