@@ -268,12 +268,25 @@ section {
 
 .blocks-parcours.competences {
     display: grid;
-    /* 1 seule colonne qui prend toute la largeur */
+    width: 60%;
+    margin: auto;
     grid-template-columns: 1fr;
-    /* 2 lignes, ici avec une hauteur automatique */
-    grid-template-rows: auto auto;
-    /* Optionnel : ajoute un espace entre tes deux lignes */
+    /*grid-template-columns: repeat(2, 1fr);*/
     gap: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.liste-item.savoir-etre {
+    grid-row: 1;
+    /*grid-column: 1 / 2;*/
+    padding-bottom: 3rem;
+}
+
+.liste-item.savoir-faire {
+    grid-row: 2;
+    /*grid-row: 2;
+    grid-column: 2 / 3;*/
+    padding-bottom: 3rem;
 }
 
 .blocks-parcours>div {
@@ -289,8 +302,11 @@ section {
 /* Savoir */
 .liste-savoir {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column: span 2;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: auto;
+    /*grid-template-columns: repeat(2, 1fr);
+    grid-column: span 2;*/
     margin-bottom: 1.5rem;
     gap: 2.5rem;
     align-items: start;
@@ -298,26 +314,8 @@ section {
     /* min-height: 10rem;*/
 }
 
-.blocks-parcours.competences {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column: span 2;
-    margin-bottom: 1.5rem;
-}
-
 .liste-savoir.no-hover>ul {
     line-height: 2;
-}
-
-.liste-item.comp-1 {
-    grid-row: 1;
-    grid-column: 1 / 2;
-}
-
-.liste-item.comp-2 {
-    grid-row: 1;
-    grid-column: 2 / 3;
-    padding-bottom: 3rem;
 }
 
 .savoir {
@@ -523,6 +521,11 @@ section {
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: block;
+        font-size: 2rem;
+        /* Si tu utilises une icône texte */
+        padding: 1rem;
+        /* Augmente la zone de clic */
+        cursor: pointer;
     }
 
     .menu {
@@ -541,18 +544,5 @@ section {
 
     .menu.active {
         display: flex !important;
-    }
-
-    /* Force les grilles de compétences à passer en une seule colonne */
-    .liste-savoir, 
-    .blocks-parcours.competences {
-        grid-template-columns: 1fr !important;
-    }
-
-    /* Assure-toi que les blocs ne dépassent pas */
-    .savoir, .timeline-parcours {
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
     }
 }
