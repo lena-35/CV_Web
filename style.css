@@ -367,8 +367,6 @@ section {
     border-radius: var(--rayon-bordure-standard);
     transform: scale(1.02);
     /* Zoom léger et propre */
-    z-index: 50;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Verrouillage du cercle et du trait au survol */
@@ -543,5 +541,18 @@ section {
 
     .menu.active {
         display: flex !important;
+    }
+
+    /* Force les grilles de compétences à passer en une seule colonne */
+    .liste-savoir, 
+    .blocks-parcours.competences {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Assure-toi que les blocs ne dépassent pas */
+    .savoir, .timeline-parcours {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
     }
 }
