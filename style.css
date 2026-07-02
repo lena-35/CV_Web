@@ -191,9 +191,21 @@ section {
 .introduction {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 75%;
     align-items: flex-start;
     margin: auto;
+    gap: 3rem;
+}
+
+/* On cible l'image à l'intérieur de son conteneur */
+.introduction img {
+    /* Pour éviter qu'elle ne colle au texte */
+    display: block;
+    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
+    margin: 0 auto;
+    /* Centre horizontalement l'image */
+    align-self: center;
+    /* Centre verticalement l'image dans le conteneur flex */
 }
 
 .introduction h1 {
@@ -203,6 +215,20 @@ section {
 .introduction p {
     margin-bottom: 1.875rem;
     text-align: justify;
+
+    /* 1. Autorise la coupure des mots avec des tirets (la clé du problème) */
+    -webkit-hyphens: auto;
+    /* Safari iPhone */
+    hyphens: auto;
+
+    /* 2. Indique que l'espacement doit se faire entre les mots uniquement */
+    text-justify: inter-word;
+
+    /* 3. Sécurité pour les mots trop longs qui pourraient dépasser */
+    word-break: break-word;
+
+    /* 4. Pour un rendu encore plus doux sur les navigateurs modernes */
+    overflow-wrap: break-word;
 }
 
 .introduction div {
@@ -236,13 +262,21 @@ section {
 .blocks-parcours.detaille {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
     /* On force l'alignement vertical au sommet pour toute la grille */
     align-items: start !important;
     gap: 0 !important;
 }
 
+.blocks-parcours.detaille .timeline-item {
+    grid-row: auto;
+    gap: 2.5rem;
+    margin: 1rem;
+}
+
 .blocks-parcours.photos {
     grid-template-columns: repeat(2, 1fr);
+
     /* C'est la ligne clé pour égaliser les hauteurs */
     align-items: stretch;
 }
@@ -275,27 +309,98 @@ section {
     display: block;
 }
 
-.blocks-parcours.competences {
+.blocks-parcours.athlete {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    /* C'est la ligne clé pour égaliser les hauteurs */
+    align-items: stretch;
+    gap: 2.5rem;
+    margin: 1rem;
+}
+
+.blocks-parcours.athlete .timeline-item.pro {
+    grid-column: 1 / 2;
+    grid-row: 1;
+}
+
+.blocks-parcours.athlete .timeline-item.edf {
+    grid-column: 1 / 2;
+    grid-row: 2;
+}
+
+.blocks-parcours.athlete .photos.pro {
+    grid-column: 2 / 3;
+    grid-row: 1;
+
+    /* Force le div à remplir la cellule étirée */
+    height: 100%;
+
+    /* Centre l'image dedans */
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+}
+
+.blocks-parcours.athlete .photos.edf {
+    grid-column: 2 / 3;
+    grid-row: 2;
+
+    /* Force le div à remplir la cellule étirée */
+    height: 100%;
+
+    /* Centre l'image dedans */
+    display: grid;
+    place-items: center;
+    background-color: transparent;
+}
+
+.blocks-parcours.athlete .photos img {
+    /* 3. On s'assure que l'image ne dépasse pas */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    /* Garde les proportions et centre */
+    display: block;
+}
+
+.blocks-parcours.competences,
+.blocks-parcours.interets {
     display: grid;
     /* On force 1 seule colonne qui s'adapte à la largeur dispo */
     grid-template-columns: 1fr;
+    align-content: start;
     /* On définit une largeur maximale pour ne pas que ce soit trop large sur PC */
-    width: 90%;
-    max-width: 600px;
+    width: 70%;
+    /*max-width: 600px;*/
     /* Centrage du bloc dans la page */
-    margin: 0 auto 1.5rem auto;
-    gap: 2.5rem;
+    justify-self: center;
+    /*gap: 2.5rem;*/
+    line-height: 1.5rem;
+}
+
+.blocks-parcours.athlete ul {
+    text-align: justify;
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.blocks-parcours p {
+    color: var(--couleur-texte-sombre);
+    text-align: justify;
+    font-weight: bold;
+
 }
 
 .liste-item.savoir-etre,
-.liste-item.savoir-faire {
+.liste-item.savoir-faire,
+.liste-item.loisirs {
     /* Nettoyage des positions forcées */
     grid-row: auto;
     grid-column: auto;
     /* On assure que les éléments ne dépassent pas de la colonne */
     width: 100%;
     box-sizing: border-box;
-    padding-bottom: 3rem;
+    padding-bottom: 3.5rem;
 }
 
 .blocks-parcours>div {
@@ -304,9 +409,8 @@ section {
     background: var(--couleur-fond-block);
     color: #242424;
     border-radius: var(--rayon-bordure-standard);
-    min-height: 6.25rem;
+    /*min-height: 6.25rem;*/
 }
-
 
 /* Savoir */
 .liste-savoir {
@@ -370,7 +474,9 @@ section {
 
 /* Force le scroll à bien se caler sur le titre */
 #ancre-savoir-etre,
-#ancre-savoir-faire {
+#ancre-savoir-faire,
+#ancre-athlete-haut-niveau-pro,
+#ancre-athlete-haut-niveau-edf {
     display: block;
     /* Important pour que l'ancre soit un bloc */
     scroll-margin-top: 100px;
@@ -379,12 +485,12 @@ section {
 
 /* Bordures latérales colorées */
 .savoir-etre {
-    border: 1px solid #E67E22;
+    border: 1px solid var(--couleur-fond-section-1);
     border-left-width: 8px;
 }
 
 .savoir-faire {
-    border: 1px solid #2980B9;
+    border: 1px solid var(--couleur-timeline);
     border-left-width: 8px;
 }
 
@@ -473,9 +579,11 @@ section {
     border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
 }
 
-.timeline-parcours>time,
-.timeline-parcours>div,
-.timeline-parcours>ul {
+.timeline-parcours>.date,
+.timeline-parcours>.poste,
+.timeline-parcours>.niveau,
+.timeline-parcours>.lieu,
+.timeline-parcours>.detail {
     grid-column: 2;
     margin: 0;
     /*transition: font-size 0.2s ease;*/
@@ -487,23 +595,29 @@ section {
     margin: 0;
     /*transition: font-size 0.2s ease;*/
     text-align: left;
-}
-
-.timeline-parcours>ul {
-    padding-top: 0.2em;
-    line-height: 1.6;
-}
-
-.timeline-parcours>p {
     color: var(--couleur-fond-section-1);
+    font-weight: bold;
 }
 
-.timeline-parcours>h4 {
+.timeline-parcours>.poste {
+    text-align: left;
+}
+
+.timeline-parcours>.niveau {
     color: var(--couleur-fond-section-1);
     font-weight: normal;
 }
 
-.timeline-parcours>div {
+.timeline-parcours>.detail {
+    padding-top: 0.2em;
+    line-height: 1.6;
+}
+
+/*.timeline-parcours>p {
+    color: var(--couleur-fond-section-1);
+}*/
+
+.timeline-parcours>.lieu {
     font-style: italic;
 }
 
@@ -562,7 +676,7 @@ section {
 }
 
 @media screen and (max-width: 64rem) {
-.burger-menu {
+    .burger-menu {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
@@ -573,8 +687,10 @@ section {
     }
 
     .burger-menu .burger-icon {
-        width: 3rem;  /* Ajuste la taille de ton icône */
-        height: auto;   /* Garde les proportions */
+        width: 3rem;
+        /* Ajuste la taille de ton icône */
+        height: auto;
+        /* Garde les proportions */
         display: block;
     }
 
@@ -595,5 +711,25 @@ section {
 
     .menu.active {
         display: flex !important;
+    }
+
+    /* On cible l'image à l'intérieur de son conteneur */
+    .introduction img {
+        /* L'image ne pourra jamais être plus large que 300px */
+        max-width: 300px;
+
+        /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
+        width: 100%;
+
+        /* Cette ligne est cruciale pour garder les proportions (pas d'image étirée) */
+        height: auto;
+
+        /* Pour éviter qu'elle ne colle au texte */
+        display: block;
+        /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
+        margin: 0 auto;
+        /* Centre horizontalement l'image */
+        align-self: center;
+        /* Centre verticalement l'image dans le conteneur flex */
     }
 }
