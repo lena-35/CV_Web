@@ -15,13 +15,16 @@
 
     /* Espacements et dimensions */
     --espacement-global: 0.625rem 2rem;
-    --gap-standard: 1.25rem;
+    --gap-menu: 1.25rem;
+    --gap-grid: 2.5rem;
+    --gap-texte: 1.5rem;
     --rayon-bordure-standard: 0.625rem;
     --padding-cta: 1.25rem 1.875rem;
     --padding-section: 5rem 0;
     --padding-grid: 2rem;
     --padding-block: 0.625rem;
     --colonne-gauche-grid-largeur: 2rem;
+    --width-intro: 75%;
 
     /* Variables dynamiques */
     --hauteur-header: 4.5rem;
@@ -136,19 +139,6 @@ section {
     display: block;
 }
 
-.cta {
-    display: inline-block;
-    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
-    color: white;
-    border-radius: 3.125rem;
-    padding: var(--padding-cta);
-}
-
-.cta:hover {
-    background: linear-gradient(#696484, #8788ba);
-    text-decoration: none;
-}
-
 .lien-icone {
     display: inline-flex;
     align-items: center;
@@ -161,59 +151,135 @@ section {
 
 /* Contact Section */
 .contact-info {
-    padding: 3.125rem;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 6.25rem auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--padding-grid);
     text-align: center;
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
     color: var(--couleur-texte-sombre);
     background-color: var(--couleur-fond-block);
+    border-radius: var(--rayon-bordure-standard);
 }
 
-.contact-info .une {
-    grid-column: 1/4;
-    grid-row: 3/4;
+.contact-info .mail {
+    grid-column: 1;
+    grid-row: 1;
 }
 
-.contact-info .deux {
-    grid-column: 1/4;
-    grid-row: 4/5;
-    font-size: 4rem;
+.contact-info .tel {
+    grid-column: 2;
+    grid-row: 1;
 }
 
-.contact-info div {
-    gap: 0.625rem;
-    font-size: 1.5rem;
+.contact-info .home {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 5rem;
+}
+
+.contact-info .social {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 5rem;
+}
+
+.contact-info p {
+    color: var(--couleur-texte-sombre);
+    font-size: 2rem;
+}
+
+.contact-info .home img,
+.contact-info .mail img {
+    display: block;
+    margin: 0 auto;
+    width: 3rem;
+    height: auto;
+}
+
+.contact-info .tel img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 3rem;
+}
+
+.contact-info .social img {
+    display: block;
+    margin: 0 auto;
+    width: 3rem;
+    height: auto;
+}
+
+/* 1. On cible le lien au survol de l'image */
+.icone-mail:hover .logo-mail {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-mail:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 1. On cible le lien au survol de l'image */
+.icone-telephone:hover .logo-telephone {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-telephone:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 1. On cible le lien au survol de l'image */
+.icone-maison:hover .logo-maison {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-maison:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 1. On cible le lien au survol de l'image */
+.icone-linkedin:hover .logo-linkedin {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-linkedin:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
 }
 
 /* Introduction */
 .introduction {
-    display: flex;
-    flex-direction: row;
-    width: 75%;
-    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: var(--width-intro);
     margin: auto;
-    gap: 3rem;
+    gap: var(--gap-grid);
+    /* gap entre l'intro et la photo */
 }
 
-/* On cible l'image à l'intérieur de son conteneur */
-.introduction img {
-    /* Pour éviter qu'elle ne colle au texte */
-    display: block;
-    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
-    margin: 0 auto;
-    /* Centre horizontalement l'image */
-    align-self: center;
-    /* Centre verticalement l'image dans le conteneur flex */
+.introduction div {
+    padding-right: 5rem;
+    grid-column: 1/3;
+    width: 100%;
 }
 
 .introduction h1 {
-    margin-bottom: 0.9375rem;
+    margin-bottom: 1rem;
 }
 
 .introduction p {
-    margin-bottom: 1.875rem;
+    margin-bottom: 2rem;
     text-align: justify;
 
     /* 1. Autorise la coupure des mots avec des tirets (la clé du problème) */
@@ -231,8 +297,45 @@ section {
     overflow-wrap: break-word;
 }
 
-.introduction div {
-    padding-right: 5rem;
+.introduction a {
+    display: block;
+    /* Important pour que margin fonctionne */
+    width: fit-content;
+    /* Le bouton prend uniquement la largeur de son texte */
+    margin: 0 auto;
+    /* Centre le bloc horizontalement */
+    background: linear-gradient(#696484, #8788ba);
+    color: white;
+    border-radius: 3.125rem;
+    padding: var(--padding-cta);
+    text-align: center;
+}
+
+.introduction a:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    text-decoration: none;
+}
+
+/* On cible l'image à l'intérieur de son conteneur */
+.introduction img {
+    grid-column: 3/4;
+    /* Pour éviter qu'elle ne colle au texte */
+    display: block;
+    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
+    margin: 0 auto;
+    /* Centre horizontalement l'image */
+    align-self: center;
+    /* Centre verticalement l'image dans le conteneur flex */
+    /* 3. On s'assure que l'image ne dépasse pas */
+    max-width: 90%;
+    max-height: auto;
+    object-fit: contain;
+    /* Garde les proportions et centre */
+}
+
+.titre h1 {
+    width: var(--width-intro);
+    margin: auto;
 }
 
 /* Parcours & Blocks */
@@ -240,6 +343,8 @@ section {
     display: grid;
     background: linear-gradient(var(--couleur-degrade-depart), var(--couleur-degrade-arrivee));
     padding: 5rem 5rem 5rem 5rem;
+    align-content: start;
+    justify-self: center;
 }
 
 .parcours h2 {
@@ -251,62 +356,114 @@ section {
 .blocks-parcours {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 2.5rem;
-    margin-bottom: 0.9375rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--gap-grid);
+    /* gap entre les grid */
+    /*margin-bottom: 0.9375rem;*/
     text-align: center;
     position: relative;
     /*align-items: start;*/
 }
 
-.blocks-parcours.detaille {
+.blocks-parcours.formation {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.blocks-parcours.experience-professionnelle {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
+    align-content: start;
+    justify-self: center;
+
+    line-height: 1.5rem;
+    /*align-items: stretch;*/
+    /* Force les cellules à prendre toute la hauteur disponible */
     /* On force l'alignement vertical au sommet pour toute la grille */
-    align-items: start !important;
-    gap: 0 !important;
+    /*align-items: start !important;*/
+    /*gap: 0 !important;*/
 }
 
-.blocks-parcours.detaille .timeline-item {
-    grid-row: auto;
-    gap: 2.5rem;
-    margin: 1rem;
+.blocks-parcours.experience-professionnelle .timeline-item.entreprises {
+    grid-row: 1;
+    /*gap: var(--gap-grid);*/
+    /*margin: 1rem;*/
 }
 
-.blocks-parcours.photos {
-    grid-template-columns: repeat(2, 1fr);
+.blocks-parcours.experience-professionnelle .timeline-item.stages {
+    grid-row: 2;
+    /*gap: var(--gap-grid);*/
+    /*margin: 1rem;*/
+}
+
+.blocks-parcours.benevole {
+    grid-template-columns: repeat(4, 1fr);
 
     /* C'est la ligne clé pour égaliser les hauteurs */
     align-items: stretch;
 }
 
-.blocks-parcours.photos .timeline-item {
-    grid-column: 1 / 2;
+.blocks-parcours.benevole .timeline-item {
+    grid-column: 1 / 3;
     grid-row: 1;
     /* Force sur la première ligne */
 }
 
-.blocks-parcours.photos .photos {
-    grid-column: 2 / 3;
-    grid-row: 1;
-
-    /* Force le div à remplir la cellule étirée */
-    height: 100%;
-
-    /* Centre l'image dedans */
-    display: grid;
-    place-items: center;
-    background-color: transparent;
+.photos.benevole {
+    grid-column: 2/4;
+    grid-row: 2;
 }
 
-.blocks-parcours.photos .photos img {
+.photos.lse {
+    grid-column: 3/5;
+    grid-row: 1;
+}
+
+.blocks-parcours.benevole .photos,
+.blocks-parcours.athlete .photos,
+.blocks-parcours.interets .photos {
+    /* Maintien du grid */
+    display: grid;
+    height: 100%;
+    background-color: transparent;
+
+    /* CORRECTIONS POUR LE CENTRAGE */
+    place-items: center;
+    /* Centre horizontalement et verticalement */
+    padding: 0;
+    /* IMPORTANT : supprime tout padding qui décale l'image */
+    margin: 0;
+    /* IMPORTANT : supprime toute marge */
+}
+
+.blocks-parcours.athlete .photos.pro {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.blocks-parcours.athlete .photos.edf {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.blocks-parcours.benevole .photos img,
+.blocks-parcours.athlete .photos.pro img,
+.blocks-parcours.athlete .photos.edf img,
+.blocks-parcours.interets .photos.interets img {
+    /* Pour éviter qu'elle ne colle au texte */
+    display: block;
+    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
+    margin: 0 auto;
+    /* Centre horizontalement l'image */
+    align-self: center;
+    /* Centre verticalement l'image dans le conteneur flex */
     /* 3. On s'assure que l'image ne dépasse pas */
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
     /* Garde les proportions et centre */
-    display: block;
 }
 
 .blocks-parcours.athlete {
@@ -314,53 +471,99 @@ section {
     grid-template-rows: auto auto;
     /* C'est la ligne clé pour égaliser les hauteurs */
     align-items: stretch;
-    gap: 2.5rem;
-    margin: 1rem;
+    /*gap: var(--gap-grid);*/
+    /*margin: 1rem;*/
 }
 
 .blocks-parcours.athlete .timeline-item.pro {
-    grid-column: 1 / 2;
+    grid-column: 1;
     grid-row: 1;
 }
 
 .blocks-parcours.athlete .timeline-item.edf {
-    grid-column: 1 / 2;
+    grid-column: 2;
     grid-row: 2;
 }
 
-.blocks-parcours.athlete .photos.pro {
-    grid-column: 2 / 3;
-    grid-row: 1;
-
-    /* Force le div à remplir la cellule étirée */
-    height: 100%;
-
-    /* Centre l'image dedans */
+.photos.pro {
     display: grid;
-    place-items: center;
-    background-color: transparent;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 }
 
-.blocks-parcours.athlete .photos.edf {
-    grid-column: 2 / 3;
-    grid-row: 2;
-
-    /* Force le div à remplir la cellule étirée */
-    height: 100%;
-
-    /* Centre l'image dedans */
-    display: grid;
-    place-items: center;
-    background-color: transparent;
+/* On force le conteneur de chaque image */
+.photos.pro img {
+    width: 100% !important;
+    height: 200px !important;
+    /* Hauteur fixe identique pour toutes */
+    object-fit: cover !important;
+    /* Coupe proprement */
+    object-position: center !important;
+    /* Centre l'image */
+    border-radius: 8px !important;
+    /* Coins arrondis */
 }
 
-.blocks-parcours.athlete .photos img {
-    /* 3. On s'assure que l'image ne dépasse pas */
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* Garde les proportions et centre */
-    display: block;
+.photos.edf {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* S'assure qu'elles sont côte à côte */
+    gap: 1rem;
+    /* Définit l'espace entre les deux images (ajuste la valeur selon tes besoins) */
+    align-items: center;
+}
+
+.photos.edf img {
+    width: 80%;
+    /* L'image remplit sa colonne */
+    height: auto;
+    /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
+    object-fit: cover;
+
+    /* Arrondir un peu les bords pour un look propre */
+    border-radius: 8px;
+}
+
+
+.photos.benevole img {
+    width: 100%;
+    /* L'image remplit sa colonne */
+    height: auto;
+    /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
+    object-fit: cover;
+
+    /* Arrondir un peu les bords pour un look propre */
+    border-radius: 8px;
+}
+
+.photos.lse img {
+    width: 50%;
+    /* L'image remplit sa colonne */
+    height: auto;
+    /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
+    object-fit: cover;
+
+    /* Arrondir un peu les bords pour un look propre */
+    border-radius: 8px;
+}
+
+.photos.interets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+/* On force le conteneur de chaque image */
+.photos.interets img {
+    width: 100% !important;
+    height: 350px !important;
+    /* Hauteur fixe identique pour toutes */
+    object-fit: cover !important;
+    /* Coupe proprement */
+    object-position: center !important;
+    /* Centre l'image */
+    border-radius: 8px !important;
+    /* Coins arrondis */
 }
 
 .blocks-parcours.competences,
@@ -421,7 +624,8 @@ section {
     /*grid-template-columns: repeat(2, 1fr);
     grid-column: span 2;*/
     margin-bottom: 1.5rem;
-    gap: 2.5rem;
+    gap: var(--gap-grid);
+    /* gap entre les deux grid compétences page accueil */
     align-items: start;
     /* On impose une hauteur minimale pour éviter les sauts */
     /* min-height: 10rem;*/
@@ -512,29 +716,43 @@ section {
     top: var(--top-trait); /* Position fixe, pas de calcul de zoom */
 /*bottom: var(--padding-block);
 }*/
-
+.timeline-item,
+.liste-item,
+.contact-info {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+}
 
 /* Timeline */
 .liste-item {
+    grid-column: 1;
     grid-row: 1;
-    grid-column: 1/4;
 }
 
-.timeline-item.item-athlete {
+.timeline-item.experience-professionnelle {
+    grid-column: 2;
     grid-row: 1;
-    grid-column: 4/7;
 }
 
-.timeline-item {
+.timeline-item.formation {
+    grid-column: 1;
     grid-row: 2;
-    grid-column: span 2;
+}
+
+.timeline-item.athlete {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.timeline-item.benevole {
+    grid-column: 1/3;
+    grid-row: 3;
 }
 
 .timeline-parcours {
     position: relative;
     display: grid;
     grid-template-columns: var(--colonne-gauche-grid-largeur) 1fr;
-    gap: 0 0.625rem;
+    /*gap: var(--gap-grid);*/
     align-items: start;
     margin-bottom: 1.5rem;
     padding: var(--padding-block);
@@ -544,16 +762,6 @@ section {
     text-align: left;
     contain: layout;
 }
-
-
-
-
-/*.timeline-parcours.detaille:hover,
-.savoir.detaille:hover {
-    background-color: var(--couleur-fond-block);
-}*/
-
-
 
 .timeline-parcours::before {
     content: '';
@@ -609,7 +817,7 @@ section {
 }
 
 .timeline-parcours>.detail {
-    padding-top: 0.2em;
+    padding-top: 0.2rem;
     line-height: 1.6;
 }
 
@@ -662,7 +870,7 @@ section {
 .menu {
     display: flex;
     align-items: center;
-    gap: var(--gap-standard);
+    gap: var(--gap-menu);
 }
 
 .menu a {
@@ -731,5 +939,55 @@ section {
         /* Centre horizontalement l'image */
         align-self: center;
         /* Centre verticalement l'image dans le conteneur flex */
+    }
+
+    .introduction h1 {
+        font-size: 2.5rem;
+    }
+
+    .titre h1 {
+        font-size: 2.8rem;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .contact-info .mail {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .contact-info .tel {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 4rem;
+    }
+
+    .contact-info .home {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .contact-info .social {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    .photos.benevole img,
+    .photos.lse img {
+        width: 100%;
+        /* L'image remplit sa colonne */
+        height: auto;
+        /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
+        object-fit: cover;
+
+        /* Arrondir un peu les bords pour un look propre */
+        border-radius: 8px;
     }
 }
