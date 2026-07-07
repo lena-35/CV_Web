@@ -1011,7 +1011,7 @@ section {
     }
 
     .photos.lse img {
-        width: 70%;
+        width: 100%;
         /* L'image remplit sa colonne */
         height: auto;
         /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
