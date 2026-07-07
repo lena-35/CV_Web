@@ -973,11 +973,11 @@ section {
     }
 
     .introduction h1 {
-        font-size: 2.5rem;
+        font-size: 2.3rem;
     }
 
     .titre h1 {
-        font-size: 2rem;
+        font-size: 2.3rem;
     }
 
     /* Contact Section */
@@ -1008,16 +1008,5 @@ section {
     .contact-info .social {
         grid-column: 1;
         grid-row: 4;
-    }
-
-    .photos.lse img {
-        width: 40%;
-        /* L'image remplit sa colonne */
-        height: auto;
-        /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
-        object-fit: cover;
-
-        /* Arrondir un peu les bords pour un look propre */
-        border-radius: 8px;
     }
 }
