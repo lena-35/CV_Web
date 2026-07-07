@@ -849,6 +849,7 @@ section {
 .timeline-parcours>.detail {
     padding-top: 0.2rem;
     line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /*.timeline-parcours>p {
