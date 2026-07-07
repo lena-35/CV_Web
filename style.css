@@ -955,13 +955,13 @@ section {
     /* On cible l'image à l'intérieur de son conteneur */
     .introduction img {
         /* L'image ne pourra jamais être plus large que 300px */
-        max-width: 300px;
+        max-width: 200px;
 
         /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
-        width: 100%;
+        width: 200px;
 
         /* Cette ligne est cruciale pour garder les proportions (pas d'image étirée) */
-        height: auto;
+        height: 200px;
 
         /* Pour éviter qu'elle ne colle au texte */
         display: block;
