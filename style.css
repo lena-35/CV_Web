@@ -554,7 +554,6 @@ section {
     /* Coins arrondis */
 }
 
-
 .photos.benevole img {
     width: 100%;
     /* L'image remplit sa colonne */
@@ -567,7 +566,7 @@ section {
 }
 
 .photos.lse img {
-    width: 50%;
+    width: 45%;
     /* L'image remplit sa colonne */
     height: auto;
     /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
@@ -1005,5 +1004,11 @@ section {
     .contact-info .social {
         grid-column: 1;
         grid-row: 4;
+    }
+
+    .photos.lse img {
+        width: 80%;
+        /* L'image remplit sa colonne */
+        height: auto;
     }
 }
