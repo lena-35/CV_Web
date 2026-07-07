@@ -954,9 +954,6 @@ section {
 
     /* On cible l'image à l'intérieur de son conteneur */
     .introduction img {
-        /* L'image ne pourra jamais être plus large que 300px */
-        max-width: 200px;
-
         /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
         width: 200px;
 
@@ -973,7 +970,7 @@ section {
     }
 
     .introduction h1 {
-        font-size: 2.1rem;
+        font-size: 2.2rem;
     }
 
     .titre h1 {
@@ -1008,16 +1005,5 @@ section {
     .contact-info .social {
         grid-column: 1;
         grid-row: 4;
-    }
-
-    .photos.lse img {
-        width: 100%;
-        /* L'image remplit sa colonne */
-        height: auto;
-        /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
-        object-fit: cover;
-
-        /* Arrondir un peu les bords pour un look propre */
-        border-radius: 8px;
     }
 }
