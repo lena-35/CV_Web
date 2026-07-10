@@ -56,10 +56,18 @@
                     </div>
                 </div>
                 <div class="photos lse">
-                    <img src="images/affiche-lse.jpeg" alt="Affiche Les Sports s'emm'Elles">
+                    <img src="images/affiche-lse.jpeg" alt="Affiche Les Sports s'emm'Elles"
+                        onclick="document.getElementById('modal-lse').showModal()">
+                    <dialog id="modal-lse" onclick="this.close()">
+                        <img src="images/affiche-lse.jpeg" alt="Affiche Les Sports s'emm'Elles">
+                    </dialog>
                 </div>
                 <div class="photos benevole">
-                    <img src="images/benevole.jpeg" alt="Portrait avec effet de la photographe Robbie Lens">
+                    <img src="images/benevole.jpeg" alt="Lénaïg parle au micro lors de l'évènement"
+                        onclick="document.getElementById('modal-benevole').showModal()">
+                    <dialog id="modal-benevole" onclick="this.close()">
+                        <img src="images/benevole.jpeg" alt="Lénaïg parle au micro lors de l'évènement">
+                    </dialog>
                 </div>
             </div>
         </section>

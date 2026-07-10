@@ -6,8 +6,10 @@
     --couleur-texte-clair: #f9f8ff;
     --couleur-texte-sombre: #242424;
     --couleur-fond-block: #ffffff;
-    --couleur-degrade-cta-depart: #a29ace;
-    --couleur-degrade-cta-arrivee: #b6b9f9;
+    --couleur-degrade-cta-depart: #696484;
+    --couleur-degrade-cta-arrivee: #a3a4d9;
+    --couleur-degrade-cta-hover-depart: #a29ace;
+    --couleur-degrade-cta-hover-arrivee: #b6b9f9;
     --couleur-degrade-depart: #b7adeb;
     --couleur-degrade-arrivee: #cccef8;
     --couleur-timeline: #8e86b5;
@@ -210,50 +212,31 @@ section {
     height: auto;
 }
 
-/* 1. On cible le lien au survol de l'image */
-.icone-mail:hover .logo-mail {
-    opacity: 0.7;
-    transform: scale(1.1);
+img[onclick] {
+    cursor: pointer;
 }
 
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-mail:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
+.savoir:not(.no-hover),
+.timeline-parcours:not(.no-hover),
+.photos img,
+.introduction img {
+    transition: transform 0.2s ease;
+    will-change: transform;
 }
 
-/* 1. On cible le lien au survol de l'image */
-.icone-telephone:hover .logo-telephone {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-telephone:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 1. On cible le lien au survol de l'image */
-.icone-maison:hover .logo-maison {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-maison:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 1. On cible le lien au survol de l'image */
+/* Effets de survol des icônes de contact */
+.icone-mail:hover .logo-mail,
+.icone-telephone:hover .logo-telephone,
+.icone-maison:hover .logo-maison,
 .icone-linkedin:hover .logo-linkedin {
     opacity: 0.7;
     transform: scale(1.1);
 }
 
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-linkedin:hover+p {
+.icone-mail:hover + p,
+.icone-telephone:hover + p,
+.icone-maison:hover + p,
+.icone-linkedin:hover + p {
     opacity: 0.7;
     transform: scale(1.1);
 }
@@ -305,41 +288,33 @@ section {
     /* Le bouton prend uniquement la largeur de son texte */
     margin: 0 auto;
     /* Centre le bloc horizontalement */
-    background: linear-gradient(#696484, #8788ba);
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
     color: white;
     border-radius: 3.125rem;
     padding: var(--padding-cta);
     text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
-.introduction a:hover {
-    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+.introduction a:hover,
+.introduction a:focus-visible {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
     text-decoration: none;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
 }
 
 /* On cible l'image à l'intérieur de son conteneur */
 .introduction img {
     grid-column: 3/4;
-    /* Pour éviter qu'elle ne colle au texte */
     display: block;
-    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
     margin: 0 auto;
-    /* Centre horizontalement l'image */
     align-self: center;
-    /* Centre verticalement l'image dans le conteneur flex */
-    /* 3. On s'assure que l'image ne dépasse pas */
     width: 300px;
     height: 300px;
-    object-fit: contain;
-    /* Garde les proportions et centre */
-
-    /* 2. Rend l'image circulaire */
-    border-radius: 50%;
-
-    /* 3. Recadre l'image pour qu'elle remplisse le cercle sans déformation */
     object-fit: cover;
     object-position: center;
-    /* Centre le visage dans le cercle */
+    border-radius: 50%;
 }
 
 .titre h1 {
@@ -351,7 +326,7 @@ section {
 .parcours {
     display: grid;
     background: linear-gradient(var(--couleur-degrade-depart), var(--couleur-degrade-arrivee));
-    padding: 5rem 5rem 5rem 5rem;
+    padding: 5rem;
     align-content: start;
     justify-self: center;
 }
@@ -368,11 +343,8 @@ section {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto auto;
     gap: var(--gap-grid);
-    /* gap entre les grid */
-    /*margin-bottom: 0.9375rem;*/
     text-align: center;
     position: relative;
-    /*align-items: start;*/
 }
 
 .blocks-parcours.formation {
@@ -420,16 +392,6 @@ section {
     /* Force sur la première ligne */
 }
 
-.photos.benevole {
-    grid-column: 2/4;
-    grid-row: 2;
-}
-
-.photos.lse {
-    grid-column: 3/5;
-    grid-row: 1;
-}
-
 .blocks-parcours.benevole .photos,
 .blocks-parcours.athlete .photos,
 .blocks-parcours.interets .photos {
@@ -455,24 +417,6 @@ section {
 .blocks-parcours.athlete .photos.edf {
     grid-column: 1;
     grid-row: 2;
-}
-
-.blocks-parcours.benevole .photos img,
-.blocks-parcours.athlete .photos.pro img,
-.blocks-parcours.athlete .photos.edf img,
-.blocks-parcours.interets .photos.interets img {
-    /* Pour éviter qu'elle ne colle au texte */
-    display: block;
-    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
-    margin: 0 auto;
-    /* Centre horizontalement l'image */
-    align-self: center;
-    /* Centre verticalement l'image dans le conteneur flex */
-    /* 3. On s'assure que l'image ne dépasse pas */
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    /* Garde les proportions et centre */
 }
 
 .blocks-parcours.athlete {
@@ -502,14 +446,14 @@ section {
 
 /* On force le conteneur de chaque image */
 .photos.pro img {
-    width: 100% !important;
-    height: 200px !important;
+    width: 100%;
+    height: 200px;
     /* Hauteur fixe identique pour toutes */
-    object-fit: cover !important;
+    object-fit: cover;
     /* Coupe proprement */
-    object-position: center !important;
+    object-position: center;
     /* Centre l'image */
-    border-radius: 8px !important;
+    border-radius: 8px;
     /* Coins arrondis */
 }
 
@@ -523,8 +467,6 @@ section {
     align-items: center;
 }
 
-
-
 .edf-1 {
     grid-column: 1/3;
     grid-row: 1;
@@ -532,26 +474,29 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    width: 100%;
 }
 
 .edf-2 {
     grid-column: 1/3;
     grid-row: 2;
-    width: 100%;
 }
 
 .edf-1 img,
 .edf-2 img {
-    width: 100% !important;
-    height: 250px !important;
+    width: 100%;
+    height: 250px;
     /* Hauteur fixe identique pour toutes */
-    object-fit: cover !important;
+    object-fit: cover;
     /* Coupe proprement */
-    object-position: center !important;
+    object-position: center;
     /* Centre l'image */
-    border-radius: 8px !important;
+    border-radius: 8px;
     /* Coins arrondis */
+}
+
+.photos.benevole {
+    grid-column: 2/4;
+    grid-row: 2;
 }
 
 .photos.benevole img {
@@ -560,9 +505,15 @@ section {
     height: auto;
     /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
     object-fit: cover;
-
+    /* Coupe proprement */
+    object-position: center;
     /* Arrondir un peu les bords pour un look propre */
     border-radius: 8px;
+}
+
+.photos.lse {
+    grid-column: 3/5;
+    grid-row: 1;
 }
 
 .photos.lse img {
@@ -571,7 +522,8 @@ section {
     height: auto;
     /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
     object-fit: cover;
-
+    /* Coupe proprement */
+    object-position: center;
     /* Arrondir un peu les bords pour un look propre */
     border-radius: 8px;
 }
@@ -584,15 +536,45 @@ section {
 
 /* On force le conteneur de chaque image */
 .photos.interets img {
-    width: 100% !important;
-    height: 350px !important;
+    width: 100%;
+    height: 350px;
     /* Hauteur fixe identique pour toutes */
-    object-fit: cover !important;
+    object-fit: cover;
     /* Coupe proprement */
-    object-position: center !important;
+    object-position: center;
     /* Centre l'image */
-    border-radius: 8px !important;
+    border-radius: 8px;
     /* Coins arrondis */
+}
+
+dialog[open] {
+    /* Remise à zéro agressive pour le dialog */
+    margin: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    line-height: 0 !important;
+    /* Annulation de toute ombre ou effet système */
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Forcer l'image à coller parfaitement */
+dialog[open] img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    /* Annulation d'ombre sur l'image au cas où */
+    box-shadow: none !important;
+    border: none !important;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9) !important;
 }
 
 .blocks-parcours.competences,
@@ -728,23 +710,16 @@ section {
 }
 
 .savoir:not(.no-hover):hover,
-.timeline-parcours:not(.no-hover):hover {
+.timeline-parcours:not(.no-hover):hover,
+.savoir:not(.no-hover):focus-within,
+.timeline-parcours:not(.no-hover):focus-within {
     background-color: var(--couleur-fond-section-2);
     border-radius: var(--rayon-bordure-standard);
     transform: scale(1.02);
     /* Zoom léger et propre */
 }
 
-/* Verrouillage du cercle et du trait au survol */
-/*.timeline-parcours:not(.no-hover):hover::before {
-    transform: scale(1);
-}
-
-.timeline-parcours:not(.no-hover):hover::after {
-    transform: translateX(-50%) scale(1);
-    top: var(--top-trait); /* Position fixe, pas de calcul de zoom */
-/*bottom: var(--padding-block);
-}*/
+/* Ombres des cartes */
 .timeline-item,
 .liste-item,
 .contact-info {
@@ -873,6 +848,15 @@ section {
     font-weight: bold;
 }
 
+.voir-detail:focus-visible {
+    outline: none;
+    background-color: var(--couleur-fond-section-2);
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.4rem;
+    opacity: 0.95;
+    transform: scale(1.02);
+}
+
 /* On cible le bouton uniquement dans les blocs .savoir */
 .savoir .voir-detail {
     display: block;
@@ -913,6 +897,13 @@ section {
     border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
 }
 
+@media (hover: hover) {
+    .photos img:hover,
+    .introduction img:hover {
+        transform: scale(1.05);
+    }
+}
+
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: flex !important;
@@ -926,9 +917,7 @@ section {
 
     .burger-menu .burger-icon {
         width: 3rem;
-        /* Ajuste la taille de ton icône */
         height: auto;
-        /* Garde les proportions */
         display: block;
     }
 
@@ -951,21 +940,56 @@ section {
         display: flex !important;
     }
 
-    /* On cible l'image à l'intérieur de son conteneur */
+    .parcours {
+        padding: 3rem 1.25rem;
+    }
+
+    .blocks-parcours {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .blocks-parcours.benevole,
+    .blocks-parcours.athlete,
+    .blocks-parcours.experience-professionnelle,
+    .blocks-parcours.formation,
+    .blocks-parcours.competences,
+    .blocks-parcours.interets {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .blocks-parcours.benevole .timeline-item,
+    .blocks-parcours.athlete .timeline-item.pro,
+    .blocks-parcours.athlete .timeline-item.edf,
+    .blocks-parcours.benevole .photos,
+    .blocks-parcours.athlete .photos,
+    .blocks-parcours.interets .photos {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .photos.pro,
+    .photos.edf,
+    .photos.interets,
+    .edf-1 {
+        grid-template-columns: 1fr;
+    }
+
+    .photos.pro img,
+    .edf-1 img,
+    .edf-2 img,
+    .photos.interets img {
+        height: 180px;
+    }
+
+
     .introduction img {
-        /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
         width: 200px;
-
-        /* Cette ligne est cruciale pour garder les proportions (pas d'image étirée) */
         height: 200px;
-
-        /* Pour éviter qu'elle ne colle au texte */
         display: block;
-        /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
         margin: 0 auto;
-        /* Centre horizontalement l'image */
         align-self: center;
-        /* Centre verticalement l'image dans le conteneur flex */
     }
 
     .introduction h1 {
@@ -976,39 +1000,46 @@ section {
         font-size: 2.3rem;
     }
 
-    /* Contact Section */
+    .liste-savoir,
+    .blocks-parcours.competences,
+    .blocks-parcours.interets {
+        width: 100%;
+    }
+
     .contact-info {
-        display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         width: 75%;
         margin: 0 auto;
     }
 
-    .contact-info .mail {
+    .contact-info .mail,
+    .contact-info .tel,
+    .contact-info .home,
+    .contact-info .social {
         grid-column: 1;
-        grid-row: 1;
     }
 
     .contact-info .tel {
-        grid-column: 1;
         grid-row: 2;
         margin-top: 4rem;
     }
 
     .contact-info .home {
-        grid-column: 1;
         grid-row: 3;
     }
 
     .contact-info .social {
-        grid-column: 1;
         grid-row: 4;
     }
 
+    .photos.lse {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
     .photos.lse img {
-        width: 80%;
-        /* L'image remplit sa colonne */
+        width: 100%;
         height: auto;
     }
 }
