@@ -175,7 +175,7 @@
                     <img src="images/groupe.jpeg" class="slide" alt="Photo regroupement point">
                     <img src="images/edf-hymnes.jpeg" class="slide" alt="Photo hymnes nationales">
                     <img src="images/plongeon.jpeg" class="slide" alt="Photo plongeon de volley">
-                
+
 
                     <!-- Clone -->
                     <img src="img1.jpg">
@@ -223,60 +223,60 @@
 
 
 
-<script>
+    <script>
 
-const slides = document.getElementById("slides");
-const dots = document.querySelectorAll(".dot");
+        const slides = document.getElementById("slides");
+        const dots = document.querySelectorAll(".dot");
 
-const imageWidth = 800;      // largeur d'une image
-const nbImages = 4;
+        const imageWidth = 800;      // largeur d'une image
+        const nbImages = 4;
 
-let index = 0;
+        let index = 0;
 
-function updateDots() {
+        function updateDots() {
 
-    dots.forEach(dot => dot.classList.remove("active"));
+            dots.forEach(dot => dot.classList.remove("active"));
 
-    dots[index % nbImages].classList.add("active");
+            dots[index % nbImages].classList.add("active");
 
-}
+        }
 
-function nextSlide() {
+        function nextSlide() {
 
-    index++;
+            index++;
 
-    slides.style.transition = "transform 0.5s ease";
-    slides.style.transform = `translateX(-${index * imageWidth}px)`;
+            slides.style.transition = "transform 0.5s ease";
+            slides.style.transform = `translateX(-${index * imageWidth}px)`;
 
-    updateDots();
+            updateDots();
 
-}
+        }
 
-setInterval(nextSlide, 4500);
+        setInterval(nextSlide, 4500);
 
-slides.addEventListener("transitionend", () => {
+        slides.addEventListener("transitionend", () => {
 
-    if (index === nbImages) {
+            if (index === nbImages) {
 
-        slides.style.transition = "none";
+                slides.style.transition = "none";
 
-        index = 0;
+                index = 0;
 
-        slides.style.transform = "translateX(0px)";
+                slides.style.transform = "translateX(0px)";
 
-        updateDots();
+                updateDots();
 
-        requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-                slides.style.transition = "transform 0.5s ease";
-            });
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        slides.style.transition = "transform 0.5s ease";
+                    });
+                });
+
+            }
+
         });
 
-    }
-
-});
-
-</script>
+    </script>
 
 </body>
 
