@@ -943,6 +943,7 @@ img[onclick] {
     height:450px;
     margin:40px auto;
     overflow:hidden;
+    border-radius: 8px;
 }
 
 .slides{
