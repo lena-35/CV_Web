@@ -2,7 +2,7 @@
     /* Couleurs */
     --couleur-fond-header-footer: #ffffff;
     --couleur-fond-section-1: #163853;
-    --couleur-fond-section-2-depart: #f6efef;
+    --couleur-fond-section-2-depart: #cfcdcd;
     --couleur-fond-section-2-arrivee: #f6efef;
     --couleur-fond-timeline: #eae6e6;
     --couleur-texte-clair: #f9f8ff;
@@ -12,9 +12,7 @@
     --couleur-degrade-cta-arrivee: #a3a4d9;
     --couleur-degrade-cta-hover-depart: #a29ace;
     --couleur-degrade-cta-hover-arrivee: #b6b9f9;
-
     --couleur-timeline: #8e86b5;
-
 
     /* Espacements et dimensions */
     --espacement-global: 0.625rem 2rem;
@@ -36,12 +34,6 @@
     --epaisseur-trait: 0.1875rem;
     --zoom-factor: 1.2;
     --top-trait: 2.2rem;
-
-    --temps-pause: 4s;
-    /* Temps d'affichage de l'image fixe */
-    --temps-glisse: 0.5s;
-    /* Temps de la transition entre deux images */
-
 }
 
 * {
@@ -617,6 +609,7 @@ dialog[open] img {
     /* Annulation d'ombre sur l'image au cas où */
     box-shadow: none !important;
     border: none !important;
+    border-radius: 8px;
 }
 
 dialog::backdrop {
@@ -938,46 +931,47 @@ img[onclick] {
     justify-self: auto;
 }
 
-.slider{
-    width:800px;
-    height:450px;
-    margin:40px auto;
-    overflow:hidden;
+.slider {
+    width: 800px;
+    height: 450px;
+    margin: 40px auto;
+    overflow: hidden;
     border-radius: 8px;
 }
 
-.slides{
-    display:flex;
-    transition:transform .5s ease;
+.slides {
+    display: flex;
+    transition: transform .5s ease;
 }
 
-.slides img{
-    width:100%;
-    height:100%;
-    flex-shrink:0;
-    object-fit:contain;      /* ou cover selon le rendu souhaité */
-    object-position:center;
+.slides img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    /* ou cover selon le rendu souhaité */
+    object-position: center;
 }
 
-.dots{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin-top:15px;
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
 }
 
-.dot{
-    width:15px;
-    height:15px;
-    border-radius:50%;
-    background:#ffffff;
-    opacity:.35;
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    opacity: .35;
 
-    transition:.3s;
+    transition: .3s;
 }
 
-.dot.active{
-    opacity:1;
+.dot.active {
+    opacity: 1;
 }
 
 /* Navigation & Burger */
@@ -1039,25 +1033,28 @@ img[onclick] {
         display: flex !important;
     }
 
-    /* On cible l'image à l'intérieur de son conteneur */
-    .introduction img {
-        /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
-        width: 200px;
-
-        /* Cette ligne est cruciale pour garder les proportions (pas d'image étirée) */
-        height: 200px;
-
-        /* Pour éviter qu'elle ne colle au texte */
-        display: block;
-        /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
-        margin: 0 auto;
-        /* Centre horizontalement l'image */
-        align-self: center;
-        /* Centre verticalement l'image dans le conteneur flex */
+    /* 1. Centrage et empilement de l'introduction */
+    .introduction {
+        grid-template-columns: 1fr;
+        /* Une seule colonne */
+        width: 90%;
+        /* Un peu plus large sur petit écran */
+        gap: 2rem;
     }
 
-    .introduction h1 {
-        font-size: 2.2rem;
+    .introduction div {
+        grid-column: 1;
+        /* Remonte le texte en haut */
+        padding-right: 0;
+        text-align: center;
+    }
+
+
+    .introduction img {
+        grid-column: 1;
+        /* Place l'image sous le texte */
+        order: -1;
+        /* Optionnel : si tu veux l'image tout en haut */
     }
 
     .titre h1 {
@@ -1098,5 +1095,50 @@ img[onclick] {
         width: 80%;
         /* L'image remplit sa colonne */
         height: auto;
+    }
+
+    /* 1. On simplifie la grille des parcours pour forcer l'empilement */
+    .blocks-parcours {
+        grid-template-columns: 1fr !important;
+        /* Force une seule colonne */
+    }
+
+    /* 2. On libère tous les éléments de leurs positions spécifiques */
+    .timeline-item,
+    .timeline-item.entreprises,
+    .timeline-item.stages,
+    .timeline-item.athlete,
+    .timeline-item.benevole {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    .timeline-item.pro {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    .photos.pro {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+
+    .timeline-item.edf {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+    }
+
+    .photos.edf {
+        grid-column: 1 !important;
+        grid-row: 4 !important;
+    }
+
+        .photos.lse {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+        .photos.benevole {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
     }
 }
