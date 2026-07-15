@@ -2,7 +2,9 @@
     /* Couleurs */
     --couleur-fond-header-footer: #ffffff;
     --couleur-fond-section-1: #163853;
-    --couleur-fond-section-2: #cfd5dd;
+    --couleur-fond-section-2-depart: #f6efef;
+    --couleur-fond-section-2-arrivee: #f6efef;
+    --couleur-fond-timeline: #eae6e6;
     --couleur-texte-clair: #f9f8ff;
     --couleur-texte-sombre: #242424;
     --couleur-fond-block: #ffffff;
@@ -10,8 +12,7 @@
     --couleur-degrade-cta-arrivee: #a3a4d9;
     --couleur-degrade-cta-hover-depart: #a29ace;
     --couleur-degrade-cta-hover-arrivee: #b6b9f9;
-    --couleur-degrade-depart: #b7adeb;
-    --couleur-degrade-arrivee: #cccef8;
+
     --couleur-timeline: #8e86b5;
 
 
@@ -35,6 +36,12 @@
     --epaisseur-trait: 0.1875rem;
     --zoom-factor: 1.2;
     --top-trait: 2.2rem;
+
+    --temps-pause: 4s;
+    /* Temps d'affichage de l'image fixe */
+    --temps-glisse: 0.5s;
+    /* Temps de la transition entre deux images */
+
 }
 
 * {
@@ -66,7 +73,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--couleur-texte-clair);
 }
 
@@ -76,7 +83,8 @@ h3 {
 }
 
 h4 {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
 }
 
 p {
@@ -212,31 +220,50 @@ section {
     height: auto;
 }
 
-img[onclick] {
-    cursor: pointer;
+/* 1. On cible le lien au survol de l'image */
+.icone-mail:hover .logo-mail {
+    opacity: 0.7;
+    transform: scale(1.1);
 }
 
-.savoir:not(.no-hover),
-.timeline-parcours:not(.no-hover),
-.photos img,
-.introduction img {
-    transition: transform 0.2s ease;
-    will-change: transform;
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-mail:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
 }
 
-/* Effets de survol des icônes de contact */
-.icone-mail:hover .logo-mail,
-.icone-telephone:hover .logo-telephone,
-.icone-maison:hover .logo-maison,
+/* 1. On cible le lien au survol de l'image */
+.icone-telephone:hover .logo-telephone {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-telephone:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 1. On cible le lien au survol de l'image */
+.icone-maison:hover .logo-maison {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-maison:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* 1. On cible le lien au survol de l'image */
 .icone-linkedin:hover .logo-linkedin {
     opacity: 0.7;
     transform: scale(1.1);
 }
 
-.icone-mail:hover + p,
-.icone-telephone:hover + p,
-.icone-maison:hover + p,
-.icone-linkedin:hover + p {
+/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
+.icone-linkedin:hover+p {
     opacity: 0.7;
     transform: scale(1.1);
 }
@@ -293,7 +320,11 @@ img[onclick] {
     border-radius: 3.125rem;
     padding: var(--padding-cta);
     text-align: center;
-    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.introduction a:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    text-decoration: none;
 }
 
 .introduction a:hover,
@@ -307,14 +338,26 @@ img[onclick] {
 /* On cible l'image à l'intérieur de son conteneur */
 .introduction img {
     grid-column: 3/4;
+    /* Pour éviter qu'elle ne colle au texte */
     display: block;
+    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
     margin: 0 auto;
+    /* Centre horizontalement l'image */
     align-self: center;
+    /* Centre verticalement l'image dans le conteneur flex */
+    /* 3. On s'assure que l'image ne dépasse pas */
     width: 300px;
     height: 300px;
+    object-fit: contain;
+    /* Garde les proportions et centre */
+
+    /* 2. Rend l'image circulaire */
+    border-radius: 50%;
+
+    /* 3. Recadre l'image pour qu'elle remplisse le cercle sans déformation */
     object-fit: cover;
     object-position: center;
-    border-radius: 50%;
+    /* Centre le visage dans le cercle */
 }
 
 .titre h1 {
@@ -325,8 +368,8 @@ img[onclick] {
 /* Parcours & Blocks */
 .parcours {
     display: grid;
-    background: linear-gradient(var(--couleur-degrade-depart), var(--couleur-degrade-arrivee));
-    padding: 5rem;
+    background: linear-gradient(var(--couleur-fond-section-2-depart), var(--couleur-fond-section-2-arrivee));
+    padding: 5rem 5rem 5rem 5rem;
     align-content: start;
     justify-self: center;
 }
@@ -343,8 +386,11 @@ img[onclick] {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto auto auto;
     gap: var(--gap-grid);
+    /* gap entre les grid */
+    /*margin-bottom: 0.9375rem;*/
     text-align: center;
     position: relative;
+    /*align-items: start;*/
 }
 
 .blocks-parcours.formation {
@@ -577,6 +623,10 @@ dialog::backdrop {
     background: rgba(0, 0, 0, 0.9) !important;
 }
 
+img[onclick] {
+    cursor: pointer;
+}
+
 .blocks-parcours.competences,
 .blocks-parcours.interets {
     display: grid;
@@ -709,17 +759,40 @@ dialog::backdrop {
     border-left-width: 8px;
 }
 
+.savoir:not(.no-hover),
+.timeline-parcours:not(.no-hover),
+.photos img,
+.introduction img {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    will-change: transform;
+}
+
 .savoir:not(.no-hover):hover,
 .timeline-parcours:not(.no-hover):hover,
 .savoir:not(.no-hover):focus-within,
 .timeline-parcours:not(.no-hover):focus-within {
-    background-color: var(--couleur-fond-section-2);
+    background-color: var(--couleur-fond-timeline);
     border-radius: var(--rayon-bordure-standard);
     transform: scale(1.02);
-    /* Zoom léger et propre */
 }
 
-/* Ombres des cartes */
+.photos img:hover,
+.introduction img:hover,
+.photos img:focus-visible,
+.introduction img:focus-visible {
+    transform: scale(1.05);
+}
+
+/* Verrouillage du cercle et du trait au survol */
+/*.timeline-parcours:not(.no-hover):hover::before {
+    transform: scale(1);
+}
+
+.timeline-parcours:not(.no-hover):hover::after {
+    transform: translateX(-50%) scale(1);
+    top: var(--top-trait); /* Position fixe, pas de calcul de zoom */
+/*bottom: var(--padding-block);
+}*/
 .timeline-item,
 .liste-item,
 .contact-info {
@@ -802,17 +875,23 @@ dialog::backdrop {
     text-align: justify;
 }
 
-.timeline-parcours>h4 {
+.timeline-parcours>.date {
+    font-size: 1rem;
+}
+
+.timeline-parcours>.poste {
     grid-column: 2;
     margin: 0;
     /*transition: font-size 0.2s ease;*/
     text-align: left;
     color: var(--couleur-fond-section-1);
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
-.timeline-parcours>.poste {
-    text-align: left;
+.timeline-parcours>.lieu {
+    font-size: 1rem;
+    font-style: italic;
 }
 
 .timeline-parcours>.niveau {
@@ -830,10 +909,6 @@ dialog::backdrop {
     color: var(--couleur-fond-section-1);
 }*/
 
-.timeline-parcours>.lieu {
-    font-style: italic;
-}
-
 .voir-detail {
     display: inline-block;
     width: 100%;
@@ -846,15 +921,6 @@ dialog::backdrop {
     text-decoration: underline;
     justify-self: end;
     font-weight: bold;
-}
-
-.voir-detail:focus-visible {
-    outline: none;
-    background-color: var(--couleur-fond-section-2);
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.4rem;
-    opacity: 0.95;
-    transform: scale(1.02);
 }
 
 /* On cible le bouton uniquement dans les blocs .savoir */
@@ -872,9 +938,46 @@ dialog::backdrop {
     justify-self: auto;
 }
 
-/*.timeline-parcours:hover .voir-detail {
-    display: block;
-}*/
+.slider{
+    width:800px;
+    height:450px;
+    margin:40px auto;
+    overflow:hidden;
+}
+
+.slides{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.slides img{
+    width:100%;
+    height:100%;
+    flex-shrink:0;
+    object-fit:contain;      /* ou cover selon le rendu souhaité */
+    object-position:center;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+}
+
+.dot{
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:#ffffff;
+    opacity:.35;
+
+    transition:.3s;
+}
+
+.dot.active{
+    opacity:1;
+}
 
 /* Navigation & Burger */
 .burger-menu {
@@ -897,13 +1000,6 @@ dialog::backdrop {
     border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
 }
 
-@media (hover: hover) {
-    .photos img:hover,
-    .introduction img:hover {
-        transform: scale(1.05);
-    }
-}
-
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: flex !important;
@@ -917,7 +1013,9 @@ dialog::backdrop {
 
     .burger-menu .burger-icon {
         width: 3rem;
+        /* Ajuste la taille de ton icône */
         height: auto;
+        /* Garde les proportions */
         display: block;
     }
 
@@ -940,56 +1038,21 @@ dialog::backdrop {
         display: flex !important;
     }
 
-    .parcours {
-        padding: 3rem 1.25rem;
-    }
-
-    .blocks-parcours {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .blocks-parcours.benevole,
-    .blocks-parcours.athlete,
-    .blocks-parcours.experience-professionnelle,
-    .blocks-parcours.formation,
-    .blocks-parcours.competences,
-    .blocks-parcours.interets {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-    }
-
-    .blocks-parcours.benevole .timeline-item,
-    .blocks-parcours.athlete .timeline-item.pro,
-    .blocks-parcours.athlete .timeline-item.edf,
-    .blocks-parcours.benevole .photos,
-    .blocks-parcours.athlete .photos,
-    .blocks-parcours.interets .photos {
-        grid-column: auto;
-        grid-row: auto;
-    }
-
-    .photos.pro,
-    .photos.edf,
-    .photos.interets,
-    .edf-1 {
-        grid-template-columns: 1fr;
-    }
-
-    .photos.pro img,
-    .edf-1 img,
-    .edf-2 img,
-    .photos.interets img {
-        height: 180px;
-    }
-
-
+    /* On cible l'image à l'intérieur de son conteneur */
     .introduction img {
+        /* Optionnel : elle peut prendre 100% de l'écran si l'écran est plus petit que 300px */
         width: 200px;
+
+        /* Cette ligne est cruciale pour garder les proportions (pas d'image étirée) */
         height: 200px;
+
+        /* Pour éviter qu'elle ne colle au texte */
         display: block;
+        /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
         margin: 0 auto;
+        /* Centre horizontalement l'image */
         align-self: center;
+        /* Centre verticalement l'image dans le conteneur flex */
     }
 
     .introduction h1 {
@@ -1000,46 +1063,39 @@ dialog::backdrop {
         font-size: 2.3rem;
     }
 
-    .liste-savoir,
-    .blocks-parcours.competences,
-    .blocks-parcours.interets {
-        width: 100%;
-    }
-
+    /* Contact Section */
     .contact-info {
+        display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto auto;
         width: 75%;
         margin: 0 auto;
     }
 
-    .contact-info .mail,
-    .contact-info .tel,
-    .contact-info .home,
-    .contact-info .social {
+    .contact-info .mail {
         grid-column: 1;
+        grid-row: 1;
     }
 
     .contact-info .tel {
+        grid-column: 1;
         grid-row: 2;
         margin-top: 4rem;
     }
 
     .contact-info .home {
+        grid-column: 1;
         grid-row: 3;
     }
 
     .contact-info .social {
+        grid-column: 1;
         grid-row: 4;
     }
 
-    .photos.lse {
-        grid-column: auto;
-        grid-row: auto;
-    }
-
     .photos.lse img {
-        width: 100%;
+        width: 80%;
+        /* L'image remplit sa colonne */
         height: auto;
     }
 }
