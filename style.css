@@ -70,7 +70,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
@@ -80,7 +80,7 @@ h4 {
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: var(--couleur-texte-clair);
 }
 
@@ -136,7 +136,7 @@ section {
 }
 
 .logo-linkedin {
-    height: 2rem;
+    height: 2.8rem;
     width: auto;
     display: block;
 }
@@ -145,6 +145,7 @@ section {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+
 }
 
 .lien-icone:hover {
@@ -375,7 +376,7 @@ section {
 .blocks-parcours {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto auto;
     gap: var(--gap-grid);
     /* gap entre les grid */
@@ -483,16 +484,14 @@ section {
 }
 
 /* On force le conteneur de chaque image */
-.photos.pro img {
+.photos.pro img,
+.photos.benevole img {
     width: 100%;
-    height: 200px;
-    /* Hauteur fixe identique pour toutes */
+    aspect-ratio: 16 / 9;
     object-fit: cover;
-    /* Coupe proprement */
     object-position: center;
-    /* Centre l'image */
     border-radius: 8px;
-    /* Coins arrondis */
+    display: block;
 }
 
 .photos.edf {
@@ -535,18 +534,6 @@ section {
 .photos.benevole {
     grid-column: 2/4;
     grid-row: 2;
-}
-
-.photos.benevole img {
-    width: 100%;
-    /* L'image remplit sa colonne */
-    height: auto;
-    /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
-    object-fit: cover;
-    /* Coupe proprement */
-    object-position: center;
-    /* Arrondir un peu les bords pour un look propre */
-    border-radius: 8px;
 }
 
 .photos.lse {
@@ -606,10 +593,12 @@ dialog[open] img {
     height: auto !important;
     max-width: 90vw !important;
     max-height: 90vh !important;
-    /* Annulation d'ombre sur l'image au cas où */
     box-shadow: none !important;
     border: none !important;
     border-radius: 8px;
+
+    /* Ajoute uniquement cette ligne */
+    aspect-ratio: auto !important;
 }
 
 dialog::backdrop {
@@ -638,7 +627,14 @@ img[onclick] {
 .blocks-parcours.athlete ul {
     text-align: justify;
     margin-top: 0.5rem;
-    margin-bottom: 2rem;
+}
+
+.blocks-parcours.athlete .intro {
+    text-align: justify;
+    padding-bottom: 2rem;
+    --padding-left-right: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block) - var(--cercle-taille) / 2);
+    padding: 0 var(--padding-left-right) 1.5rem var(--padding-left-right);
+    ;
 }
 
 .blocks-parcours p {
@@ -718,14 +714,19 @@ img[onclick] {
     /* Ajuste cette valeur jusqu'à ce que ce soit parfait */
 }
 
+.savoir li {
+line-height: 2rem;
+}
+
 /* Petit visuel de "check" avant chaque compétence */
-.savoir li::before {
+.savoir li:not(.pays)::before {
     content: "◆";
     margin-right: 10px;
     font-weight: bold;
+
 }
 
-.savoir.no-hover li::before {
+.savoir.no-hover li:not(.pays)::before {
     /* Ajoute une marge négative pour décaler vers la gauche */
     margin-left: -1rem;
 }
@@ -794,27 +795,27 @@ img[onclick] {
 
 /* Timeline */
 .liste-item {
-    grid-column: 1;
+    grid-column: 1/3;
     grid-row: 1;
 }
 
 .timeline-item.experience-professionnelle {
-    grid-column: 2;
+    grid-column: 3/5;
     grid-row: 1;
 }
 
 .timeline-item.formation {
-    grid-column: 1;
+    grid-column: 1/3;
     grid-row: 2;
 }
 
 .timeline-item.athlete {
-    grid-column: 2;
+    grid-column: 3/5;
     grid-row: 2;
 }
 
 .timeline-item.benevole {
-    grid-column: 1/3;
+    grid-column: 2/4;
     grid-row: 3;
 }
 
@@ -931,9 +932,30 @@ img[onclick] {
     justify-self: auto;
 }
 
+.btn-telechargement {
+    display: inline-block;
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+    margin: auto;
+    /* Centré par défaut */
+    margin-top: 5rem;
+}
+
+.btn-telechargement:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
 .slider {
-    width: 800px;
-    height: 450px;
+    width: 700px;
+    height: 394px;
     margin: 40px auto;
     overflow: hidden;
     border-radius: 8px;
@@ -957,7 +979,6 @@ img[onclick] {
     display: flex;
     justify-content: center;
     gap: 10px;
-    margin-top: 15px;
 }
 
 .dot {
@@ -995,6 +1016,75 @@ img[onclick] {
     border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
 }
 
+/* 1. La section globale : active le Flexbox pour tout centrer */
+.article {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permet de passer à la ligne sur mobile */
+    justify-content: center;
+    gap: 8%;
+    padding: 3rem;
+}
+
+/* 2. Le titre prend toute la largeur et se place au-dessus */
+.article h3 {
+    flex-basis: 100%;
+    text-align: center;
+    color: var(--couleur-texte-clair);
+    font-size: 3.5rem;
+    margin: 0 0 4rem 0;
+}
+
+/* 3. Conteneurs : largeur fixe pour aligner les blocs sur la ligne 2 */
+.article-container,
+.video-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* Aligne le titre, l'image et le texte verticalement */
+    /* Largeur identique pour tous */
+}
+
+/* 4. Gestion du lien pour l'image cliquable */
+.article-container a {
+    display: inline-block;
+    /* Le lien s'adapte à la taille de l'enfant (l'image) */
+    cursor: pointer;
+    line-height: 0;
+}
+
+/* 5. Style et zoom de l'image */
+.image-article,
+.image-page,
+video {
+    width: auto;
+    height: 250px;
+    /* Hauteur identique */
+    object-fit: cover;
+    /* Rogne intelligemment pour remplir l'espace */
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+/* Zoom au survol sur l'image via le lien */
+.article-container a:hover .image-article,
+.article-container a:hover .image-page {
+    transform: scale(1.05);
+}
+
+/* 6. Style pour les titres des blocs (h4) */
+.article-container h4,
+.video-container h4 {
+    margin-top: 10px;
+    color: var(--couleur-texte-clair);
+}
+
+/* 7. Style du paragraphe */
+.article-container p {
+    padding-top: 1rem;
+}
+
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: flex !important;
@@ -1006,7 +1096,14 @@ img[onclick] {
         cursor: pointer;
     }
 
-    .burger-menu .burger-icon {
+    .menu-text {
+        font-weight: bold;
+        font-size: 1.8rem;
+        /* Ajuste la taille selon ton besoin */
+        color: var(--couleur-texte-sombre);
+    }
+
+    .burger-icon {
         width: 3rem;
         /* Ajuste la taille de ton icône */
         height: auto;
@@ -1104,6 +1201,7 @@ img[onclick] {
     }
 
     /* 2. On libère tous les éléments de leurs positions spécifiques */
+    .liste-item,
     .timeline-item,
     .timeline-item.entreprises,
     .timeline-item.stages,
@@ -1133,12 +1231,56 @@ img[onclick] {
         grid-row: 4 !important;
     }
 
-        .photos.lse {
+    .photos.lse {
         grid-column: 1 !important;
         grid-row: 2 !important;
     }
-        .photos.benevole {
+
+    .photos.benevole {
         grid-column: 1 !important;
         grid-row: 3 !important;
+    }
+
+    .blocks-parcours.competences,
+    .blocks-parcours.interets {
+        width: 80%;
+    }
+
+    .article {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Le premier article (Ouest-France) reste en 1 */
+    .article-container:nth-of-type(1) {
+        order: 1;
+    }
+
+    /* La vidéo passe en 2 */
+    .video-container {
+        order: 2;
+    }
+
+    /* Wikipédia passe en 3 */
+    .article-container:nth-of-type(2) {
+        order: 3;
+    }
+
+    /* Ajustement des dimensions sur mobile */
+    .article-container,
+    .video-container {
+        width: 90%;
+        margin: 0 auto 30px auto;
+    }
+
+    .image-article,
+    .image-page,
+    video {
+        width: 60%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        /* Centrage des éléments */
     }
 }
