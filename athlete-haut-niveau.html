@@ -98,7 +98,7 @@
                         </ul>
                     </div>
 
-                    <div class="timeline-parcours no-hover">
+                    <!--<div class="timeline-parcours no-hover">
                         <time class="date">2005 - 2008</time>
                         <h4 class="poste">Volleyeuse Amateur (Poste : Attaquante)</h4>
                         <h4 class="niveau">Pôle espoir</h4>
@@ -110,7 +110,7 @@
                                 arrière de la coupe
                                 de France jeunes.</li>
                         </ul>
-                    </div>
+                    </div>-->
 
 
                 </div>
@@ -175,16 +175,28 @@
                         <img src="images/rec.jpeg" alt="Photo regroupement point">
                     </dialog>
 
+                    <img src="images/groupe.jpeg" alt="Photo regroupement point"
+                        onclick="document.getElementById('modal-groupe').showModal()">
+                    <dialog id="modal-groupe" onclick="this.close()">
+                        <img src="images/groupe.jpeg" alt="Photo regroupement point">
+                    </dialog>
+
                     <img src="images/service.jpeg" alt="Photo d'un service"
                         onclick="document.getElementById('modal-service').showModal()">
                     <dialog id="modal-service" onclick="this.close()">
                         <img src="images/service.jpeg" alt="Photo d'un service">
                     </dialog>
 
-                    <img src="images/groupe.jpeg" alt="Photo regroupement point"
-                        onclick="document.getElementById('modal-groupe').showModal()">
-                    <dialog id="modal-groupe" onclick="this.close()">
-                        <img src="images/groupe.jpeg" alt="Photo regroupement point">
+                    <img src="images/recep.jpeg" alt="Photo de réception"
+                        onclick="document.getElementById('modal-recep').showModal()">
+                    <dialog id="modal-recep" onclick="this.close()">
+                        <img src="images/recep.jpeg" alt="Photo de réception">
+                    </dialog>
+
+                    <img src="images/rec-victoire.jpeg" alt="Photo d'équipe REC"
+                        onclick="document.getElementById('modal-recvictoire').showModal()">
+                    <dialog id="modal-recvictoire" onclick="this.close()">
+                        <img src="images/rec-victoire.jpeg" alt="Photo d'équipe REC">
                     </dialog>
                 </div>
                 <div class=" photos edf">

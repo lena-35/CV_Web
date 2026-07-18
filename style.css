@@ -419,17 +419,116 @@ section {
 }
 
 .blocks-parcours.benevole {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
 
     /* C'est la ligne clé pour égaliser les hauteurs */
     align-items: stretch;
 }
 
 .blocks-parcours.benevole .timeline-item {
-    grid-column: 1 / 3;
+    grid-column: 1;
     grid-row: 1;
     /* Force sur la première ligne */
 }
+
+/*.photos.lse {
+    grid-column: 2;
+    grid-row: 2;
+}*/
+
+/*.photos.benevole {
+    grid-column: 2/4;
+    grid-row: 2;
+}*/
+
+/*.photos.lse img {
+    width: 45%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}*/
+
+/*.photos.benevole img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}*/
+
+
+
+
+.article-rec {
+    background-color: #212121;
+    /* Gris très sombre */
+    color: #e0e0e0;
+    /* Gris clair pour le texte */
+    font-family: Arial, sans-serif;
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+.titre-article {
+    background-color: #b5a042;
+    /* Brun-olive */
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.titre-article h1 {
+    color: #ffffff;
+    margin: 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.contenu {
+    padding: 0 20px;
+}
+
+.contenu p {
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+    color: #e0e0e0;
+    text-align: justify;
+}
+
+.grille-images {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.grille-images img {
+    width: 50%;
+    height: auto;
+    display: block;
+}
+
+.citation {
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 16px;
+    color: #e0e0e0;
+}
+
+.auteur {
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 15px;
+    color: #e0e0e0;
+}
+
+.citation p,
+.auteur p {
+    text-align: center;
+}
+
 
 .blocks-parcours.benevole .photos,
 .blocks-parcours.athlete .photos,
@@ -484,8 +583,7 @@ section {
 }
 
 /* On force le conteneur de chaque image */
-.photos.pro img,
-.photos.benevole img {
+.photos.pro img {
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
@@ -529,28 +627,6 @@ section {
     /* Centre l'image */
     border-radius: 8px;
     /* Coins arrondis */
-}
-
-.photos.benevole {
-    grid-column: 2/4;
-    grid-row: 2;
-}
-
-.photos.lse {
-    grid-column: 3/5;
-    grid-row: 1;
-}
-
-.photos.lse img {
-    width: 45%;
-    /* L'image remplit sa colonne */
-    height: auto;
-    /* Coupe l'image pour qu'elle remplisse le bloc sans déformation */
-    object-fit: cover;
-    /* Coupe proprement */
-    object-position: center;
-    /* Arrondir un peu les bords pour un look propre */
-    border-radius: 8px;
 }
 
 .photos.interets {
@@ -715,7 +791,7 @@ img[onclick] {
 }
 
 .savoir li {
-line-height: 2rem;
+    line-height: 2rem;
 }
 
 /* Petit visuel de "check" avant chaque compétence */
@@ -1282,5 +1358,9 @@ video {
         display: block;
         margin: 0 auto;
         /* Centrage des éléments */
+    }
+
+    .article-rec {
+        width: 90%;
     }
 }
