@@ -1389,11 +1389,33 @@ video {
         font-size: 1.4rem;
     }
 
-    .logo-parcours {
-        width: 80%;
-    }
+.logo-parcours {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
 
-    .scroll-text {
-        width: 60%;
-    }
+    justify-self: center;
+    align-self: center;
+
+    width: 85%;
+    height: auto;
+
+    opacity: 0.85;
+}
+
+.scroll-text {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+
+
+    width: 65%;
+    height: auto;
+    margin: auto;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
 }
