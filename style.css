@@ -55,7 +55,7 @@ h1 {
 
 h2 {
     font-size: 2.5rem;
-    color: var(--couleur-texte-clair);
+    color: #151515;
 }
 
 h3 {
@@ -364,7 +364,6 @@ section {
 }
 
 .parcours h2 {
-    color: var(--couleur-texte-sombre);
     text-align: center;
     margin-bottom: 5rem;
 }
