@@ -1230,7 +1230,7 @@ video {
         /* Une seule colonne */
         width: 90%;
         /* Un peu plus large sur petit écran */
-        gap: 2rem;
+        padding: 6rem var(--padding-grid); /* Applique le même gap latéral que les blocs */
     }
 
     .introduction div {
