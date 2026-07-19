@@ -1258,8 +1258,8 @@ video {
         /* Centre l'image horizontalement */
         display: block;
         /* Nécessaire pour que margin auto fonctionne */
-        width: 350px;
-        height: 350px;
+        width: 400px;
+        height: 400px;
     }
 
     /* Contact Section */
