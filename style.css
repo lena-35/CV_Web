@@ -32,7 +32,6 @@
     --hauteur-barre-active: 0.3125rem;
     --cercle-taille: 0.625rem;
     --epaisseur-trait: 0.1875rem;
-    --zoom-factor: 1.2;
     --top-trait: 2.2rem;
 }
 
@@ -185,8 +184,16 @@ section {
 
 }
 
-.lien-icone:hover {
-    opacity: 0.5;
+.icone-mail:hover .logo-mail,
+.icone-telephone:hover .logo-telephone,
+.icone-maison:hover .logo-maison,
+.icone-linkedin:hover .logo-linkedin,
+.icone-mail:hover + p,
+.icone-telephone:hover + p,
+.icone-maison:hover + p,
+.icone-linkedin:hover + p {
+    opacity: 0.7;
+    transform: scale(1.1);
 }
 
 /* Contact Section */
@@ -248,54 +255,6 @@ section {
     margin: 0 auto;
     width: 3rem;
     height: auto;
-}
-
-/* 1. On cible le lien au survol de l'image */
-.icone-mail:hover .logo-mail {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-mail:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 1. On cible le lien au survol de l'image */
-.icone-telephone:hover .logo-telephone {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-telephone:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 1. On cible le lien au survol de l'image */
-.icone-maison:hover .logo-maison {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-maison:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 1. On cible le lien au survol de l'image */
-.icone-linkedin:hover .logo-linkedin {
-    opacity: 0.7;
-    transform: scale(1.1);
-}
-
-/* 2. On utilise le sélecteur frère pour cibler le P qui suit le lien */
-.icone-linkedin:hover+p {
-    opacity: 0.7;
-    transform: scale(1.1);
 }
 
 /* Introduction */
@@ -443,18 +402,6 @@ section {
     /*gap: 0 !important;*/
 }
 
-.blocks-parcours.experience-professionnelle .timeline-item.entreprises {
-    grid-row: 1;
-    /*gap: var(--gap-grid);*/
-    /*margin: 1rem;*/
-}
-
-.blocks-parcours.experience-professionnelle .timeline-item.stages {
-    grid-row: 2;
-    /*gap: var(--gap-grid);*/
-    /*margin: 1rem;*/
-}
-
 .blocks-parcours.benevole {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto auto;
@@ -468,32 +415,6 @@ section {
     grid-row: 1;
     /* Force sur la première ligne */
 }
-
-/*.photos.lse {
-    grid-column: 2;
-    grid-row: 2;
-}*/
-
-/*.photos.benevole {
-    grid-column: 2/4;
-    grid-row: 2;
-}*/
-
-/*.photos.lse img {
-    width: 45%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-}*/
-
-/*.photos.benevole img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-}*/
 
 .article-rec {
     background-color: #212121;
@@ -597,8 +518,6 @@ section {
     grid-template-rows: auto auto;
     /* C'est la ligne clé pour égaliser les hauteurs */
     align-items: stretch;
-    /*gap: var(--gap-grid);*/
-    /*margin: 1rem;*/
 }
 
 .blocks-parcours.athlete .timeline-item.pro {
@@ -734,10 +653,6 @@ img[onclick] {
     line-height: 1.5rem;
 }
 
-.blocks-parcours {
-    gap: 4rem;
-}
-
 .blocks-parcours.athlete ul {
     text-align: justify;
     margin-top: 0.5rem;
@@ -755,7 +670,7 @@ img[onclick] {
     color: var(--couleur-texte-sombre);
     text-align: justify;
     font-weight: bold;
-
+    gap: 4rem;
 }
 
 .liste-item.savoir-etre,
@@ -810,7 +725,6 @@ img[onclick] {
     contain: layout;
     padding: var(--padding-block) var(--padding-block) var(--padding-block) 2.5rem;
     border-radius: var(--rayon-bordure-standard);
-    /*outline: 3px solid red;*/
 }
 
 .savoir.savoir-etre>h4,
@@ -859,13 +773,13 @@ img[onclick] {
 
 /* Bordures latérales colorées */
 .savoir-etre {
-    border: 1px solid var(--couleur-fond-section-1);
-    border-left-width: 8px;
+    border: 2px solid var(--couleur-fond-section-1);
+    border-left-width: 15px;
 }
 
 .savoir-faire {
-    border: 1px solid var(--couleur-timeline);
-    border-left-width: 8px;
+    border: 2px solid var(--couleur-timeline);
+    border-left-width: 15px;
 }
 
 .savoir:not(.no-hover),
@@ -892,16 +806,6 @@ img[onclick] {
     transform: scale(1.05);
 }
 
-/* Verrouillage du cercle et du trait au survol */
-/*.timeline-parcours:not(.no-hover):hover::before {
-    transform: scale(1);
-}
-
-.timeline-parcours:not(.no-hover):hover::after {
-    transform: translateX(-50%) scale(1);
-    top: var(--top-trait); /* Position fixe, pas de calcul de zoom */
-/*bottom: var(--padding-block);
-}*/
 .timeline-item,
 .liste-item,
 .contact-info {
@@ -938,13 +842,10 @@ img[onclick] {
     position: relative;
     display: grid;
     grid-template-columns: var(--colonne-gauche-grid-largeur) 1fr;
-    /*gap: var(--gap-grid);*/
     align-items: start;
     margin-bottom: 1.5rem;
     padding: var(--padding-block);
-    /*transition: background-color 0.3s ease;*/
     border-radius: var(--rayon-bordure-standard);
-    /* Retire le auto pour que ça ne soit pas centré */
     text-align: left;
     contain: layout;
 }
@@ -1013,16 +914,11 @@ img[onclick] {
 .timeline-parcours>.detail {
     padding-top: 0.2rem;
     line-height: 1.6;
-    font-size: 10rem;
 }
 
 .timeline-parcours li {
     font-size: 1.1rem;
 }
-
-/*.timeline-parcours>p {
-    color: var(--couleur-fond-section-1);
-}*/
 
 .voir-detail {
     display: block;
@@ -1149,7 +1045,8 @@ video {
 
 /* Zoom au survol sur l'image via le lien */
 .article-container a:hover .image-article,
-.article-container a:hover .image-page {
+.article-container a:hover .image-page,
+.video-container:hover video {
     transform: scale(1.05);
 }
 
@@ -1175,6 +1072,26 @@ video {
     clip: rect(0, 0, 0, 0) !important;
     white-space: nowrap !important;
     border: 0 !important;
+}
+
+/* Conteneur pour masquer le débordement et créer la zone de défilement */
+.scroll-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 40%; /* Modifie cette valeur pour réduire la largeur (ex: 50%, 300px) */
+    margin: 0 auto; /* Centre le bandeau sur la page */
+}
+
+/* Animation du texte */
+.scroll-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 5s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
 }
 
 @media screen and (max-width: 64rem) {
@@ -1292,12 +1209,6 @@ video {
         grid-row: 4;
     }
 
-    .photos.lse img {
-        width: 80%;
-        /* L'image remplit sa colonne */
-        height: auto;
-    }
-
     /* 1. On simplifie la grille des parcours pour forcer l'empilement */
     .blocks-parcours {
         grid-template-columns: 1fr !important;
@@ -1307,8 +1218,6 @@ video {
     /* 2. On libère tous les éléments de leurs positions spécifiques */
     .liste-item,
     .timeline-item,
-    .timeline-item.entreprises,
-    .timeline-item.stages,
     .timeline-item.athlete,
     .timeline-item.benevole {
         grid-column: 1 !important;
@@ -1333,16 +1242,6 @@ video {
     .photos.edf {
         grid-column: 1 !important;
         grid-row: 4 !important;
-    }
-
-    .photos.lse {
-        grid-column: 1 !important;
-        grid-row: 2 !important;
-    }
-
-    .photos.benevole {
-        grid-column: 1 !important;
-        grid-row: 3 !important;
     }
 
     .blocks-parcours.competences,
