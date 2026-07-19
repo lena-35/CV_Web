@@ -815,17 +815,12 @@ img[onclick] {
 
 .savoir.savoir-etre>h4,
 .savoir.savoir-faire>h4 {
-    /* On force la largeur à la taille du parent */
-    width: 100%;
-    /* On annule toute marge automatique */
-    margin-left: 0;
-    margin-right: 0;
-    /* On force le centrage du texte */
     text-align: center;
-    /* CHIRURGIE : on décale le titre vers la gauche pour compenser le décalage */
-    position: relative;
-    left: -1rem;
-    /* Ajuste cette valeur jusqu'à ce que ce soit parfait */
+    padding-right: 2.5rem; /* Rééquilibre le décalage provoqué par le padding-left du parent */
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 0 1rem 0;
+    position: static;
 }
 
 .savoir li {
