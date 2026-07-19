@@ -393,13 +393,6 @@ section {
     grid-template-rows: auto auto;
     align-content: start;
     justify-self: center;
-
-    line-height: 1.5rem;
-    /*align-items: stretch;*/
-    /* Force les cellules à prendre toute la hauteur disponible */
-    /* On force l'alignement vertical au sommet pour toute la grille */
-    /*align-items: start !important;*/
-    /*gap: 0 !important;*/
 }
 
 .blocks-parcours.benevole {
@@ -1307,7 +1300,7 @@ video {
     }
 
     .titre h1 {
-        font-size: 2.8rem;
+        font-size: 2.7rem;
     }
 
     h2 {
@@ -1333,6 +1326,10 @@ video {
 
     li {
         font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 1.8rem;
     }
 
     .voir-detail {
