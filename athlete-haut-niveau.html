@@ -17,11 +17,13 @@
                 <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
 
-            <div class="burger-menu">
-                <img src="images/burger-logo.png" alt="Menu" class="burger-icon">
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
+                <span class="menu-text">MENU</span>
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
             </div>
 
-            <div class="menu">
+            <div class="menu" id="menu-mobile">
                 <a href="index.html">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
@@ -39,6 +41,7 @@
             <h1>Volleyeuse professionnelle</h1>
         </section>
         <section class="parcours">
+            <h2 class="sr-only">Détails de mon parcours de Volleyeuse professionnelle</h2>
             <div class="blocks-parcours athlete">
                 <div class="timeline-item pro">
                     <h3 id="ancre-athlete-haut-niveau-pro">Parcours Clubs</h3>
@@ -56,7 +59,7 @@
                     <div class="timeline-parcours no-hover">
                         <time class="date">2019 - 2024</time>
                         <h4 class="poste">Volleyeuse Professionnelle (Poste : Libéro)</h4>
-                        <h4 class="niveau">Division Elite Féminine (2ème division)</h4>
+                        <div class="niveau">Division Elite Féminine (2ème division)</div>
                         <div class="lieu">REC Volley, Rennes</div>
                     </div>
                     <div class="timeline-parcours no-hover">
@@ -98,7 +101,7 @@
                         </ul>
                     </div>
 
-                    <!--<div class="timeline-parcours no-hover">
+                    <div class="timeline-parcours no-hover">
                         <time class="date">2005 - 2008</time>
                         <h4 class="poste">Volleyeuse Amateur (Poste : Attaquante)</h4>
                         <h4 class="niveau">Pôle espoir</h4>
@@ -110,7 +113,7 @@
                                 arrière de la coupe
                                 de France jeunes.</li>
                         </ul>
-                    </div>-->
+                    </div>
 
 
                 </div>
@@ -118,7 +121,7 @@
                     <h3 id="ancre-athlete-haut-niveau-edf">Parcours Equipe de France</h3>
 
                     <div class="timeline-parcours no-hover">
-                        <time class="date">2011</time>
+                        <time class="date">2010-2012</time>
                         <h4 class="poste">Equipe de France Espoir (Poste : Libéro)</h4>
                         <h4 class="niveau">Universiades (Jeux olympiques universitaires)</h4>
                         <div class="lieu">Schenzhen, Chine</div>
@@ -126,16 +129,18 @@
                     <div class="timeline-parcours no-hover">
                         <time class="date">2008 - 2010</time>
                         <h4 class="poste">Equipe de France Junior (Poste : Libéro)</h4>
-                        <h4 class="niveau">Tournoi de qualification au Championnat du Monde</h4>
-                        <div class="lieu">X, Pologne</div>
+                        <h4 class="niveau">Tournoi de qualification au Championnats du Monde</h4>
+                        <div class="lieu">Pérouse, Italie</div>
                         <h4 class="niveau">Championnats d'Europe</h4>
-                        <div class="lieu">Perugia, Italie</div>
+                        <div class="lieu">Cracovie, Pologne</div>
                     </div>
                     <div class="timeline-parcours no-hover">
                         <time class="date">2006 - 2008</time>
                         <h4 class="poste">Equipe de France Cadette (Poste : Libéro)</h4>
                         <h4 class="niveau">Championnats d'Europe</h4>
                         <div class="lieu">Brno, République Tchèque</div>
+                        <h4 class="niveau">Tournoi de qualification eu Championnats d'Europe</h4>
+                        <div class="lieu">Moscou, Russie</div>
                     </div>
                 </div>
                 <div class="photos pro">
@@ -224,8 +229,8 @@
             </div>
         </section>
 
-        <section class="article">
-            <h3>Articles</h3>
+        <section class="article-press">
+            <h3>Articles de press</h3>
             <div class="article-container">
                 <a href="https://www.ouest-france.fr/sport/volley/rec-volley/volley-rennes-ec-lenaig-le-moigne-patronne-de-la-defense-7035862"
                     target="_blank">
@@ -243,9 +248,10 @@
             </div>
 
             <div class="video-container">
-                <video controls width="auto" height="260px" poster="images/couverture-video.PNG" class="video"
-                    style="border-radius: 8px;">
+                <video controls width="auto" height="260" poster="images/couverture-video.png" class="video"
+                    style="border-radius: 8px;" allowfullscreen>
                     <source src="videos/sjt-llm-portrait.mp4" type="video/mp4">
+                    <track kind="captions" src="videos/transcription.vtt" srclang="fr" label="Français" default>
                     Votre navigateur ne supporte pas la lecture de vidéos.
                 </video>
                 <h4>Interview fin de carrière TVRennes</h4>
@@ -265,13 +271,47 @@
 
     <script>
         const burger = document.querySelector('.burger-menu');
-        const menuMobile = document.querySelector('.menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            menuMobile.classList.toggle('active');
+            toggleMenu();
         });
-        document.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 

@@ -17,11 +17,13 @@
                 <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
 
-            <div class="burger-menu">
-                <img src="images/burger-logo.png" alt="Menu" class="burger-icon">
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
+                <span class="menu-text">MENU</span>
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
             </div>
 
-            <div class="menu">
+            <div class="menu" id="menu-mobile">
                 <a href="index.html">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
@@ -39,11 +41,12 @@
             <h1>Ma formation</h1>
         </section>
         <section class="parcours">
+            <h2 class="sr-only">Détails de ma formation</h2>
             <div class="blocks-parcours formation">
                 <div class="timeline-item formations">
                     <h3>Ecoles</h3>
-                    <div class="timeline-parcours no-hover" id="ancre-formation-1">
-                        <time class="date">2015 - 2018</time>
+                    <div class="timeline-parcours no-hover">
+                        <time id="ancre-formation-inge" class="date">2015 - 2018</time>
                         <h4 class="poste">Cycle Ingénieur, Electronique et Informatique Industrielle, obtenu</h4>
                         <div class="lieu">INSA (Institut National des Sciences Appliquées), Rennes</div>
                         <ul class="detail">
@@ -53,9 +56,10 @@
                                 logiciels associés.</li>
                         </ul>
                     </div>
-                    <div class="timeline-parcours no-hover" id="ancre-formation-2">
-                        <time class="date">02/2018 - 06/2018</time>
-                        <h4 class="poste">Licence Professionnelle, Systèmes Electroniques et Informatique Communicants, otbenu</h4>
+                    <div class="timeline-parcours no-hover">
+                        <time id="ancre-formation-licence" class="date">02/2018 - 06/2018</time>
+                        <h4 class="poste">Licence Professionnelle, Systèmes Electroniques et Informatique Communicants,
+                            otbenu</h4>
                         <div class="lieu">IUT de Nantes, Carquefou</div>
                         <ul class="detail">
                             <li><em><strong>Ce professionnel</strong></em> participe à la conception, au développement,
@@ -64,8 +68,8 @@
                                 informatiques communicants.</li>
                         </ul>
                     </div>
-                    <div class="timeline-parcours no-hover" id="ancre-formation-3">
-                        <time class="date">2012 - 2014</time>
+                    <div class="timeline-parcours no-hover">
+                        <time id="ancre-formation-bts" class="date">2012 - 2014</time>
                         <h4 class="poste">BTS, Systèmes Electroniques, obtenu</h4>
                         <div class="lieu">Lycée Pierre de Coubertin, Nancy</div>
                         <ul class="detail">
@@ -92,13 +96,47 @@
 
     <script>
         const burger = document.querySelector('.burger-menu');
-        const menuMobile = document.querySelector('.menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            menuMobile.classList.toggle('active');
+            toggleMenu();
         });
-        document.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 

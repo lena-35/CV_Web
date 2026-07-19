@@ -48,16 +48,6 @@ body {
     padding-top: var(--hauteur-header);
 }
 
-/* Typography & Links */
-a {
-    color: var(--couleur-texte-sombre);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 h1 {
     font-size: 3.5rem;
     color: var(--couleur-texte-clair);
@@ -70,7 +60,7 @@ h2 {
 }
 
 h3 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -79,9 +69,34 @@ h4 {
     margin-bottom: 1rem;
 }
 
+h5 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
 p {
     font-size: 1.3rem;
     color: var(--couleur-texte-clair);
+}
+
+/* Typography & Links */
+a {
+    color: var(--couleur-texte-sombre);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+div {
+    font-size: 1.3rem;
+    color: var(--couleur-texte-sombre);
+}
+
+li {
+    font-size: 1.1rem;
 }
 
 /* Layout Components */
@@ -108,6 +123,28 @@ nav {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+}
+
+/* Navigation & Burger */
+.burger-menu {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-menu);
+}
+
+.menu a {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding-bottom: var(--hauteur-barre-active);
+    border-bottom: var(--hauteur-barre-active) solid transparent;
+}
+
+.menu a.active {
+    border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
 }
 
 main {
@@ -458,54 +495,53 @@ section {
     border-radius: 8px;
 }*/
 
-
-
-
 .article-rec {
     background-color: #212121;
     /* Gris très sombre */
-    color: #e0e0e0;
+    color: var(--couleur-texte-clair);
     /* Gris clair pour le texte */
     font-family: Arial, sans-serif;
     width: 75%;
     margin: 0 auto;
-    padding-bottom: 20px;
+    padding-bottom: 1rem;
 }
 
 .titre-article {
-    background-color: #b5a042;
+    background-color: #997f0f;
     /* Brun-olive */
     text-align: center;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.titre-article h1 {
-    color: #ffffff;
+.titre-article h3 {
+    color: var(--couleur-texte-clair);
     margin: 0;
-    font-size: 24px;
-    text-transform: uppercase;
 }
 
 .contenu {
-    padding: 0 20px;
+    padding: 0 2rem;
 }
 
 .contenu p {
-    margin: 0 0 15px 0;
+    margin: 0 0 1rem 0;
     line-height: 1.6;
-    color: #e0e0e0;
+    color: var(--couleur-texte-clair);
     text-align: justify;
+    font-size: 1.1rem;
 }
 
-.grille-images {
+.images-article {
     display: flex;
-    gap: 15px;
-    margin-bottom: 20px;
+    justify-content: center;
+    /* Centre les images horizontalement */
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+
 }
 
-.grille-images img {
-    width: 50%;
+.images-article img {
+    width: 45%;
     height: auto;
     display: block;
 }
@@ -513,15 +549,14 @@ section {
 .citation {
     font-style: italic;
     line-height: 1.6;
-    font-size: 16px;
-    color: #e0e0e0;
+    color: var(--couleur-texte-clair);
 }
 
 .auteur {
     font-weight: bold;
     font-style: normal;
-    margin-top: 15px;
-    color: #e0e0e0;
+    margin-top: 1rem;
+    color: var(--couleur-texte-clair);
 }
 
 .citation p,
@@ -585,11 +620,10 @@ section {
 /* On force le conteneur de chaque image */
 .photos.pro img {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    height: 250px;
     object-fit: cover;
     object-position: center;
     border-radius: 8px;
-    display: block;
 }
 
 .photos.edf {
@@ -638,7 +672,7 @@ section {
 /* On force le conteneur de chaque image */
 .photos.interets img {
     width: 100%;
-    height: 350px;
+    height: 300px;
     /* Hauteur fixe identique pour toutes */
     object-fit: cover;
     /* Coupe proprement */
@@ -698,6 +732,10 @@ img[onclick] {
     justify-self: center;
     /*gap: 2.5rem;*/
     line-height: 1.5rem;
+}
+
+.blocks-parcours {
+    gap: 4rem;
 }
 
 .blocks-parcours.athlete ul {
@@ -810,11 +848,18 @@ img[onclick] {
 /* Force le scroll à bien se caler sur le titre */
 #ancre-savoir-etre,
 #ancre-savoir-faire,
+#ancre-experience-professionnelle-inge,
+#ancre-experience-professionnelle-prof,
+#ancre-experience-professionnelle-stages,
+#ancre-formation-inge,
+#ancre-formation-licence,
+#ancre-formation-bts,
 #ancre-athlete-haut-niveau-pro,
-#ancre-athlete-haut-niveau-edf {
+#ancre-athlete-haut-niveau-edf,
+#ancre-benevolat {
     display: block;
     /* Important pour que l'ancre soit un bloc */
-    scroll-margin-top: 100px;
+    scroll-margin-top: 150px;
     /* Ajuste selon la hauteur de ton menu fixe */
 }
 
@@ -946,7 +991,7 @@ img[onclick] {
 }
 
 .timeline-parcours>.date {
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 .timeline-parcours>.poste {
@@ -955,24 +1000,26 @@ img[onclick] {
     /*transition: font-size 0.2s ease;*/
     text-align: left;
     color: var(--couleur-fond-section-1);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-}
-
-.timeline-parcours>.lieu {
-    font-size: 1rem;
-    font-style: italic;
 }
 
 .timeline-parcours>.niveau {
     color: var(--couleur-fond-section-1);
+    font-size: 1.2rem;
     font-weight: normal;
+
+}
+
+.timeline-parcours>.lieu {
+    font-size: 1.1rem;
+    font-style: italic;
 }
 
 .timeline-parcours>.detail {
     padding-top: 0.2rem;
     line-height: 1.6;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
 }
 
 /*.timeline-parcours>p {
@@ -980,32 +1027,21 @@ img[onclick] {
 }*/
 
 .voir-detail {
-    display: inline-block;
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    /* Pousse l'élément vers la droite */
+    width: max-content;
+    /* L'élément s'adapte à la largeur du texte */
     text-align: right;
     grid-column: 2;
     color: #3b3c3c;
     font-style: italic;
     font-size: 1rem;
-    margin: 0.5rem 1rem 0.6rem 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.6rem;
+    margin-right: 1rem;
     text-decoration: underline;
-    justify-self: end;
     font-weight: bold;
-}
-
-/* On cible le bouton uniquement dans les blocs .savoir */
-.savoir .voir-detail {
-    display: block;
-    width: 100%;
-    grid-column: auto;
-
-    /* On réinitialise les marges pour être sûr d'annuler celles de la classe parente */
-    margin: 0.5rem 0 0.6rem 0;
-
-    text-align: right;
-    padding-right: 1rem;
-    box-sizing: border-box;
-    justify-self: auto;
 }
 
 .btn-telechargement {
@@ -1030,8 +1066,8 @@ img[onclick] {
 }
 
 .slider {
-    width: 700px;
-    height: 394px;
+    width: 750px;
+    height: 422px;
     margin: 40px auto;
     overflow: hidden;
     border-radius: 8px;
@@ -1071,29 +1107,8 @@ img[onclick] {
     opacity: 1;
 }
 
-/* Navigation & Burger */
-.burger-menu {
-    display: none;
-}
-
-.menu {
-    display: flex;
-    align-items: center;
-    gap: var(--gap-menu);
-}
-
-.menu a {
-    font-weight: bold;
-    padding-bottom: var(--hauteur-barre-active);
-    border-bottom: var(--hauteur-barre-active) solid transparent;
-}
-
-.menu a.active {
-    border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
-}
-
 /* 1. La section globale : active le Flexbox pour tout centrer */
-.article {
+.article-press {
     display: flex;
     flex-wrap: wrap;
     /* Permet de passer à la ligne sur mobile */
@@ -1103,7 +1118,7 @@ img[onclick] {
 }
 
 /* 2. Le titre prend toute la largeur et se place au-dessus */
-.article h3 {
+.article-press h3 {
     flex-basis: 100%;
     text-align: center;
     color: var(--couleur-texte-clair);
@@ -1119,14 +1134,6 @@ img[onclick] {
     flex-direction: column;
     /* Aligne le titre, l'image et le texte verticalement */
     /* Largeur identique pour tous */
-}
-
-/* 4. Gestion du lien pour l'image cliquable */
-.article-container a {
-    display: inline-block;
-    /* Le lien s'adapte à la taille de l'enfant (l'image) */
-    cursor: pointer;
-    line-height: 0;
 }
 
 /* 5. Style et zoom de l'image */
@@ -1161,6 +1168,18 @@ video {
     padding-top: 1rem;
 }
 
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
 @media screen and (max-width: 64rem) {
     .burger-menu {
         display: flex !important;
@@ -1169,7 +1188,6 @@ video {
         height: 4.5rem !important;
         padding: 0 1rem !important;
         margin: 0 !important;
-        cursor: pointer;
     }
 
     .menu-text {
@@ -1322,7 +1340,7 @@ video {
         width: 80%;
     }
 
-    .article {
+    .article-press {
         display: flex;
         flex-direction: column;
     }
@@ -1362,5 +1380,9 @@ video {
 
     .article-rec {
         width: 90%;
+    }
+
+    .photos.interets img {
+        height: 200px;
     }
 }

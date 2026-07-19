@@ -17,11 +17,13 @@
                 <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
 
-            <div class="burger-menu">
-                <img src="images/burger-logo.png" alt="Menu" class="burger-icon">
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
+                <span class="menu-text">MENU</span>
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
             </div>
 
-            <div class="menu">
+            <div class="menu" id="menu-mobile">
                 <a href="index.html">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
@@ -80,13 +82,47 @@
 
     <script>
         const burger = document.querySelector('.burger-menu');
-        const menuMobile = document.querySelector('.menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            menuMobile.classList.toggle('active');
+            toggleMenu();
         });
-        document.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 

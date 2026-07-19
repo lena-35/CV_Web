@@ -17,11 +17,13 @@
                 <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
 
-            <div class="burger-menu">
-                <img src="images/burger-logo.png" alt="Menu" class="burger-icon">
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
+                <span class="menu-text">MENU</span>
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
             </div>
 
-            <div class="menu">
+            <div class="menu" id="menu-mobile">
                 <a href="index.html">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
@@ -40,9 +42,10 @@
         </section>
         <section class="parcours">
             <div class="blocks-parcours benevole">
+                <h2 class="sr-only">Détails de mon bénévolat</h2>
                 <div class="timeline-item">
-                    <h3 id="ancre-engagement-associatif">Bénévole</h3>
-                    <div class="timeline-parcours no-hover" id="ancre-benevolat">
+                    <h3 id="ancre-benevolat">Bénévole</h3>
+                    <div class="timeline-parcours no-hover">
                         <time class="date">2024 - Aujourd'hui</time>
                         <h4 class="poste">Responsable Volley</h4>
                         <div class="lieu">REC Volley, Rennes</div>
@@ -68,12 +71,12 @@
                     <dialog id="modal-benevole" onclick="this.close()">
                         <img src="images/article-lse-2026.png" alt="Le récap des LSE 2026">
                     </dialog>-->
-                </div>
             </div>
 
             <div class="article-rec">
+                <h2 class="sr-only">Article sur mon action</h2>
                 <div class="titre-article">
-                    <h1>EVENEMENT LSE EDITION 2026</h1>
+                    <h3>LSE EDITION 2026</h3>
                 </div>
 
                 <div class="contenu">
@@ -82,11 +85,17 @@
                     <p>Engagée dans la promotion du sport féminin, elle a participé, en tant que joueuse au sein du REC
                         Volley de 2015 à 2024, à la montée en Élite de l'équipe féminine en 2019.</p>
 
-                    <div class="grille-images">
-                        <img src="https://gallery.weezevent.com/1288135/target/Capture%20d%E2%80%99e%CC%81cran%202026-03-03%20a%CC%80%2017.24.46.png"
-                            alt="Lénaïg au micro">
-                        <img src="https://gallery.weezevent.com/1288135/target/481672522_2321617814904831_8767796718507326617_n.jpg"
-                            alt="Lénaïg en match">
+                    <div class="images-article">
+                        <img src="images/lse-micro.png" alt="Lénaïg au micro"
+                            onclick="document.getElementById('modal-micro').showModal()">
+                        <dialog id="modal-micro" onclick="this.close()">
+                            <img src="images/lse-micro.png" alt="Lénaïg au micro">
+                        </dialog>
+                        <img src="images/lse-terrain.jpg" alt="Lénaïg sur le terrain"
+                            onclick="document.getElementById('modal-terrain').showModal()">
+                        <dialog id="modal-terrain" onclick="this.close()">
+                            <img src="images/lse-terrain.jpg" alt="Lénaïg sur le terrain">
+                        </dialog>
                     </div>
 
                     <div class="citation">
@@ -124,13 +133,47 @@
 
     <script>
         const burger = document.querySelector('.burger-menu');
-        const menuMobile = document.querySelector('.menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            menuMobile.classList.toggle('active');
+            toggleMenu();
         });
-        document.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 

@@ -17,12 +17,13 @@
                 <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
 
-            <div class="burger-menu">
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
                 <span class="menu-text">MENU</span>
-                <img src="images/burger-logo.png" alt="Menu" class="burger-icon">
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
             </div>
 
-            <div class="menu">
+            <div class="menu" id="menu-mobile">
                 <a href="index.html" class="active">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
@@ -45,7 +46,7 @@
                     jeune, Pro A et Elite). Ma réactivité de Libéro est mon meilleur atout pour concevoir, développer et
                     dépanner des systèmes en environnement de production. »
                 </p>
-                <a href="contact.html">UN PROJET ? CONTACTEZ-MOI</a>
+                <a href="contact.html">ON TRAVAILLE ENSEMBLE ? CONTACTEZ-MOI</a>
             </div>
 
             <img src="images/lenaig.jpeg" alt="Photo de Lénaïg LE MOIGNE"
@@ -63,52 +64,60 @@
                 <div class="liste-item">
                     <h3>Compétences</h3>
                     <div class="liste-savoir">
-                        <ul class="savoir savoir-etre">
+                        <div class="savoir savoir-etre">
                             <h4>Savoir être</h4>
-                            <li>Travail d'équipe</li>
-                            <li>Communication</li>
-                            <li>Leadership</li>
-                            <li>...</li>
+                            <ul class="savoir  no-hover">
+                                <li>Travail d'équipe</li>
+                                <li>Communication</li>
+                                <li>Leadership</li>
+                                <li>...</li>
+                            </ul>
                             <a href="competences.html#ancre-savoir-etre" class="voir-detail">Voir
-                                le détail</a>
-                        </ul>
-                        <ul class="savoir savoir-faire">
+                                mes savoir-être</a>
+                        </div>
+                        <div class="savoir savoir-faire">
                             <h4>Savoir faire</h4>
-                            <li>Python</li>
-                            <li>JavaScript</li>
-                            <li>HTML/CSS</li>
-                            <li>...</li>
+                            <ul class="savoir  no-hover">
+                                <li>C#</li>
+                                <li>CAO PCB</li>
+                                <li>HTML/CSS</li>
+                                <li>...</li>
+                            </ul>
                             <a href="competences.html#ancre-savoir-faire" class="voir-detail">Voir
-                                le détail</a>
-                        </ul>
+                                mes savoir-faire</a>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="timeline-item experience-professionnelle">
                     <h3>Expérience professionnelle</h3>
-                    <h4>Parcours Entreprises</h4>
-                    <div class="timeline-parcours">
-                        <time class="date">11/2018 - 07/2025</time>
-                        <h4 class="poste">Ingénieure Informatique Industrielle</h4>
-                        <div class="lieu">Oberthur Fiduciaire, Chantepie</div>
-                        <a href="experience-professionnelle.html#ancre-experience-professionnelle-entreprises"
-                            class="voir-detail">Voir le détail</a>
+                    <div>
+                        <h4>Parcours Entreprises</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">11/2018 - 07/2025</time>
+                            <h5 class="poste">Ingénieure Informatique Industrielle</h5>
+                            <div class="lieu">Oberthur Fiduciaire, Chantepie</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-inge"
+                                class="voir-detail">Voir expérience Ingénieure</a>
+                        </div>
+                        <div class="timeline-parcours">
+                            <time class="date">10/2018 - 10/2018</time>
+                            <h5 class="poste">Professeur remplaçant de BTS en spécialité Réseau</h5>
+                            <div class="lieu">Lycée Victor Hélène Bach, Rennes</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-prof"
+                                class="voir-detail">Voir expérience Professeur</a>
+                        </div>
                     </div>
-                    <div class="timeline-parcours">
-                        <time class="date">10/2018 - 10/2018</time>
-                        <h4 class="poste">Professeur remplaçant de BTS en spécialité Réseau</h4>
-                        <div class="lieu">Lycée Victor Hélène Bach, Rennes</div>
-                        <a href="experience-professionnelle.html#ancre-experience-professionnelle-entreprises"
-                            class="voir-detail">Voir le détail</a>
-                    </div>
-                    <h4>Parcours Stages en entreprises</h4>
-                    <div class="timeline-parcours">
-                        <time class="date">2014 - 2018</time>
-                        <h4 class="poste">Stagiaire en entreprise</h4>
-                        <div class="lieu">Rennes, Nantes, Le Rheu</div>
-                        <a href="experience-professionnelle.html#ancre-experience-professionnelle-stages"
-                            class="voir-detail">Voir le détail</a>
+                    <div>
+                        <h4>Parcours Stages en entreprises</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2014 - 2018</time>
+                            <h5 class="poste">Stagiaire en entreprise</h5>
+                            <div class="lieu">Rennes, Nantes, Le Rheu</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-stages"
+                                class="voir-detail">Voir mes stages</a>
+                        </div>
                     </div>
                 </div>
 
@@ -118,43 +127,45 @@
                         <time class="date">2015 - 2018</time>
                         <h4 class="poste">Cycle Ingénieur, Electronique et Informatique Industrielle, obtenu</h4>
                         <div class="lieu">INSA (Institut National des Sciences Appliquées), Rennes</div>
-                        <a href="formation.html#ancre-formation-1" class="voir-detail">Voir le détail</a>
+                        <a href="formation.html#ancre-formation-inge" class="voir-detail">Voir formation Ingénieure</a>
                     </div>
                     <div class="timeline-parcours">
                         <time class="date">2014 - 2015</time>
                         <h4 class="poste">Licence Professionnelle SEICOM, obtenu</h4>
                         <div class="lieu">IUT de Nantes, Nantes</div>
-                        <a href="formation.html#ancre-formation-2" class="voir-detail">Voir le détail</a>
+                        <a href="formation.html#ancre-formation-licence" class="voir-detail">Voir formation Licence</a>
                     </div>
                     <div class="timeline-parcours">
                         <time class="date">2012 - 2014</time>
                         <h4 class="poste">BTS Systèmes Electroniques, obtenu</h4>
                         <div class="lieu">Lycée Pierre de Coubertin, Nancy</div>
-                        <a href="formation.html#ancre-formation-3" class="voir-detail">Voir le détail</a>
+                        <a href="formation.html#ancre-formation-bts" class="voir-detail">Voir formation BTS</a>
                     </div>
                 </div>
 
                 <div class="timeline-item athlete">
                     <h3>Athlète de haut niveau</h3>
-                    <h4>Parcours clubs</h4>
-                    <div class="timeline-parcours">
-                        <time class="date">2008 - 2024</time>
-                        <h4 class="poste">Volleyeuse Professionnelle (Poste : Libéro)</h4>
-                        <h4 class="niveau">Division Elite Féminine</h4>
-                        <div class="lieu">REC Volley, Rennes</div>
-                        <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-pro" class="voir-detail">Voir
-                            le
-                            détail</a>
+                    <div>
+                        <h4>Parcours clubs</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2008 - 2024</time>
+                            <h5 class="poste">Volleyeuse Professionnelle (Poste : Libéro)</h5>
+                            <div class="niveau">Division Elite Féminine</div>
+                            <div class="lieu">REC Volley, Rennes</div>
+                            <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-pro" class="voir-detail">Voir
+                                parcours Club</a>
+                        </div>
                     </div>
-                    <h4>Parcours Equipe de France</h4>
-                    <div class="timeline-parcours">
-                        <time class="date">2006 - 2011</time>
-                        <h4 class="poste">Equipe de France (Poste : Libéro)</h4>
-                        <h4 class="niveau">Cadette / Junior / Espoir</h4>
-                        <div class="lieu">France et International</div>
-                        <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-edf" class="voir-detail">Voir
-                            le
-                            détail</a>
+                    <div>
+                        <h4>Parcours Equipe de France</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2006 - 2011</time>
+                            <h5 class="poste">Equipe de France (Poste : Libéro)</h5>
+                            <div class="niveau">Cadette / Junior / Espoir</div>
+                            <div class="lieu">France et International</div>
+                            <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-edf" class="voir-detail">Voir
+                                parcours EDF</a>
+                        </div>
                     </div>
                 </div>
 
@@ -164,7 +175,8 @@
                         <time class="date">2018 - 2022</time>
                         <h4 class="poste">Bénévole</h4>
                         <div class="lieu">REC Volley, Rennes</div>
-                        <a href="engagement-associatif.html#ancre-benevolat" class="voir-detail">Voir le détail</a>
+                        <a href="engagement-associatif.html#ancre-benevolat" class="voir-detail">Voir parcours
+                            bénévole</a>
                     </div>
                 </div>
 
@@ -190,7 +202,7 @@
 
 
                     <!-- Clone -->
-                    <img src="img1.jpg">
+                    <img src="images/plongeon.jpeg" class="slide" alt="Photo plongeon de volley">
 
                 </div>
 
@@ -219,13 +231,47 @@
 
     <script>
         const burger = document.querySelector('.burger-menu');
-        const menuMobile = document.querySelector('.menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
         burger.addEventListener('click', (e) => {
             e.stopPropagation();
-            menuMobile.classList.toggle('active');
+            toggleMenu();
         });
-        document.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
         });
     </script>
 
