@@ -17,7 +17,7 @@
     /* Espacements et dimensions */
     --espacement-global: 0.625rem 2rem;
     --gap-menu: 1.25rem;
-    --gap-grid: 2.5rem;
+    --gap-grid: 3rem;
     --gap-texte: 1.5rem;
     --rayon-bordure-standard: 0.625rem;
     --padding-cta: 1.25rem 1.875rem;
@@ -691,7 +691,6 @@ img[onclick] {
 .liste-savoir {
     display: grid;
     grid-template-columns: 1fr;
-    width: 70%;
     margin: auto;
     /*grid-template-columns: repeat(2, 1fr);
     grid-column: span 2;*/
@@ -1244,11 +1243,6 @@ video {
         grid-row: 4 !important;
     }
 
-    .blocks-parcours.competences,
-    .blocks-parcours.interets {
-        width: 80%;
-    }
-
     .article-press {
         display: flex;
         flex-direction: column;
@@ -1330,6 +1324,10 @@ video {
 
     .intro p {
         font-size: 1.8rem;
+    }
+
+    .blocks-parcours.competences {
+        width: 100%;
     }
 
     .voir-detail {
