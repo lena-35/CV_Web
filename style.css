@@ -1389,33 +1389,33 @@ video {
         font-size: 1.4rem;
     }
 
-.logo-parcours {
-    display: block;
-    grid-column: 1;
-    grid-row: 1;
+    .logo-parcours {
+        display: block;
+        grid-column: 1;
+        grid-row: 1;
 
-    justify-self: center;
-    align-self: center;
+        justify-self: center;
+        align-self: center;
 
-    width: 85%;
-    height: auto;
+        width: 80%;
+        height: auto;
 
-    opacity: 0.85;
-}
+        opacity: 0.85;
+    }
 
-.scroll-text {
-    grid-column: 1;
-    grid-row: 1;
+    .scroll-text {
+        grid-column: 1;
+        grid-row: 1;
 
-    display: flex;
+        display: flex;
 
 
-    width: 65%;
-    height: auto;
-    margin: auto;
+        width: 60%;
+        height: auto;
+        margin: auto;
 
-    overflow: hidden;
+        overflow: hidden;
 
-    z-index: 2;
-}
+        z-index: 2;
+    }
 }
