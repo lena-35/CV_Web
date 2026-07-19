@@ -188,10 +188,10 @@ section {
 .icone-telephone:hover .logo-telephone,
 .icone-maison:hover .logo-maison,
 .icone-linkedin:hover .logo-linkedin,
-.icone-mail:hover + p,
-.icone-telephone:hover + p,
-.icone-maison:hover + p,
-.icone-linkedin:hover + p {
+.icone-mail:hover+p,
+.icone-telephone:hover+p,
+.icone-maison:hover+p,
+.icone-linkedin:hover+p {
     opacity: 0.7;
     transform: scale(1.1);
 }
@@ -1078,8 +1078,10 @@ video {
 .scroll-container {
     overflow: hidden;
     white-space: nowrap;
-    width: 40%; /* Modifie cette valeur pour réduire la largeur (ex: 50%, 300px) */
-    margin: 0 auto; /* Centre le bandeau sur la page */
+    width: 45%;
+    /* Modifie cette valeur pour réduire la largeur (ex: 50%, 300px) */
+    margin: 0 auto;
+    /* Centre le bandeau sur la page */
 }
 
 /* Animation du texte */
@@ -1090,8 +1092,13 @@ video {
 }
 
 @keyframes marquee {
-    0% { transform: translate(0, 0); }
-    100% { transform: translate(-100%, 0); }
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
 }
 
 @media screen and (max-width: 64rem) {
@@ -1350,5 +1357,9 @@ video {
 
     .timeline-parcours>.detail {
         font-size: 1.4rem;
+    }
+
+    .scroll-container {
+        width: 75%;
     }
 }
