@@ -1225,22 +1225,28 @@ video {
     }
 
     /* 1. Centrage et empilement de l'introduction */
-.introduction {
+    .introduction {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important; /* Force le centrage horizontal de l'image ET du bloc texte */
+        align-items: center !important;
+        /* Force le centrage horizontal de l'image ET du bloc texte */
         width: 90%;
         padding: 6rem var(--padding-grid);
-        gap: 5rem; /* Ton écart uniforme entre l'image et le bloc texte */
+        gap: 5rem;
+        /* Ton écart uniforme entre l'image et le bloc texte */
     }
 
     .introduction div {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
         /* L'écart uniforme entre h1, p et a */
         padding-right: 0;
         text-align: center;
+    }
+
+    .introduction div a {
+        display: block !important;
+        margin-top: 1rem;
     }
 
     .introduction img {
@@ -1248,8 +1254,12 @@ video {
         /* Place l'image sous le texte */
         order: -1;
         /* Optionnel : si tu veux l'image tout en haut */
-        margin: 0 auto; /* Centre l'image horizontalement */
-        display: block; /* Nécessaire pour que margin auto fonctionne */
+        margin: 0 auto;
+        /* Centre l'image horizontalement */
+        display: block;
+        /* Nécessaire pour que margin auto fonctionne */
+        width: 350px;
+        height: 350px;
     }
 
     /* Contact Section */
