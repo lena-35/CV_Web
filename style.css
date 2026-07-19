@@ -65,7 +65,7 @@ h3 {
 }
 
 h4 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
@@ -96,7 +96,7 @@ div {
 }
 
 li {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
 }
 
 /* Layout Components */
@@ -816,11 +816,10 @@ img[onclick] {
 .savoir.savoir-etre>h4,
 .savoir.savoir-faire>h4 {
     text-align: center;
-    padding-right: 2.5rem; /* Rééquilibre le décalage provoqué par le padding-left du parent */
     width: 100%;
-    box-sizing: border-box;
-    margin: 0 0 1rem 0;
-    position: static;
+    margin-left: 0;
+    margin-right: 0;
+    /* On supprime position: relative et left:-1rem */
 }
 
 .savoir li {
@@ -1031,7 +1030,6 @@ img[onclick] {
     grid-column: 2;
     color: #3b3c3c;
     font-style: italic;
-    font-size: 1rem;
     margin-top: 0.5rem;
     margin-bottom: 0.6rem;
     margin-right: 1rem;
@@ -1202,7 +1200,6 @@ video {
 
     .menu {
         display: none;
-        font-size: 2rem;
         flex-direction: column;
         position: absolute;
         top: 100%;
@@ -1215,6 +1212,10 @@ video {
         box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
     }
 
+    .menu a {
+        font-size: 3rem;
+    }
+
     .menu.active {
         display: flex !important;
     }
@@ -1225,7 +1226,8 @@ video {
         /* Une seule colonne */
         width: 90%;
         /* Un peu plus large sur petit écran */
-        padding: 6rem var(--padding-grid); /* Applique le même gap latéral que les blocs */
+        padding: 6rem var(--padding-grid);
+        /* Applique le même gap latéral que les blocs */
     }
 
     .introduction div {
@@ -1241,10 +1243,6 @@ video {
         /* Place l'image sous le texte */
         order: -1;
         /* Optionnel : si tu veux l'image tout en haut */
-    }
-
-    .titre h1 {
-        font-size: 2.2rem;
     }
 
     /* Contact Section */
@@ -1381,20 +1379,60 @@ video {
         height: 200px;
     }
 
+    h1 {
+        font-size: 4rem;
+    }
+
+    .titre h1 {
+        font-size: 2.8rem;
+    }
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    h3 {
+        font-size: 2.3rem;
+    }
+
     h4 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
 
     /* Typography & Links */
     a {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
     }
 
     li {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
+    }
+
+    .voir-detail {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.date {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.poste {
+        font-size: 1.6rem;
+    }
+
+    .timeline-parcours>.niveau {
+        font-size: 1.5rem;
+    }
+
+    .timeline-parcours>.lieu {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.detail {
+        font-size: 1.4rem;
     }
 }
