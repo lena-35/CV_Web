@@ -692,6 +692,7 @@ img[onclick] {
     display: grid;
     grid-template-columns: 1fr;
     margin: auto;
+    width: 70%;
     /*grid-template-columns: repeat(2, 1fr);
     grid-column: span 2;*/
     margin-bottom: 1.5rem;
