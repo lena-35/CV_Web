@@ -1109,7 +1109,7 @@ video {
 }
 
 .scroll-text h2 {
-    margin: 0;
+    margin: 0 auto;
     white-space: nowrap;
     animation: marquee 8s linear infinite;
 }
