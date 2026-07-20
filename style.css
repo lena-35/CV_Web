@@ -305,7 +305,7 @@ section {
     margin: 0 auto;
     /* Centre le bloc horizontalement */
     background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
-    color: white;
+    color: var(--couleur-texte-clair);
     border-radius: 3.125rem;
     padding: var(--padding-cta);
     text-align: center;
@@ -850,7 +850,7 @@ img[onclick] {
     height: var(--cercle-taille);
     background-color: var(--couleur-timeline);
     border-radius: 50%;
-    border: var(--epaisseur-trait) solid white;
+    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
     box-shadow: 0 0 0 0.125rem var(--couleur-timeline);
     margin-top: 0.25rem;
     /*transition: transform 0.3s ease;*/
@@ -932,7 +932,7 @@ img[onclick] {
 .btn-telechargement {
     display: inline-block;
     background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
-    color: white;
+    color: var(--couleur-texte-clair);
     padding: 1rem 2rem;
     border-radius: 50px;
     text-decoration: none;
