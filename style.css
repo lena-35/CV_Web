@@ -1139,6 +1139,7 @@ video {
         font-size: 1.8rem;
         /* Ajuste la taille selon ton besoin */
         color: var(--couleur-texte-sombre);
+        margin-right: 0.5rem;
     }
 
     .burger-icon {
