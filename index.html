@@ -14,22 +14,30 @@
     <header>
         <nav>
             <a href="index.html" class="lien-icone">
-                <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE">
+                <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
             </a>
-            <div>
-                <a href="index.html">Accueil</a>
+
+            <div class="burger-menu" role="button" aria-label="Menu" aria-expanded="false" aria-controls="menu-mobile"
+                tabindex="0">
+                <span class="menu-text">MENU</span>
+                <img src="images/burger-logo.png" alt="" class="burger-icon">
+            </div>
+
+            <div class="menu" id="menu-mobile">
+                <a href="index.html" class="active">Accueil</a>
                 <a href="competences.html">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
                 <a href="athlete-haut-niveau.html">Athlète de haut niveau</a>
                 <a href="engagement-associatif.html">Engagement associatif</a>
                 <a href="formation.html">Formation</a>
-                <a href="loisirs.html">Loisirs</a>
+                <a href="interets.html">Intérêts</a>
                 <a href="contact.html">Contact</a>
             </div>
         </nav>
     </header>
+
     <main>
-        <section class="accueil-introduction">
+        <section class="introduction">
             <div>
                 <h1>Lénaïg LE MOIGNE</h1>
                 <p>
@@ -38,33 +46,281 @@
                     jeune, Pro A et Elite). Ma réactivité de Libéro est mon meilleur atout pour concevoir, développer et
                     dépanner des systèmes en environnement de production. »
                 </p>
-                <a href="contact.html" class="cta">UN PROJET ? ÉCRIVEZ-MOI</a>
+                <a href="contact.html">ON TRAVAILLE ENSEMBLE ? CONTACTEZ-MOI</a>
             </div>
-            <img src="images/robbie-lens.png" alt="Portrait avec effet de la photographe Robbie Lens">
+
+            <img src="images/lenaig.jpeg" alt="Photo de Lénaïg LE MOIGNE"
+                onclick="document.getElementById('modal-groupe').showModal()">
+            <dialog id="modal-groupe" onclick="this.close()">
+                <img src="images/lenaig.jpeg" alt="Photo de Lénaïg LE MOIGNE">
+            </dialog>
         </section>
-        <section class="accueil-parcours">
-            <h2>Mes derniers parcours</h2>
-            <div class="liste-parcours">
-                <div>
-                    Entreprise
-                </div>
-                <div>
-                    Formation
-                </div>
-                <div>
-                    Bénévolat
+
+        <section class="parcours">
+            <div class="scroll-container">
+                <img src="images/parcours.svg" class="logo-parcours">
+
+                <div class="scroll-text">
+                    <h2>Mes derniers parcours</h2>
                 </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE">
-        <div>
-            <a target="_blank" href="linkedin.com/in/lénaïg-le-moigne" class="lien-icone">
-                <img src="images/linkedin.png" alt="Logo LinkedIn">
+
+            <div class="blocks-parcours">
+
+                <div class="liste-item">
+                    <h3>Compétences</h3>
+                    <div class="liste-savoir">
+                        <div class="savoir savoir-etre">
+                            <h4>Savoir être</h4>
+                            <ul class="savoir  no-hover">
+                                <li>Travail d'équipe</li>
+                                <li>Communication</li>
+                                <li>Leadership</li>
+                                <li>...</li>
+                            </ul>
+                            <a href="competences.html#ancre-savoir-etre" class="voir-detail">Voir
+                                mes savoir-être</a>
+                        </div>
+                        <div class="savoir savoir-faire">
+                            <h4>Savoir faire</h4>
+                            <ul class="savoir  no-hover">
+                                <li>C#</li>
+                                <li>CAO PCB</li>
+                                <li>HTML/CSS</li>
+                                <li>...</li>
+                            </ul>
+                            <a href="competences.html#ancre-savoir-faire" class="voir-detail">Voir
+                                mes savoir-faire</a>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="timeline-item experience-professionnelle">
+                    <h3>Expérience professionnelle</h3>
+                    <div>
+                        <h4>Parcours Entreprises</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">11/2018 - 07/2025</time>
+                            <h5 class="poste">Ingénieure Informatique Industrielle</h5>
+                            <div class="lieu">Oberthur Fiduciaire, Chantepie</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-inge"
+                                class="voir-detail">Voir expérience Ingénieure</a>
+                        </div>
+                        <div class="timeline-parcours">
+                            <time class="date">10/2018 - 10/2018</time>
+                            <h5 class="poste">Professeur remplaçant de BTS en spécialité Réseau</h5>
+                            <div class="lieu">Lycée Victor Hélène Bach, Rennes</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-prof"
+                                class="voir-detail">Voir expérience Professeur</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Parcours Stages en entreprises</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2014 - 2018</time>
+                            <h5 class="poste">Stagiaire en entreprise</h5>
+                            <div class="lieu">Rennes, Nantes, Le Rheu</div>
+                            <a href="experience-professionnelle.html#ancre-experience-professionnelle-stages"
+                                class="voir-detail">Voir mes stages</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item formation">
+                    <h3>Formation</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">2015 - 2018</time>
+                        <h4 class="poste">Cycle Ingénieur, Electronique et Informatique Industrielle, obtenu</h4>
+                        <div class="lieu">INSA (Institut National des Sciences Appliquées), Rennes</div>
+                        <a href="formation.html#ancre-formation-inge" class="voir-detail">Voir formation Ingénieure</a>
+                    </div>
+                    <div class="timeline-parcours">
+                        <time class="date">2014 - 2015</time>
+                        <h4 class="poste">Licence Professionnelle SEICOM, obtenu</h4>
+                        <div class="lieu">IUT de Nantes, Nantes</div>
+                        <a href="formation.html#ancre-formation-licence" class="voir-detail">Voir formation Licence</a>
+                    </div>
+                    <div class="timeline-parcours">
+                        <time class="date">2012 - 2014</time>
+                        <h4 class="poste">BTS Systèmes Electroniques, obtenu</h4>
+                        <div class="lieu">Lycée Pierre de Coubertin, Nancy</div>
+                        <a href="formation.html#ancre-formation-bts" class="voir-detail">Voir formation BTS</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item athlete">
+                    <h3>Athlète de haut niveau</h3>
+                    <div>
+                        <h4>Parcours clubs</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2008 - 2024</time>
+                            <h5 class="poste">Volleyeuse Professionnelle (Poste : Libéro)</h5>
+                            <div class="niveau">Division Elite Féminine</div>
+                            <div class="lieu">REC Volley, Rennes</div>
+                            <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-pro" class="voir-detail">Voir
+                                parcours Club</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>Parcours Equipe de France</h4>
+                        <div class="timeline-parcours">
+                            <time class="date">2006 - 2011</time>
+                            <h5 class="poste">Equipe de France (Poste : Libéro)</h5>
+                            <div class="niveau">Cadette / Junior / Espoir</div>
+                            <div class="lieu">France et International</div>
+                            <a href="athlete-haut-niveau.html#ancre-athlete-haut-niveau-edf" class="voir-detail">Voir
+                                parcours EDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item benevole">
+                    <h3>Engagement associatif</h3>
+                    <div class="timeline-parcours">
+                        <time class="date">2018 - 2022</time>
+                        <h4 class="poste">Bénévole</h4>
+                        <div class="lieu">REC Volley, Rennes</div>
+                        <a href="engagement-associatif.html#ancre-benevolat" class="voir-detail">Voir parcours
+                            bénévole</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="documents/mon-cv.pdf" download="CV_Lenaig_LE_MOIGNE.pdf" class="btn-telechargement">
+                Télécharger mon CV (PDF)
             </a>
-        </div>
+
+        </section>
+
+        <section>
+
+            <div class="slider">
+
+                <div class="slides" id="slides">
+
+                    <img src="images/plongeon.jpeg" class="slide" alt="Photo plongeon de volley">
+                    <img src="images/reception.jpeg" class="slide" alt="Photo réception de volley">
+                    <img src="images/groupe.jpeg" class="slide" alt="Photo regroupement point">
+                    <img src="images/edf-hymnes.jpeg" class="slide" alt="Photo hymnes nationales">
+                    <img src="images/plongeon.jpeg" class="slide" alt="Photo plongeon de volley">
+
+
+                    <!-- Clone -->
+                    <img src="images/plongeon.jpeg" class="slide" alt="Photo plongeon de volley">
+
+                </div>
+
+            </div>
+
+            <div class="dots">
+
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="index.html" class="lien-icone">
+            <img src="images/logo-llm.svg" alt="Logo Lénaïg LE MOIGNE" class="logo-llm">
+        </a>
+        <a href="https://fr.linkedin.com/in/lénaïg-le-moigne" target="_blank" class="lien-icone">
+            <img src="images/logo-linkedin.svg" alt="Logo LinkedIn" class="logo-linkedin">
+        </a>
     </footer>
+
+    <script>
+        const burger = document.querySelector('.burger-menu');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        // Fonction unique pour basculer le menu
+        function toggleMenu() {
+            const estOuvert = burger.getAttribute('aria-expanded') === 'true';
+            burger.setAttribute('aria-expanded', !estOuvert);
+            menuMobile.classList.toggle('active');
+
+            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
+            if (!estOuvert) {
+                // Trouve le premier lien à l'intérieur du menu ouvert
+                const premierLien = menuMobile.querySelector('a');
+                if (premierLien) {
+                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
+                    setTimeout(() => {
+                        premierLien.focus();
+                    }, 100);
+                }
+            }
+        }
+
+        // Gestion du clic
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // Gestion du clavier (Entrée et Espace)
+        burger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMenu();
+            }
+        });
+
+        // Fermeture au clic extérieur
+        document.addEventListener('click', (e) => {
+            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+
+    <script>
+        const slides = document.getElementById("slides");
+        const dots = document.querySelectorAll(".dot");
+        const slider = document.querySelector(".slider");
+        const nbImages = 4;
+        // Paramètres
+        const displayDuration = 4;      // secondes
+        const transitionDuration = 0.5; // secondes
+        let index = 0;
+
+        function updateDots() {
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index % nbImages].classList.add("active");
+        }
+
+        function nextSlide() {
+            index++;
+            const largeur = slider.offsetWidth;
+            slides.style.transition = `transform ${transitionDuration}s ease`;
+            slides.style.transform = `translateX(-${index * largeur}px)`;
+            updateDots();
+        }
+
+        setInterval(nextSlide, (displayDuration + transitionDuration) * 1000);
+
+        slides.addEventListener("transitionend", () => {
+            if (index === nbImages) {
+                slides.style.transition = "none";
+                index = 0;
+                slides.style.transform = "translateX(0px)";
+                updateDots();
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        slides.style.transition = `transform ${transitionDuration}s ease`;
+                    });
+                });
+            }
+        });
+    </script>
+
 </body>
 
 </html>

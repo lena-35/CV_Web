@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Contact - Lénaïg LE MOIGNE</title>
+    <title>Compétances - CV Lénaïg LE MOIGNE</title>
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,46 +25,48 @@
 
             <div class="menu" id="menu-mobile">
                 <a href="index.html">Accueil</a>
-                <a href="competences.html">Compétences</a>
+                <a href="competences.html" class="active">Compétences</a>
                 <a href="experience-professionnelle.html">Expérience professionnelle</a>
                 <a href="athlete-haut-niveau.html">Athlète de haut niveau</a>
                 <a href="engagement-associatif.html">Engagement associatif</a>
                 <a href="formation.html">Formation</a>
                 <a href="interets.html">Intérêts</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html">Contact</a>
             </div>
         </nav>
     </header>
+
     <main>
         <section class="titre">
-            <h1>Contact</h1>
+            <h1>Mes compétences</h1>
         </section>
+
         <section class="parcours">
-            <div class="contact-info">
-                <div class="mail"> <a href="mailto:lenaig.lemoigne@gmail.com"
-                        class="icone-mail" title="Envoyer un email">
-                        <img src="images/logo-mail.svg" alt="Logo Mail" class="logo-mail">
-                    </a>
-                    <p>lenaig.lemoigne@gmail.com</p>
+            <h2 class="sr-only">Détails de mes compétences</h2>
+            <div class="blocks-parcours competences">
+                <div class="liste-item savoir-etre">
+                    <h3 id="ancre-savoir-etre">Mes savoir-être</h3>
+                    <ul class="savoir no-hover">
+                        <li><strong>[Team]</strong> Travail en équipe, Écoute</li>
+                        <li><strong>[Vif]</strong> Réactivité Libéro</li>
+                        <li><strong>[Agile]</strong> Curiosité, Autonomie</li>
+                        <li><strong>[Orga]</strong> Organisation, Précision</li>
+                    </ul>
                 </div>
-                <div class="tel"> <a href="tel:+33678642779"
-                        class="icone-telephone" title="Appeler">
-                        <img src="images/logo-telephone.svg" alt="Logo Telephone" class="logo-telephone">
-                    </a>
-                    <p>06 78 64 27 79</p>
+                <div class="liste-item savoir-faire">
+                    <h3 id="ancre-savoir-faire">Mes savoir-faire</h3>
+                    <ul class="savoir no-hover">
+                        <li><strong>[Dev]</strong> C#, C, FrontEnd (html, css)</li>
+                        <li><strong>[Outils]</strong> Visual Studio, GIT, Azure DevOps</li>
+                        <li><strong>[Elec]</strong> CAO PCB (Schématique & Routage), Brasage, Câblage</li>
+                        <li><strong>[Bus]</strong> SPI, I2C, RS232</li>
+                        <li><strong>[Qualité]</strong> Débogage, Tests , Formation utilisateur</li>
+                        <li><strong>[Vision]</strong> Sapera, OpenCV (Traitement d’image)</li>
+                        <li><strong>[Réseau]</strong> IP, VLAN, VM</li>
+                        <li><strong>[Prod]</strong> Maintenance, Réseau, EPI/Sécurité</li>
+                    </ul>
                 </div>
-                <div class="home"> <a href="https://www.google.com/maps/place/Rennes" target="_blank"
-                        class="icone-maison" title="Voir sur la carte">
-                        <img src="images/logo-maison.svg" alt="Logo Maison" class="logo-maison">
-                    </a>
-                    <p>Rennes, France</p>
-                </div>
-                <div class="social">
-                    <a href="https://fr.linkedin.com/in/lénaïg-le-moigne" target="_blank" class="icone-linkedin"  title="Ouvrir LinkedIn">
-                        <img src="images/logo-linkedin-2.svg" alt="Logo LinkedIn" class="logo-linkedin">
-                    </a>
-                    <p>LinkedIn</p>
-                </div>
+
             </div>
 
         </section>

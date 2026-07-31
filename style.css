@@ -1,187 +1,1402 @@
+:root {
+    /* Couleurs */
+    --couleur-fond-header-footer: #ffffff;
+    --couleur-fond-section-1: #163853;
+    --couleur-fond-section-2-depart: #cfcdcd;
+    --couleur-fond-section-2-arrivee: #f6efef;
+    --couleur-fond-timeline: #eae6e6;
+    --couleur-texte-clair: #f9f8ff;
+    --couleur-texte-sombre: #242424;
+    --couleur-fond-block: #ffffff;
+    --couleur-degrade-cta-depart: #696484;
+    --couleur-degrade-cta-arrivee: #a3a4d9;
+    --couleur-degrade-cta-hover-depart: #a29ace;
+    --couleur-degrade-cta-hover-arrivee: #b6b9f9;
+    --couleur-timeline: #8e86b5;
+
+    /* Espacements et dimensions */
+    --espacement-global: 0.625rem 2rem;
+    --gap-menu: 1.25rem;
+    --gap-grid: 3rem;
+    --gap-texte: 1.5rem;
+    --rayon-bordure-standard: 0.625rem;
+    --padding-cta: 1.25rem 1.875rem;
+    --padding-section: 5rem 0;
+    --padding-grid: 2rem;
+    --padding-block: 0.625rem;
+    --colonne-gauche-grid-largeur: 2rem;
+    --width-intro: 75%;
+
+    /* Variables dynamiques */
+    --hauteur-header: 4.5rem;
+    --hauteur-barre-active: 0.3125rem;
+    --cercle-taille: 0.625rem;
+    --epaisseur-trait: 0.1875rem;
+    --top-trait: 2.2rem;
+}
+
 * {
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Manrope', sans-serif;
-    font-size: 1em;
-    background-color: #163853;
-}
-
-a {
-    color: #242424;
-    text-decoration: none;
-}
-
-em {
-    color: #a5b4fc;
-    font-style: normal;
+    font-size: 1rem;
+    background-color: var(--couleur-fond-section-1);
+    padding-top: var(--hauteur-header);
 }
 
 h1 {
-    font-size: 3.5em;
-    color: #f9f8ff;
+    font-size: 3rem;
+    color: var(--couleur-texte-clair);
     font-family: 'Montserrat', sans-serif;
 }
 
 h2 {
-    color: #f9f8ff;
+    font-size: 2.5rem;
+    color: #151515;
 }
 
-p,
-li {
-    font-size: 1.1em;
-    color: #f9f8ff;
+h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
-header,
-footer {
-    background-color: white;
-    padding: 1em 0.5em 1em 0.5em;
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
-.cta {
-    display: inline-block;
-    background: linear-gradient(#8e86b5, #acaeed);
-    color: white;
-    border-radius: 50px;
-    padding: 20px 30px;
+h5 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.3rem;
+    color: var(--couleur-texte-clair);
+}
+
+/* Typography & Links */
+a {
+    color: var(--couleur-texte-sombre);
+    text-decoration: none;
+    font-size: 1.1rem;
 }
 
 a:hover {
     text-decoration: underline;
 }
 
-.cta:hover {
-    background: linear-gradient(#696484, #8788ba);
-    text-decoration: none;
+div {
+    font-size: 1.3rem;
+    color: var(--couleur-texte-sombre);
 }
 
-.carre-contenu {
-    padding: 50px;
-    margin-top: 50px;
-    margin-bottom: 80px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto 100px auto auto;
-    text-align: center;
-    border-right: 2px solid #8e86b5;
-    border-bottom: 2px solid #8e86b5;
-    color: white;
+li {
+    font-size: 1.3rem;
 }
 
-.carre-contenu .une {
-    grid-column: 1/4;
-    grid-row: 3/4;
+/* Layout Components */
+header,
+footer {
+    background-color: var(--couleur-fond-header-footer);
+    padding: var(--espacement-global);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.carre-contenu .deux {
-    grid-column: 1/4;
-    grid-row: 4/5;
-    font-size: 4em;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--hauteur-header);
+    z-index: 2000;
 }
 
-.carre-contenu h2 {
-    margin-top: 30px;
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
 }
 
-.carre-contenu div {
-    gap: 10px;
-    font-size: 1.5em;
+/* Navigation & Burger */
+.burger-menu {
+    display: none;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: var(--gap-menu);
+}
+
+.menu a {
+    font-weight: bold;
+    font-size: 1.05rem;
+    padding-bottom: var(--hauteur-barre-active);
+    border-bottom: var(--hauteur-barre-active) solid transparent;
+}
+
+.menu a.active {
+    border-bottom: var(--hauteur-barre-active) solid var(--couleur-timeline);
 }
 
 main {
-    width: 100%;
-    margin: auto;
+
+    /* La hauteur minimale du main est la hauteur de l'écran 
+       moins la hauteur du header et du footer */
+    min-height: calc(100vh - var(--hauteur-header));
+    display: flex;
+    flex-direction: column;
+}
+
+/* Force la dernière section à prendre tout l'espace disponible */
+section:last-child {
+    flex-grow: 1;
 }
 
 section {
-    padding: 80px 0;
+    padding: var(--padding-section);
 }
 
-.contact-main {
-    width: 80%;
+/* Buttons & Icons */
+.logo-llm {
+    height: 3rem;
+    width: auto;
+    display: block;
+}
+
+.logo-linkedin {
+    height: 2.8rem;
+    width: auto;
+    display: block;
+}
+
+.lien-icone {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.icone-mail:hover .logo-mail,
+.icone-telephone:hover .logo-telephone,
+.icone-maison:hover .logo-maison,
+.icone-linkedin:hover .logo-linkedin,
+.icone-mail:hover+p,
+.icone-telephone:hover+p,
+.icone-maison:hover+p,
+.icone-linkedin:hover+p {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* Contact Section */
+.contact-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    padding: var(--padding-grid);
+    text-align: center;
+    color: var(--couleur-texte-sombre);
+    background-color: var(--couleur-fond-block);
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.contact-info .mail {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.contact-info .tel {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.contact-info .home {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 5rem;
+}
+
+.contact-info .social {
+    grid-column: 2;
+    grid-row: 2;
+    margin-top: 5rem;
+}
+
+.contact-info p {
+    color: var(--couleur-texte-sombre);
+    font-size: 2rem;
+}
+
+.contact-info .home img,
+.contact-info .mail img {
+    display: block;
+    margin: 0 auto;
+    width: 3rem;
+    height: auto;
+}
+
+.contact-info .tel img {
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    height: 3rem;
+}
+
+.contact-info .social img {
+    display: block;
+    margin: 0 auto;
+    width: 3rem;
+    height: auto;
+}
+
+/* Introduction */
+.introduction {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: var(--width-intro);
+    margin: auto;
+    gap: var(--gap-grid);
+    /* gap entre l'intro et la photo */
+
+}
+
+.introduction div {
+    padding-right: 5rem;
+    grid-column: 1/3;
+    width: 100%;
+}
+
+.introduction h1 {
+    margin-bottom: 1rem;
+}
+
+.introduction p {
+    margin-bottom: 2rem;
+    text-align: justify;
+
+    /* 1. Autorise la coupure des mots avec des tirets (la clé du problème) */
+    -webkit-hyphens: auto;
+    /* Safari iPhone */
+    hyphens: auto;
+
+    /* 2. Indique que l'espacement doit se faire entre les mots uniquement */
+    text-justify: inter-word;
+
+    /* 3. Sécurité pour les mots trop longs qui pourraient dépasser */
+    word-break: break-word;
+
+    /* 4. Pour un rendu encore plus doux sur les navigateurs modernes */
+    overflow-wrap: break-word;
+}
+
+.introduction a {
+    display: block;
+    /* Important pour que margin fonctionne */
+    width: fit-content;
+    /* Le bouton prend uniquement la largeur de son texte */
+    margin: 0 auto;
+    /* Centre le bloc horizontalement */
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    color: var(--couleur-texte-clair);
+    border-radius: 3.125rem;
+    padding: var(--padding-cta);
+    text-align: center;
+}
+
+.introduction a:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    text-decoration: none;
+}
+
+.introduction a:hover,
+.introduction a:focus-visible {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    text-decoration: none;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
+}
+
+/* On cible l'image à l'intérieur de son conteneur */
+.introduction img {
+    grid-column: 3/4;
+    /* Pour éviter qu'elle ne colle au texte */
+    display: block;
+    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
+    margin: 0 auto;
+    /* Centre horizontalement l'image */
+    align-self: center;
+    /* Centre verticalement l'image dans le conteneur flex */
+    /* 3. On s'assure que l'image ne dépasse pas */
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    /* Garde les proportions et centre */
+
+    /* 2. Rend l'image circulaire */
+    border-radius: 50%;
+
+    /* 3. Recadre l'image pour qu'elle remplisse le cercle sans déformation */
+    object-fit: cover;
+    object-position: center;
+    /* Centre le visage dans le cercle */
+}
+
+.titre h1 {
+    width: var(--width-intro);
     margin: auto;
 }
 
-footer,
-nav {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+/* Parcours & Blocks */
+.parcours {
+    display: grid;
+    background: linear-gradient(var(--couleur-fond-section-2-depart), var(--couleur-fond-section-2-arrivee));
+    padding: 5rem 5rem 5rem 5rem;
+    align-content: start;
+    justify-self: center;
 }
 
-nav>div {
-    display: flex;
-    gap: 20px;
-    margin-left: auto;
-    align-items: center;
+.parcours h2 {
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
-nav>div a {
-    font-size: 1em;
+.blocks-parcours {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: var(--gap-grid);
+    /* gap entre les grid */
+    /*margin-bottom: 0.9375rem;*/
+    text-align: center;
+    position: relative;
+    /*align-items: start;*/
+}
+
+.blocks-parcours.formation {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.blocks-parcours.experience-professionnelle {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
+    justify-self: center;
+}
+
+.blocks-parcours.benevole {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
+
+    /* C'est la ligne clé pour égaliser les hauteurs */
+    align-items: stretch;
+}
+
+.blocks-parcours.benevole .timeline-item {
+    grid-column: 1;
+    grid-row: 1;
+    /* Force sur la première ligne */
+}
+
+.article-rec {
+    background-color: #212121;
+    /* Gris très sombre */
+    color: var(--couleur-texte-clair);
+    /* Gris clair pour le texte */
+    font-family: Arial, sans-serif;
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.titre-article {
+    background-color: #997f0f;
+    /* Brun-olive */
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.titre-article h3 {
+    color: var(--couleur-texte-clair);
+    margin: 0;
+}
+
+.contenu {
+    padding: 0 2rem;
+}
+
+.contenu p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    color: var(--couleur-texte-clair);
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.images-article {
+    display: flex;
+    justify-content: center;
+    /* Centre les images horizontalement */
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.images-article img {
+    width: 45%;
+    height: auto;
+    display: block;
+}
+
+.citation {
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--couleur-texte-clair);
+}
+
+.auteur {
     font-weight: bold;
+    font-style: normal;
+    margin-top: 1rem;
+    color: var(--couleur-texte-clair);
+}
+
+.citation p,
+.auteur p {
+    text-align: center;
+}
+
+
+.blocks-parcours.benevole .photos,
+.blocks-parcours.athlete .photos,
+.blocks-parcours.interets .photos {
+    /* Maintien du grid */
+    display: grid;
+    height: 100%;
+    background-color: transparent;
+
+    /* CORRECTIONS POUR LE CENTRAGE */
+    place-items: center;
+    /* Centre horizontalement et verticalement */
+    padding: 0;
+    /* IMPORTANT : supprime tout padding qui décale l'image */
     margin: 0;
+    /* IMPORTANT : supprime toute marge */
 }
 
-nav .lien-icone {
-    margin: 0;
+.blocks-parcours.athlete .photos.pro {
+    grid-column: 2;
+    grid-row: 1;
 }
 
-.lien-icone:hover {
-    opacity: 0.5;
+.blocks-parcours.athlete .photos.edf {
+    grid-column: 1;
+    grid-row: 2;
 }
 
-.accueil-introduction {
-    display: flex;
-    flex-direction: row;
-    width: 80%;
-    align-items: flex-start;
+.blocks-parcours.athlete {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    /* C'est la ligne clé pour égaliser les hauteurs */
+    align-items: stretch;
+}
+
+.blocks-parcours.athlete .timeline-item.pro {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.blocks-parcours.athlete .timeline-item.edf {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.photos.pro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* On force le conteneur de chaque image */
+.photos.pro img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.photos.edf {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    /* S'assure qu'elles sont côte à côte */
+    gap: 1rem;
+    /* Définit l'espace entre les deux images (ajuste la valeur selon tes besoins) */
+    align-items: center;
+}
+
+.edf-1 {
+    grid-column: 1/3;
+    grid-row: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.edf-2 {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.edf-1 img,
+.edf-2 img {
+    width: 100%;
+    height: 250px;
+    /* Hauteur fixe identique pour toutes */
+    object-fit: cover;
+    /* Coupe proprement */
+    object-position: center;
+    /* Centre l'image */
+    border-radius: 8px;
+    /* Coins arrondis */
+}
+
+.photos.interets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+/* On force le conteneur de chaque image */
+.photos.interets img {
+    width: 100%;
+    height: 300px;
+    /* Hauteur fixe identique pour toutes */
+    object-fit: cover;
+    /* Coupe proprement */
+    object-position: center;
+    /* Centre l'image */
+    border-radius: 8px;
+    /* Coins arrondis */
+}
+
+dialog[open] {
+    /* Remise à zéro agressive pour le dialog */
+    margin: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    line-height: 0 !important;
+    /* Annulation de toute ombre ou effet système */
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+/* Forcer l'image à coller parfaitement */
+dialog[open] img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 8px;
+
+    /* Ajoute uniquement cette ligne */
+    aspect-ratio: auto !important;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+img[onclick] {
+    cursor: pointer;
+}
+
+.blocks-parcours.competences,
+.blocks-parcours.interets {
+    display: grid;
+    /* On force 1 seule colonne qui s'adapte à la largeur dispo */
+    grid-template-columns: 1fr;
+    align-content: start;
+    /* On définit une largeur maximale pour ne pas que ce soit trop large sur PC */
+    width: 70%;
+    /*max-width: 600px;*/
+    /* Centrage du bloc dans la page */
+    justify-self: center;
+    /*gap: 2.5rem;*/
+    line-height: 1.5rem;
+}
+
+.blocks-parcours.athlete ul {
+    text-align: justify;
+    margin-top: 0.5rem;
+}
+
+.blocks-parcours.athlete .intro {
+    text-align: justify;
+    padding-bottom: 2rem;
+    --padding-left-right: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block) - var(--cercle-taille) / 2);
+    padding: 0 var(--padding-left-right) 1.5rem var(--padding-left-right);
+    ;
+}
+
+.blocks-parcours p {
+    color: var(--couleur-texte-sombre);
+    text-align: justify;
+    font-weight: bold;
+    gap: 4rem;
+}
+
+.liste-item.savoir-etre,
+.liste-item.savoir-faire,
+.liste-item.loisirs {
+    /* Nettoyage des positions forcées */
+    grid-row: auto;
+    grid-column: auto;
+    /* On assure que les éléments ne dépassent pas de la colonne */
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 3.5rem;
+}
+
+.blocks-parcours>div {
+    position: relative;
+    padding: var(--padding-grid) var(--padding-grid) calc(var(--padding-grid)/2) var(--padding-grid);
+    background: var(--couleur-fond-block);
+    color: #242424;
+    border-radius: var(--rayon-bordure-standard);
+    /*min-height: 6.25rem;*/
+}
+
+/* Savoir */
+.liste-savoir {
+    display: grid;
+    grid-template-columns: 1fr;
     margin: auto;
+    width: 80%;
+    /*grid-template-columns: repeat(2, 1fr);
+    grid-column: span 2;*/
+    margin-bottom: 1.5rem;
+    gap: var(--gap-grid);
+    /* gap entre les deux grid compétences page accueil */
+    align-items: start;
+    /* On impose une hauteur minimale pour éviter les sauts */
+    /* min-height: 10rem;*/
 }
 
-.accueil-introduction h1 {
-    margin-bottom: 15px;
+.liste-savoir.no-hover>ul {
+    line-height: 2;
 }
 
-.accueil-introduction p {
-    margin-bottom: 30px;
+.savoir {
+    list-style: none;
+    color: var(--couleur-texte-sombre);
+    width: 100%;
+    /* Change 80% par 100% pour remplir la grid */
+    margin: 0;
+    /* Retire le auto pour que ça ne soit pas centré */
+    text-align: left;
+    contain: layout;
+    padding: var(--padding-block) var(--padding-block) var(--padding-block) 2.5rem;
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.savoir.savoir-etre>h4,
+.savoir.savoir-faire>h4 {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    /* On supprime position: relative et left:-1rem */
+}
+
+.savoir li {
+    line-height: 2rem;
+}
+
+/* Petit visuel de "check" avant chaque compétence */
+.savoir li:not(.pays)::before {
+    content: "◆";
+    margin-right: 10px;
+    font-weight: bold;
+
+}
+
+.savoir.no-hover li:not(.pays)::before {
+    /* Ajoute une marge négative pour décaler vers la gauche */
+    margin-left: -1rem;
+}
+
+/* Force le scroll à bien se caler sur le titre */
+#ancre-savoir-etre,
+#ancre-savoir-faire,
+#ancre-experience-professionnelle-inge,
+#ancre-experience-professionnelle-prof,
+#ancre-experience-professionnelle-stages,
+#ancre-formation-inge,
+#ancre-formation-licence,
+#ancre-formation-bts,
+#ancre-athlete-haut-niveau-pro,
+#ancre-athlete-haut-niveau-edf,
+#ancre-benevolat {
+    display: block;
+    /* Important pour que l'ancre soit un bloc */
+    scroll-margin-top: 150px;
+    /* Ajuste selon la hauteur de ton menu fixe */
+}
+
+/* Bordures latérales colorées */
+.savoir-etre {
+    border: 2px solid var(--couleur-fond-section-1);
+    border-left-width: 15px;
+}
+
+.savoir-faire {
+    border: 2px solid var(--couleur-timeline);
+    border-left-width: 15px;
+}
+
+.savoir:not(.no-hover),
+.timeline-parcours:not(.no-hover),
+.photos img,
+.introduction img {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    will-change: transform;
+}
+
+.savoir:not(.no-hover):hover,
+.timeline-parcours:not(.no-hover):hover,
+.savoir:not(.no-hover):focus-within,
+.timeline-parcours:not(.no-hover):focus-within {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+    transform: scale(1.02);
+}
+
+.photos img:hover,
+.introduction img:hover,
+.photos img:focus-visible,
+.introduction img:focus-visible {
+    transform: scale(1.05);
+}
+
+.timeline-item,
+.liste-item,
+.contact-info {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Timeline */
+.liste-item {
+    grid-column: 1/3;
+    grid-row: 1;
+}
+
+.timeline-item.experience-professionnelle {
+    grid-column: 3/5;
+    grid-row: 1;
+}
+
+.timeline-item.formation {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.timeline-item.athlete {
+    grid-column: 3/5;
+    grid-row: 2;
+}
+
+.timeline-item.benevole {
+    grid-column: 2/4;
+    grid-row: 3;
+}
+
+.timeline-parcours {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--colonne-gauche-grid-largeur) 1fr;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    padding: var(--padding-block);
+    border-radius: var(--rayon-bordure-standard);
+    text-align: left;
+    contain: layout;
+}
+
+.timeline-parcours::before {
+    content: '';
+    grid-column: 1;
+    justify-self: center;
+    width: var(--cercle-taille);
+    height: var(--cercle-taille);
+    background-color: var(--couleur-timeline);
+    border-radius: 50%;
+    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
+    box-shadow: 0 0 0 0.125rem var(--couleur-timeline);
+    margin-top: 0.25rem;
+    /*transition: transform 0.3s ease;*/
+}
+
+.timeline-parcours::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block));
+    transform: translateX(-50%);
+    top: var(--top-trait);
+    bottom: var(--padding-block);
+    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
+}
+
+.timeline-parcours>.date,
+.timeline-parcours>.poste,
+.timeline-parcours>.niveau,
+.timeline-parcours>.lieu,
+.timeline-parcours>.detail {
+    grid-column: 2;
+    margin: 0;
+    /*transition: font-size 0.2s ease;*/
     text-align: justify;
 }
 
-.accueil-introduction div {
-    padding-right: 80px;
+.timeline-parcours>.date {
+    font-size: 1.2rem;
 }
 
-.accueil-parcours {
-    background-color: #cfd5dd;
-    padding: 80px;
-    display: grid;
+.timeline-parcours>.poste {
+    grid-column: 2;
+    margin: 0;
+    /*transition: font-size 0.2s ease;*/
+    text-align: left;
+    color: var(--couleur-fond-section-1);
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
-.accueil-parcours h2 {
-    color: #242424;
+.timeline-parcours>.niveau {
+    color: var(--couleur-fond-section-1);
+    font-size: 1.2rem;
+    font-weight: normal;
+
+}
+
+.timeline-parcours>.lieu {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.timeline-parcours>.detail {
+    padding-top: 0.2rem;
+    line-height: 1.6;
+}
+
+.timeline-parcours li {
+    font-size: 1.1rem;
+}
+
+.voir-detail {
+    display: block;
+    margin-left: auto;
+    /* Pousse l'élément vers la droite */
+    width: max-content;
+    /* L'élément s'adapte à la largeur du texte */
+    text-align: right;
+    grid-column: 2;
+    color: #3b3c3c;
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 0.6rem;
+    margin-right: 1rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.btn-telechargement {
+    display: inline-block;
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    color: var(--couleur-texte-clair);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
     text-align: center;
-    margin-bottom: 80px;
+    transition: transform 0.2s ease, background 0.2s ease;
+    margin: auto;
+    /* Centré par défaut */
+    margin-top: 5rem;
 }
 
-.liste-parcours {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 15px;
-    text-align: center;
+.btn-telechargement:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    transform: scale(1.05);
+    text-decoration: none;
 }
 
-.liste-parcours > div {
+.slider {
+    width: 750px;
+    height: 422px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slides {
     display: flex;
-    align-items: center;
+    transition: transform .5s ease;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    /* ou cover selon le rendu souhaité */
+    object-position: center;
+}
+
+.dots {
+    display: flex;
     justify-content: center;
-    padding: 20px;
-    background: white;
-    color: #242424;
-    min-height: 100px;
-    border-radius: 10px;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    opacity: .35;
+
+    transition: .3s;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+/* 1. La section globale : active le Flexbox pour tout centrer */
+.article-press {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permet de passer à la ligne sur mobile */
+    justify-content: center;
+    gap: 8%;
+    padding: 3rem;
+}
+
+/* 2. Le titre prend toute la largeur et se place au-dessus */
+.article-press h3 {
+    flex-basis: 100%;
+    text-align: center;
+    color: var(--couleur-texte-clair);
+    font-size: 3.5rem;
+    margin: 0 0 4rem 0;
+}
+
+/* 3. Conteneurs : largeur fixe pour aligner les blocs sur la ligne 2 */
+.article-container,
+.video-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    /* Aligne le titre, l'image et le texte verticalement */
+    /* Largeur identique pour tous */
+}
+
+/* 5. Style et zoom de l'image */
+.image-article,
+.image-page,
+video {
+    width: auto;
+    height: 250px;
+    /* Hauteur identique */
+    object-fit: cover;
+    /* Rogne intelligemment pour remplir l'espace */
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+/* Zoom au survol sur l'image via le lien */
+.article-container a:hover .image-article,
+.article-container a:hover .image-page,
+.video-container:hover video {
+    transform: scale(1.05);
+}
+
+/* 6. Style pour les titres des blocs (h4) */
+.article-container h4,
+.video-container h4 {
+    margin-top: 10px;
+    color: var(--couleur-texte-clair);
+}
+
+/* 7. Style du paragraphe */
+.article-container p {
+    padding-top: 1rem;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.scroll-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+
+    /* Bordure du conteneur parent */
+    padding-bottom: 5rem;
+}
+
+.logo-parcours {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 50%;
+    height: auto;
+
+    opacity: 0.85;
+}
+
+.scroll-text {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+
+
+    width: 38%;
+    height: auto;
+    margin: auto;
+
+    overflow: hidden;
+
+    z-index: 2;
+}
+
+.scroll-text h2 {
+    margin: 0 auto;
+    white-space: nowrap;
+    animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@media screen and (max-width: 64rem) {
+    .burger-menu {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: 4.5rem !important;
+        padding: 0 1rem !important;
+        margin: 0 !important;
+    }
+
+    .menu-text {
+        font-weight: bold;
+        font-size: 1.8rem;
+        /* Ajuste la taille selon ton besoin */
+        color: var(--couleur-texte-sombre);
+        margin-right: 0.5rem;
+    }
+
+    .burger-icon {
+        width: 3rem;
+        /* Ajuste la taille de ton icône */
+        height: auto;
+        /* Garde les proportions */
+        display: block;
+    }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: rgba(240, 242, 245, 0.95);
+        padding: 1.875rem 0;
+        z-index: 1000;
+        text-align: center;
+        box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
+    }
+
+    .menu a {
+        font-size: 2.5rem;
+    }
+
+    .menu.active {
+        display: flex !important;
+    }
+
+    /* 1. Centrage et empilement de l'introduction */
+    .introduction {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        /* Force le centrage horizontal de l'image ET du bloc texte */
+        width: 90%;
+        padding: 6rem var(--padding-grid);
+        gap: 5rem;
+        /* Ton écart uniforme entre l'image et le bloc texte */
+    }
+
+    .introduction div {
+        display: flex;
+        flex-direction: column;
+        /* L'écart uniforme entre h1, p et a */
+        padding-right: 0;
+        text-align: center;
+    }
+
+    .introduction div a {
+        display: block !important;
+        margin-top: 1rem;
+    }
+
+    .introduction img {
+        grid-column: 1;
+        /* Place l'image sous le texte */
+        order: -1;
+        /* Optionnel : si tu veux l'image tout en haut */
+        margin: 0 auto;
+        /* Centre l'image horizontalement */
+        display: block;
+        /* Nécessaire pour que margin auto fonctionne */
+        width: 400px;
+        height: 400px;
+    }
+
+    /* Contact Section */
+    .contact-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        width: 75%;
+        margin: 0 auto;
+    }
+
+    .contact-info .mail {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .contact-info .tel {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 4rem;
+    }
+
+    .contact-info .home {
+        grid-column: 1;
+        grid-row: 3;
+    }
+
+    .contact-info .social {
+        grid-column: 1;
+        grid-row: 4;
+    }
+
+    /* 1. On simplifie la grille des parcours pour forcer l'empilement */
+    .blocks-parcours {
+        grid-template-columns: 1fr !important;
+        /* Force une seule colonne */
+    }
+
+    /* 2. On libère tous les éléments de leurs positions spécifiques */
+    .liste-item,
+    .timeline-item,
+    .timeline-item.athlete,
+    .timeline-item.benevole {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
+
+    .timeline-item.pro {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
+
+    .photos.pro {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
+
+    .timeline-item.edf {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+    }
+
+    .photos.edf {
+        grid-column: 1 !important;
+        grid-row: 4 !important;
+    }
+
+    .article-press {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Le premier article (Ouest-France) reste en 1 */
+    .article-container:nth-of-type(1) {
+        order: 1;
+    }
+
+    /* La vidéo passe en 2 */
+    .video-container {
+        order: 2;
+    }
+
+    /* Wikipédia passe en 3 */
+    .article-container:nth-of-type(2) {
+        order: 3;
+    }
+
+    /* Ajustement des dimensions sur mobile */
+    .article-container,
+    .video-container {
+        width: 90%;
+        margin: 0 auto 30px auto;
+    }
+
+    .image-article,
+    .image-page,
+    video {
+        width: 60%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        /* Centrage des éléments */
+    }
+
+    .article-rec {
+        width: 90%;
+    }
+
+    .photos.interets img {
+        height: 200px;
+    }
+
+    h1 {
+        font-size: 4rem;
+    }
+
+    .titre h1 {
+        font-size: 2.7rem;
+    }
+
+    h2 {
+        font-size: 2.7rem;
+    }
+
+    h3 {
+        font-size: 2.3rem;
+    }
+
+    h4 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+
+    /* Typography & Links */
+    a {
+        font-size: 1.6rem;
+    }
+
+    li {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 1.8rem;
+    }
+
+    .blocks-parcours.competences {
+        width: 100%;
+    }
+
+    .liste-savoir {
+        margin-bottom: 3rem;
+    }
+
+    .voir-detail {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.date {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.poste {
+        font-size: 1.6rem;
+    }
+
+    .timeline-parcours>.niveau {
+        font-size: 1.5rem;
+    }
+
+    .timeline-parcours>.lieu {
+        font-size: 1.4rem;
+    }
+
+    .timeline-parcours>.detail {
+        font-size: 1.4rem;
+    }
+
+    .logo-parcours {
+        width: 80%;
+        height: auto;
+    }
+
+    .scroll-text {
+        width: 60%;
+        height: auto;
+    }
 }

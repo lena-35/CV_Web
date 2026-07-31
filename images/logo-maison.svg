@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="10.583333mm"
+   height="10.445475mm"
+   viewBox="0 0 10.583333 10.445475"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   sodipodi:docname="logo-maison.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.9458701"
+     inkscape:cx="106.69383"
+     inkscape:cy="91.868204"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-60.891251,-68.183759)">
+    <path
+       d="m 62.230761,78.431951 c -0.108502,-0.108502 -0.197284,-1.307008 -0.197284,-2.663334 0,-2.301646 -0.04111,-2.466049 -0.616511,-2.466049 -0.339082,0 -0.572124,-0.111399 -0.517872,-0.247548 0.05425,-0.136151 1.269173,-1.287883 2.699821,-2.559405 l 2.601178,-2.311856 0.875951,0.839214 c 0.481772,0.461568 0.87595,0.681135 0.87595,0.487924 0,-0.204192 0.433707,-0.351291 1.035742,-0.351291 1.01554,0 1.03574,0.0237 1.03574,1.215095 0,0.943635 0.16528,1.345105 0.739815,1.797033 0.89261,0.702128 0.948704,1.130834 0.147963,1.130834 -0.548011,0 -0.591853,0.197284 -0.591853,2.663332 v 2.663334 h -1.331665 -1.331667 v -1.754419 c 0,-1.867448 -0.451653,-2.68447 -1.483987,-2.68447 -0.884305,0 -1.475271,1.15253 -1.475271,2.877143 v 1.561746 h -1.134384 c -0.62391,0 -1.22316,-0.08877 -1.331666,-0.197283 z"
+       style="fill:#242424;fill-opacity:1;stroke-width:1.11846"
+       id="path1" />
+  </g>
+</svg>
