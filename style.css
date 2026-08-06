@@ -30,9 +30,10 @@
     /* Variables dynamiques */
     --hauteur-header: 4.5rem;
     --hauteur-barre-active: 0.3125rem;
-    --cercle-taille: 0.625rem;
-    --epaisseur-trait: 0.1875rem;
+    --cercle-taille: 0.8rem;
+    --epaisseur-trait: 0.2rem;
     --top-trait: 2.2rem;
+    --epaisseur-bordure: 2px;
 }
 
 * {
@@ -358,7 +359,7 @@ section {
 .parcours {
     display: grid;
     background: linear-gradient(var(--couleur-fond-section-2-depart), var(--couleur-fond-section-2-arrivee));
-    padding: 5rem 5rem 5rem 5rem;
+    padding: 4rem;
     align-content: start;
     justify-self: center;
 }
@@ -371,7 +372,7 @@ section {
 .blocks-parcours {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr;
     grid-template-rows: auto auto auto;
     gap: var(--gap-grid);
     /* gap entre les grid */
@@ -383,7 +384,30 @@ section {
 
 .blocks-parcours.formation {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+.timeline-item.formations {
+    grid-column: 1;
+}
+
+.diplome {
+    display: block;
+    grid-column: 2;
+    width: 80%;
+    height: auto;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: auto !important;
+    border: none !important;
+}
+
+.diplome img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+    border-radius: 8px;
 }
 
 .blocks-parcours.experience-professionnelle {
@@ -679,7 +703,7 @@ img[onclick] {
 
 .blocks-parcours>div {
     position: relative;
-    padding: var(--padding-grid) var(--padding-grid) calc(var(--padding-grid)/2) var(--padding-grid);
+    padding: var(--padding-grid);
     background: var(--couleur-fond-block);
     color: #242424;
     border-radius: var(--rayon-bordure-standard);
@@ -748,15 +772,26 @@ img[onclick] {
 /* Force le scroll à bien se caler sur le titre */
 #ancre-savoir-etre,
 #ancre-savoir-faire,
-#ancre-experience-professionnelle-inge,
-#ancre-experience-professionnelle-prof,
-#ancre-experience-professionnelle-stages,
+#ancre-benevolat,
+#ancre-exp-pro-inge-oberthur,
+#ancre-athl-pro-elite-rennes,
+#ancre-exp-pro-prof,
+#ancre-athl-pro-n2-rennes,
 #ancre-formation-inge,
+#ancre-stage-inge-2,
+#ancre-stage-inge-1,
 #ancre-formation-licence,
+#ancre-stage-licence,
+#ancre-exp-pro-secr,
+#ancre-athl-pro-nancy,
 #ancre-formation-bts,
-#ancre-athlete-haut-niveau-pro,
-#ancre-athlete-haut-niveau-edf,
-#ancre-benevolat {
+#ancre-stage-bts,
+#ancre-athl-pro-nantes,
+#ancre-athl-edf-espoir,
+#ancre-athl-pro-istres,
+#ancre-athl-edf-junior,
+#ancre-athl-pro-sable,
+#ancre-athl-edf-cadette {
     display: block;
     /* Important pour que l'ancre soit un bloc */
     scroll-margin-top: 150px;
@@ -775,7 +810,8 @@ img[onclick] {
 }
 
 .savoir:not(.no-hover),
-.timeline-parcours:not(.no-hover),
+.timeline-parcours,
+.chronologie,
 .photos img,
 .introduction img {
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -783,9 +819,11 @@ img[onclick] {
 }
 
 .savoir:not(.no-hover):hover,
-.timeline-parcours:not(.no-hover):hover,
+.timeline-parcours:hover,
+.chronologie:hover,
 .savoir:not(.no-hover):focus-within,
-.timeline-parcours:not(.no-hover):focus-within {
+.timeline-parcours:focus-within,
+.chronologie:focus-within {
     background-color: var(--couleur-fond-timeline);
     border-radius: var(--rayon-bordure-standard);
     transform: scale(1.02);
@@ -799,6 +837,7 @@ img[onclick] {
 }
 
 .timeline-item,
+.cv-chronologie-container,
 .liste-item,
 .contact-info {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
@@ -806,8 +845,9 @@ img[onclick] {
 
 /* Timeline */
 .liste-item {
-    grid-column: 1/3;
-    grid-row: 1;
+    grid-row: 2;
+    width: 80%;
+    margin: auto;
 }
 
 .timeline-item.experience-professionnelle {
@@ -866,50 +906,477 @@ img[onclick] {
     border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
 }
 
+
+
+
+
+
+.cv-chronologie-container {
+    position: relative;
+    grid-row: 1;
+    background-color: white;
+    z-index: 1;
+    /*padding-top: var(--padding-grid);
+    padding-bottom: var(--padding-grid);*/
+    /*border-radius: var(--rayon-bordure-standard);*/
+    /*box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);*/
+}
+
+.cv-chronologie {
+    display: grid;
+    grid-template-columns: 1fr var(--cercle-taille) 1fr;
+    grid-template-rows: repeat(14, auto);
+    row-gap: 2rem;
+    /*align-items: start;*/
+    position: relative;
+    /*margin-bottom: 1.5rem;*/
+    /*padding: var(--padding-block);*/
+    /*border: 3px solid red;*/
+}
+
+.point::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0.5rem;
+    width: var(--cercle-taille);
+    height: var(--cercle-taille);
+    background-color: var(--couleur-timeline);
+    border-radius: 50%;
+    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
+    box-shadow: 0 0 0 2px var(--couleur-timeline);
+    box-sizing: content-box;
+    z-index: 3;
+    grid-column: auto !important;
+    justify-self: auto !important;
+    transition: transform 0.2s ease;
+}
+
+.point.benev::before,
+.point.exp-pro-inge-oberthur::before,
+.point.athl-pro-elite-rennes::before,
+.point.exp-pro-prof::before,
+.point.athl-pro-n2-rennes::before,
+.point.stage-inge-2::before,
+.point.stage-inge-1::before,
+.point.form-inge::before,
+.point.stage-licence::before,
+.point.form-licence::before,
+.point.exp-pro-secr::before,
+.point.athl-pro-nancy::before,
+.point.stage-bts::before,
+.point.form-bts::before,
+.point.athl-pro-nantes::before,
+.point.athl-pro-istres::before,
+.point.athl-edf-espoir::before,
+.point.athl-edf-junior::before,
+.point.athl-edf-cadette::before,
+.point.athl-pro-sable::before {
+    grid-column: 2;
+}
+
+.chronologie {
+    position: relative;
+    background-color: white;
+    /*border: 3px solid red;*/
+    z-index: 2;
+}
+
+.cv-chronologie-container::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    /* On décale de la moitié de l'épaisseur du trait pour le centrer parfaitement sur l'axe */
+    transform: translateX(calc(var(--epaisseur-trait) / -2));
+    top: 6rem;
+    bottom: 2rem;
+    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
+    z-index: 0;
+}
+
+.chronologie.exp-pro-inge-oberthur,
+.chronologie.exp-pro-prof,
+.chronologie.stage-inge-2,
+.chronologie.stage-inge-1,
+.chronologie.form-inge,
+.chronologie.stage-licence,
+.chronologie.form-licence,
+.chronologie.exp-pro-secr,
+.chronologie.stage-bts,
+.chronologie.form-bts {
+    grid-column: 1;
+    justify-self: center;
+    align-self: stretch;
+    transform-origin: right center;
+    width: 90%;
+    text-align: left;
+    padding: var(--padding-grid);
+    border: var(--epaisseur-bordure) solid var(--couleur-fond-section-1);
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.chronologie.benev,
+.chronologie.athl-pro-elite-rennes,
+.chronologie.athl-pro-n2-rennes,
+.chronologie.athl-pro-nancy,
+.chronologie.athl-pro-nantes,
+.chronologie.athl-pro-istres,
+.chronologie.athl-edf-espoir,
+.chronologie.athl-edf-junior,
+.chronologie.athl-edf-cadette,
+.chronologie.athl-pro-sable {
+    grid-column: 3;
+    justify-self: center;
+    align-self: stretch;
+    transform-origin: left center;
+    width: 90%;
+    text-align: left;
+    padding: var(--padding-grid);
+    border: var(--epaisseur-bordure) solid rgb(89, 37, 89);
+    border-radius: var(--rayon-bordure-standard);
+}
+
+/*.chronologie.benev:hover,
+.chronologie.athl-pro-elite-rennes:hover,
+.chronologie.athl-pro-n2-rennes:hover,
+.chronologie.athl-pro-nancy:hover,
+.chronologie.athl-pro-nantes:hover,
+.chronologie.athl-pro-istres:hover,
+.chronologie.athl-edf-espoir:hover,
+.chronologie.athl-edf-junior:hover,
+.chronologie.athl-edf-cadette:hover,
+.chronologie.athl-pro-sable:hover {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+}*/
+
+.cv-chronologie:has(.point.benev:hover) .chronologie.benev,
+.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .chronologie.exp-pro-inge-oberthur,
+.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .chronologie.athl-pro-elite-rennes,
+.cv-chronologie:has(.point.exp-pro-prof:hover) .chronologie.exp-pro-prof,
+.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .chronologie.athl-pro-n2-rennes,
+.cv-chronologie:has(.point.stage-inge-2:hover) .chronologie.stage-inge-2,
+.cv-chronologie:has(.point.stage-inge-1:hover) .chronologie.stage-inge-1,
+.cv-chronologie:has(.point.form-inge:hover) .chronologie.form-inge,
+.cv-chronologie:has(.point.stage-licence:hover) .chronologie.stage-licence,
+.cv-chronologie:has(.point.form-licence:hover) .chronologie.form-licence,
+.cv-chronologie:has(.point.exp-pro-secr:hover) .chronologie.exp-pro-secr,
+.cv-chronologie:has(.point.athl-pro-nancy:hover) .chronologie.athl-pro-nancy,
+.cv-chronologie:has(.point.stage-bts:hover) .chronologie.stage-bts,
+.cv-chronologie:has(.point.form-bts:hover) .chronologie.form-bts,
+.cv-chronologie:has(.point.athl-pro-nantes:hover) .chronologie.athl-pro-nantes,
+.cv-chronologie:has(.point.athl-pro-istres:hover) .chronologie.athl-pro-istres,
+.cv-chronologie:has(.point.athl-edf-espoir:hover) .chronologie.athl-edf-espoir,
+.cv-chronologie:has(.point.athl-edf-junior:hover) .chronologie.athl-edf-junior,
+.cv-chronologie:has(.point.athl-edf-cadette:hover) .chronologie.athl-edf-cadette,
+.cv-chronologie:has(.point.athl-pro-sable:hover) .chronologie.athl-pro-sable {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+    transform: scale(1.02);
+}
+
+.cv-chronologie:has(.point.benev:hover) .point.benev::before,
+.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
+.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
+.cv-chronologie:has(.point.exp-pro-prof:hover) .point.exp-pro-prof::before,
+.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
+.cv-chronologie:has(.point.stage-inge-2:hover) .point.stage-inge-2::before,
+.cv-chronologie:has(.point.stage-inge-1:hover) .point.stage-inge-1::before,
+.cv-chronologie:has(.point.form-inge:hover) .point.form-inge::before,
+.cv-chronologie:has(.point.stage-licence:hover) .point.stage-licence::before,
+.cv-chronologie:has(.point.form-licence:hover) .point.form-licence::before,
+.cv-chronologie:has(.point.exp-pro-secr:hover) .point.exp-pro-secr::before,
+.cv-chronologie:has(.point.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
+.cv-chronologie:has(.point.stage-bts:hover) .point.stage-bts::before,
+.cv-chronologie:has(.point.form-bts:hover) .point.form-bts::before,
+.cv-chronologie:has(.point.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
+.cv-chronologie:has(.point.athl-pro-istres:hover) .point.athl-pro-istres::before,
+.cv-chronologie:has(.point.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
+.cv-chronologie:has(.point.athl-edf-junior:hover) .point.athl-edf-junior::before,
+.cv-chronologie:has(.point.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
+.cv-chronologie:has(.point.athl-pro-sable:hover) .point.athl-pro-sable::before {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.cv-chronologie:has(.chronologie.benev:hover) .point.benev::before,
+.cv-chronologie:has(.chronologie.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
+.cv-chronologie:has(.chronologie.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
+.cv-chronologie:has(.chronologie.exp-pro-prof:hover) .point.exp-pro-prof::before,
+.cv-chronologie:has(.chronologie.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
+.cv-chronologie:has(.chronologie.stage-inge-2:hover) .point.stage-inge-2::before,
+.cv-chronologie:has(.chronologie.stage-inge-1:hover) .point.stage-inge-1::before,
+.cv-chronologie:has(.chronologie.form-inge:hover) .point.form-inge::before,
+.cv-chronologie:has(.chronologie.stage-licence:hover) .point.stage-licence::before,
+.cv-chronologie:has(.chronologie.form-licence:hover) .point.form-licence::before,
+.cv-chronologie:has(.chronologie.exp-pro-secr:hover) .point.exp-pro-secr::before,
+.cv-chronologie:has(.chronologie.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
+.cv-chronologie:has(.chronologie.stage-bts:hover) .point.stage-bts::before,
+.cv-chronologie:has(.chronologie.form-bts:hover) .point.form-bts::before,
+.cv-chronologie:has(.chronologie.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
+.cv-chronologie:has(.chronologie.athl-pro-istres:hover) .point.athl-pro-istres::before,
+.cv-chronologie:has(.chronologie.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
+.cv-chronologie:has(.chronologie.athl-edf-junior:hover) .point.athl-edf-junior::before,
+.cv-chronologie:has(.chronologie.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
+.cv-chronologie:has(.chronologie.athl-pro-sable:hover) .point.athl-pro-sable::before {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.point.benev::before,
+.point.athl-pro-elite-rennes::before,
+.point.athl-pro-n2-rennes::before,
+.point.athl-pro-nancy::before,
+.point.athl-pro-nantes::before,
+.point.athl-pro-istres::before,
+.point.athl-edf-espoir::before,
+.point.athl-edf-junior::before,
+.point.athl-edf-cadette::before,
+.point.athl-pro-sable::before {
+    background-color: rgb(89, 37, 89);
+    box-shadow: 0 0 0 3px rgb(89, 37, 89);
+}
+
+.point.exp-pro-inge-oberthur::before,
+.point.exp-pro-prof::before,
+.point.stage-inge-2::before,
+.point.stage-inge-1::before,
+.point.form-inge::before,
+.point.stage-licence::before,
+.point.form-licence::before,
+.point.exp-pro-secr::before,
+.point.stage-bts::before,
+.point.form-bts::before {
+    background-color: var(--couleur-fond-section-1);
+    box-shadow: 0 0 0 3px var(--couleur-fond-section-1);
+}
+
+/*.chronologie.exp-pro-inge:hover,
+.chronologie.exp-pro-prof:hover,
+.chronologie.form-inge:hover,
+.chronologie.exp-pro-stage:hover,
+.chronologie.form-licence:hover,
+.chronologie.form-bts:hover {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+    transform: scale(1.02);
+}*/
+
+/*.chronologie.exp-pro-inge::before,
+.chronologie.exp-pro-prof::before,
+.chronologie.form-inge::before,
+.chronologie.exp-pro-stage::before,
+.chronologie.form-licence::before,
+.chronologie.form-bts::before {
+    right: calc(-1 * var(--cercle-taille) - var(--epaisseur-trait) - var(--padding-grid));
+    /*right: -0.93rem;*/
+/*left: auto;
+    background-color: var(--couleur-fond-section-1);
+    box-shadow: 0 0 0 3px var(--couleur-fond-section-1);
+}*/
+
+.chronologie-inge-titre {
+    grid-column: 1;
+    grid-row: 1;
+    /*text-decoration: underline;
+    text-underline-offset: 10px;*/
+}
+
+.chronologie-volley-titre {
+    grid-column: 3;
+    grid-row: 1;
+    /*text-decoration: underline;
+    text-underline-offset: 10px;*/
+}
+
+.chronologie.benev,
+.point.benev::before {
+    grid-row: 2 / 4;
+}
+
+.chronologie.exp-pro-inge-oberthur,
+.point.exp-pro-inge-oberthur::before {
+    grid-row: 3 / 10;
+}
+
+.chronologie.athl-pro-elite-rennes,
+.point.athl-pro-elite-rennes::before {
+    grid-row: 4 / 6;
+}
+
+.chronologie.exp-pro-prof,
+.point.exp-pro-prof::before {
+    grid-row: 10;
+}
+
+.chronologie.athl-pro-n2-rennes,
+.point.athl-pro-n2-rennes::before {
+    grid-row: 6 / 12;
+}
+
+.chronologie.form-inge,
+.point.form-inge::before {
+    grid-row: 11;
+}
+
+.chronologie.stage-licence,
+.point.stage-licence::before {
+    grid-row: 12;
+}
+
+.chronologie.form-licence,
+.point.form-licence::before {
+    grid-row: 12;
+}
+
+.chronologie.exp-pro-secr,
+.point.exp-pro-secr::before {
+    grid-row: 13;
+}
+
+.chronologie.athl-pro-nancy,
+.point.athl-pro-nancy::before {
+    grid-row: 14;
+}
+
+.chronologie.form-bts,
+.point.form-bts::before {
+    grid-row: 14;
+}
+
+.chronologie.athl-pro-nantes,
+.point.athl-pro-nantes::before {
+    grid-row: 15;
+}
+
+.chronologie.athl-pro-istres,
+.point.athl-pro-istres::before {
+    grid-row: 16;
+}
+
+.chronologie.athl-pro-sable,
+.point.athl-pro-sable::before {
+    grid-row: 17;
+}
+
+
+
+
+
+
 .timeline-parcours>.date,
 .timeline-parcours>.poste,
 .timeline-parcours>.niveau,
 .timeline-parcours>.lieu,
-.timeline-parcours>.detail {
+.timeline-parcours>.detail,
+.chronologie>.date,
+.chronologie>.poste,
+.chronologie>.niveau,
+.chronologie>.lieu,
+.chronologie>.detail,
+.stage-inge>.date,
+.stage-inge>.poste,
+.stage-inge>.niveau,
+.stage-inge>.lieu {
     grid-column: 2;
     margin: 0;
     /*transition: font-size 0.2s ease;*/
     text-align: justify;
 }
 
-.timeline-parcours>.date {
+.timeline-parcours>.date,
+.timeline-parcours>.poste,
+.timeline-parcours>.niveau,
+.timeline-parcours>.lieu,
+.timeline-parcours>.detail {
+    padding-left: 1rem;
+}
+
+.timeline-parcours>.date .chronologie>.date {
     font-size: 1.2rem;
 }
 
-.timeline-parcours>.poste {
+.stage,
+.edf {
+    margin-top: 2rem;
+}
+
+.stage>.date,
+.edf>.date {
+    font-size: 1.1rem;
+}
+
+.timeline-parcours>.poste,
+.chronologie>.poste,
+.stage>.poste,
+.edf>.poste {
     grid-column: 2;
     margin: 0;
     /*transition: font-size 0.2s ease;*/
     text-align: left;
     color: var(--couleur-fond-section-1);
-    font-size: 1.3rem;
     font-weight: bold;
 }
 
-.timeline-parcours>.niveau {
-    color: var(--couleur-fond-section-1);
-    font-size: 1.2rem;
-    font-weight: normal;
-
+.timeline-parcours>.poste,
+.chronologie>.poste {
+    font-size: 1.3rem;
 }
 
-.timeline-parcours>.lieu {
+.stage>.poste,
+.edf>.poste {
+    font-size: 1.2rem;
+}
+
+.timeline-parcours>.niveau,
+.chronologie>.niveau,
+.stage>.niveau,
+.edf>.niveau {
+    color: var(--couleur-fond-section-1);
+    font-weight: normal;
+}
+
+.timeline-parcours>.niveau,
+.chronologie>.niveau {
+    font-size: 1.2rem;
+}
+
+.stage>.niveau,
+.edf>.niveau {
+    font-size: 1.1rem;
+}
+
+.timeline-parcours>.lieu,
+.chronologie>.lieu,
+.stage>.lieu,
+.edf>.lieu {
     font-size: 1.1rem;
     font-style: italic;
 }
 
-.timeline-parcours>.detail {
-    padding-top: 0.2rem;
-    line-height: 1.6;
+.timeline-parcours>.lieu,
+.chronologie>.lieu {
+    font-size: 1.1rem;
 }
 
-.timeline-parcours li {
+.stage>.lieu,
+.edf>.lieu {
+    font-size: 1rem;
+}
+
+.timeline-parcours>.detail,
+.chronologie>.detail {
+    padding-top: 0.2rem;
+    line-height: 1.6;
+    padding-left: 4rem;
+}
+
+.timeline-parcours li .chronologie li {
     font-size: 1.1rem;
+}
+
+.stage>.voir-detail,
+.edf>.voir-detail {
+    font-size: 1rem;
 }
 
 .voir-detail {
@@ -1124,7 +1591,7 @@ video {
     }
 }
 
-@media screen and (max-width: 64rem) {
+@media screen and (max-width: 1425px) {
     .burger-menu {
         display: flex !important;
         align-items: center !important;
@@ -1162,10 +1629,14 @@ video {
         z-index: 1000;
         text-align: center;
         box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
+
+        /* Ajoute ces deux lignes : */
+        max-height: calc(100vh - var(--hauteur-header));
+        overflow-y: auto;
     }
 
     .menu a {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .menu.active {
@@ -1179,8 +1650,8 @@ video {
         align-items: center !important;
         /* Force le centrage horizontal de l'image ET du bloc texte */
         width: 90%;
-        padding: 6rem var(--padding-grid);
-        gap: 5rem;
+        padding: 4rem var(--padding-grid);
+        gap: 3rem;
         /* Ton écart uniforme entre l'image et le bloc texte */
     }
 
@@ -1206,8 +1677,8 @@ video {
         /* Centre l'image horizontalement */
         display: block;
         /* Nécessaire pour que margin auto fonctionne */
-        width: 400px;
-        height: 400px;
+        width: 350px;
+        height: 350px;
     }
 
     /* Contact Section */
@@ -1334,11 +1805,11 @@ video {
     }
 
     h3 {
-        font-size: 2.3rem;
+        font-size: 2rem;
     }
 
     h4 {
-        font-size: 2rem;
+        font-size: 1.7rem;
     }
 
     p {
@@ -1370,23 +1841,53 @@ video {
         font-size: 1.4rem;
     }
 
-    .timeline-parcours>.date {
+    .stage>.voir-detail,
+    .edf>.voir-detail {
+        font-size: 1.3rem;
+    }
+
+    .timeline-parcours>.date,
+    .chronologie>.date {
         font-size: 1.4rem;
     }
 
-    .timeline-parcours>.poste {
+    .stage>.date,
+    .edf>.date {
+        font-size: 1.3rem;
+    }
+
+    .timeline-parcours>.poste,
+    .chronologie>.poste {
         font-size: 1.6rem;
     }
 
-    .timeline-parcours>.niveau {
+    .stage>.poste,
+    .edf>.poste {
         font-size: 1.5rem;
     }
 
-    .timeline-parcours>.lieu {
+    .timeline-parcours>.niveau,
+    .chronologie>.niveau {
+        font-size: 1.5rem;
+    }
+
+    .stage>.niveau,
+    .edf>.niveau {
         font-size: 1.4rem;
     }
 
-    .timeline-parcours>.detail {
+    .timeline-parcours>.lieu,
+    .chronologie>.lieu {
+        font-size: 1.4rem;
+    }
+
+    .stage>.lieu,
+    .edf>.lieu {
+        font-size: 1.3rem;
+    }
+
+    .timeline-parcours>.detail,
+    .chronologie>.detail {
         font-size: 1.4rem;
     }
 
@@ -1399,4 +1900,6 @@ video {
         width: 60%;
         height: auto;
     }
+
+
 }
