@@ -1717,6 +1717,15 @@ video {
         /* Force une seule colonne */
     }
 
+    .blocks-parcours.formation {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .diplome {
+        width: 60%;
+    }
+
     /* 2. On libère tous les éléments de leurs positions spécifiques */
     .liste-item,
     .timeline-item,
