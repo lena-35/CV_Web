@@ -1,5 +1,4 @@
 :root {
-    /* Couleurs */
     --couleur-fond-header-footer: #ffffff;
     --couleur-fond-section-1: #163853;
     --couleur-fond-section-2-depart: #cfcdcd;
@@ -13,8 +12,6 @@
     --couleur-degrade-cta-hover-depart: #a29ace;
     --couleur-degrade-cta-hover-arrivee: #b6b9f9;
     --couleur-timeline: #8e86b5;
-
-    /* Espacements et dimensions */
     --espacement-global: 0.625rem 2rem;
     --gap-menu: 1.25rem;
     --gap-grid: 3rem;
@@ -25,9 +22,7 @@
     --padding-grid: 2rem;
     --padding-block: 0.625rem;
     --colonne-gauche-grid-largeur: 2rem;
-    --width-intro: 75%;
-
-    /* Variables dynamiques */
+    --width-intro: 80%;
     --hauteur-header: 4.5rem;
     --hauteur-barre-active: 0.3125rem;
     --cercle-taille: 0.8rem;
@@ -79,7 +74,6 @@ p {
     color: var(--couleur-texte-clair);
 }
 
-/* Typography & Links */
 a {
     color: var(--couleur-texte-sombre);
     text-decoration: none;
@@ -99,7 +93,6 @@ li {
     font-size: 1.3rem;
 }
 
-/* Layout Components */
 header,
 footer {
     background-color: var(--couleur-fond-header-footer);
@@ -125,7 +118,6 @@ nav {
     width: 100%;
 }
 
-/* Navigation & Burger */
 .burger-menu {
     display: none;
 }
@@ -138,7 +130,7 @@ nav {
 
 .menu a {
     font-weight: bold;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     padding-bottom: var(--hauteur-barre-active);
     border-bottom: var(--hauteur-barre-active) solid transparent;
 }
@@ -148,15 +140,11 @@ nav {
 }
 
 main {
-
-    /* La hauteur minimale du main est la hauteur de l'écran 
-       moins la hauteur du header et du footer */
     min-height: calc(100vh - var(--hauteur-header));
     display: flex;
     flex-direction: column;
 }
 
-/* Force la dernière section à prendre tout l'espace disponible */
 section:last-child {
     flex-grow: 1;
 }
@@ -165,7 +153,6 @@ section {
     padding: var(--padding-section);
 }
 
-/* Buttons & Icons */
 .logo-llm {
     height: 3rem;
     width: auto;
@@ -185,6 +172,1115 @@ section {
 
 }
 
+.introduction {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: var(--width-intro);
+    margin: auto;
+    gap: var(--gap-grid);
+}
+
+.introduction div {
+    padding-right: 5rem;
+    grid-column: 1/3;
+    width: 100%;
+}
+
+.introduction h1 {
+    margin-bottom: 1rem;
+}
+
+.introduction p {
+    margin-bottom: 2rem;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    text-justify: inter-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 1.5rem;
+}
+
+.introduction a {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    color: var(--couleur-texte-clair);
+    border-radius: 3.125rem;
+    padding: var(--padding-cta);
+    text-align: center;
+}
+
+.introduction a:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    text-decoration: none;
+}
+
+.introduction a:hover,
+.introduction a:focus-visible {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    text-decoration: none;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
+}
+
+.introduction img {
+    grid-column: 3/4;
+    display: block;
+    margin: 0 auto;
+    align-self: center;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.titre h1 {
+    width: var(--width-intro);
+    margin: auto;
+}
+
+.parcours {
+    display: grid;
+    background: linear-gradient(var(--couleur-fond-section-2-depart), var(--couleur-fond-section-2-arrivee));
+    padding: 4rem;
+    align-content: start;
+    justify-self: center;
+}
+
+.parcours h2 {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.blocks-parcours {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--gap-grid);
+    text-align: center;
+    position: relative;
+}
+
+.blocks-parcours>div {
+    position: relative;
+    padding: var(--padding-grid);
+    background: var(--couleur-fond-block);
+    color: #242424;
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.blocks-parcours p {
+    color: var(--couleur-texte-sombre);
+    text-align: justify;
+    font-weight: bold;
+    gap: 4rem;
+}
+
+.scroll-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 5rem;
+}
+
+.logo-parcours {
+    display: block;
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+    width: 50%;
+    height: auto;
+    opacity: 0.85;
+}
+
+.scroll-text {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    width: 38%;
+    height: auto;
+    margin: auto;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.scroll-text h2 {
+    margin: 0 auto;
+    white-space: nowrap;
+    animation: marquee 8s linear infinite;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.cv-chronologie-container {
+    position: relative;
+    grid-row: 1;
+    background-color: white;
+    z-index: 1;
+}
+
+.cv-chronologie {
+    display: grid;
+    grid-template-columns: 1fr var(--cercle-taille) 1fr;
+    grid-template-rows: repeat(20, auto);
+    row-gap: 2rem;
+    position: relative;
+}
+
+.point::before {
+    content: '';
+    grid-column: 2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0.5rem;
+    width: var(--cercle-taille);
+    height: var(--cercle-taille);
+    background-color: var(--couleur-timeline);
+    border-radius: 50%;
+    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
+    box-shadow: 0 0 0 2px var(--couleur-timeline);
+    box-sizing: content-box;
+    z-index: 3;
+    grid-column: auto !important;
+    justify-self: auto !important;
+    transition: transform 0.2s ease;
+}
+
+.chronologie {
+    position: relative;
+    background-color: white;
+    z-index: 2;
+}
+
+.cv-chronologie-container::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(calc(var(--epaisseur-trait) / -2));
+    top: 6rem;
+    bottom: 2rem;
+    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
+    z-index: 0;
+}
+
+.chronologie[class*="form-"],
+.chronologie[class*="exp-pro-"],
+.chronologie[class*="stage-"] {
+    grid-column: 1;
+    justify-self: center;
+    align-self: stretch;
+    transform-origin: right center;
+    width: 90%;
+    text-align: left;
+    padding: var(--padding-grid);
+    border: var(--epaisseur-bordure) solid var(--couleur-fond-section-1);
+    border-radius: var(--rayon-bordure-standard);
+
+}
+
+.chronologie.benev,
+.chronologie[class*="athl-"] {
+    grid-column: 3;
+    justify-self: center;
+    align-self: stretch;
+    transform-origin: left center;
+    width: 90%;
+    text-align: left;
+    padding: var(--padding-grid);
+    border: var(--epaisseur-bordure) solid rgb(89, 37, 89);
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.cv-chronologie:has(.point.form-openclassroom:hover) .chronologie.form-openclassroom,
+.cv-chronologie:has(.point.benev:hover) .chronologie.benev,
+.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .chronologie.exp-pro-inge-oberthur,
+.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .chronologie.athl-pro-elite-rennes,
+.cv-chronologie:has(.point.exp-pro-prof:hover) .chronologie.exp-pro-prof,
+.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .chronologie.athl-pro-n2-rennes,
+.cv-chronologie:has(.point.stage-inge-2:hover) .chronologie.stage-inge-2,
+.cv-chronologie:has(.point.stage-inge-1:hover) .chronologie.stage-inge-1,
+.cv-chronologie:has(.point.form-inge:hover) .chronologie.form-inge,
+.cv-chronologie:has(.point.stage-licence:hover) .chronologie.stage-licence,
+.cv-chronologie:has(.point.form-licence:hover) .chronologie.form-licence,
+.cv-chronologie:has(.point.exp-pro-secr:hover) .chronologie.exp-pro-secr,
+.cv-chronologie:has(.point.athl-pro-nancy:hover) .chronologie.athl-pro-nancy,
+.cv-chronologie:has(.point.stage-bts:hover) .chronologie.stage-bts,
+.cv-chronologie:has(.point.form-bts:hover) .chronologie.form-bts,
+.cv-chronologie:has(.point.athl-pro-nantes:hover) .chronologie.athl-pro-nantes,
+.cv-chronologie:has(.point.athl-pro-istres:hover) .chronologie.athl-pro-istres,
+.cv-chronologie:has(.point.form-bac:hover) .chronologie.form-bac,
+.cv-chronologie:has(.point.form-lycee:hover) .chronologie.form-lycee,
+.cv-chronologie:has(.point.athl-edf-espoir:hover) .chronologie.athl-edf-espoir,
+.cv-chronologie:has(.point.athl-edf-junior:hover) .chronologie.athl-edf-junior,
+.cv-chronologie:has(.point.athl-edf-cadette:hover) .chronologie.athl-edf-cadette,
+.cv-chronologie:has(.point.athl-pro-sable:hover) .chronologie.athl-pro-sable {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+    transform: scale(1.02);
+}
+
+.cv-chronologie:has(.point.form-openclassroom:hover) .point.form-openclassroom::before,
+.cv-chronologie:has(.point.benev:hover) .point.benev::before,
+.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
+.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
+.cv-chronologie:has(.point.exp-pro-prof:hover) .point.exp-pro-prof::before,
+.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
+.cv-chronologie:has(.point.stage-inge-2:hover) .point.stage-inge-2::before,
+.cv-chronologie:has(.point.stage-inge-1:hover) .point.stage-inge-1::before,
+.cv-chronologie:has(.point.form-inge:hover) .point.form-inge::before,
+.cv-chronologie:has(.point.stage-licence:hover) .point.stage-licence::before,
+.cv-chronologie:has(.point.form-licence:hover) .point.form-licence::before,
+.cv-chronologie:has(.point.exp-pro-secr:hover) .point.exp-pro-secr::before,
+.cv-chronologie:has(.point.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
+.cv-chronologie:has(.point.stage-bts:hover) .point.stage-bts::before,
+.cv-chronologie:has(.point.form-bts:hover) .point.form-bts::before,
+.cv-chronologie:has(.point.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
+.cv-chronologie:has(.point.athl-pro-istres:hover) .point.athl-pro-istres::before,
+.cv-chronologie:has(.point.form-bac:hover) .point.form-bac::before,
+.cv-chronologie:has(.point.form-lycee:hover) .point.form-lycee::before,
+.cv-chronologie:has(.point.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
+.cv-chronologie:has(.point.athl-edf-junior:hover) .point.athl-edf-junior::before,
+.cv-chronologie:has(.point.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
+.cv-chronologie:has(.point.athl-pro-sable:hover) .point.athl-pro-sable::before,
+.cv-chronologie:has(.chronologie.form-openclassroom:hover) .point.form-openclassroom::before,
+.cv-chronologie:has(.chronologie.benev:hover) .point.benev::before,
+.cv-chronologie:has(.chronologie.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
+.cv-chronologie:has(.chronologie.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
+.cv-chronologie:has(.chronologie.exp-pro-prof:hover) .point.exp-pro-prof::before,
+.cv-chronologie:has(.chronologie.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
+.cv-chronologie:has(.chronologie.stage-inge-2:hover) .point.stage-inge-2::before,
+.cv-chronologie:has(.chronologie.stage-inge-1:hover) .point.stage-inge-1::before,
+.cv-chronologie:has(.chronologie.form-inge:hover) .point.form-inge::before,
+.cv-chronologie:has(.chronologie.stage-licence:hover) .point.stage-licence::before,
+.cv-chronologie:has(.chronologie.form-licence:hover) .point.form-licence::before,
+.cv-chronologie:has(.chronologie.exp-pro-secr:hover) .point.exp-pro-secr::before,
+.cv-chronologie:has(.chronologie.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
+.cv-chronologie:has(.chronologie.stage-bts:hover) .point.stage-bts::before,
+.cv-chronologie:has(.chronologie.form-bts:hover) .point.form-bts::before,
+.cv-chronologie:has(.chronologie.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
+.cv-chronologie:has(.chronologie.athl-pro-istres:hover) .point.athl-pro-istres::before,
+.cv-chronologie:has(.chronologie.form-bac:hover) .point.form-bac::before,
+.cv-chronologie:has(.chronologie.form-lycee:hover) .point.form-lycee::before,
+.cv-chronologie:has(.chronologie.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
+.cv-chronologie:has(.chronologie.athl-edf-junior:hover) .point.athl-edf-junior::before,
+.cv-chronologie:has(.chronologie.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
+.cv-chronologie:has(.chronologie.athl-pro-sable:hover) .point.athl-pro-sable::before {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.point.benev::before,
+.point[class*="athl-"]::before {
+    background-color: rgb(89, 37, 89);
+    box-shadow: 0 0 0 3px rgb(89, 37, 89);
+}
+
+.point[class*="form-"]::before,
+.point[class*="exp-pro-"]::before,
+.point[class*="stage-"]::before {
+    background-color: var(--couleur-fond-section-1);
+    box-shadow: 0 0 0 3px var(--couleur-fond-section-1);
+}
+
+.chronologie-inge-titre {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.chronologie-volley-titre {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.chronologie.form-openclassroom,
+.point.form-openclassroom::before {
+    grid-row: 2;
+}
+
+.chronologie.benev,
+.point.benev::before {
+    grid-row: 2 / 6;
+}
+
+.chronologie.exp-pro-inge-oberthur,
+.point.exp-pro-inge-oberthur::before {
+    grid-row: 3 / 10;
+}
+
+.chronologie.athl-pro-elite-rennes,
+.point.athl-pro-elite-rennes::before {
+    grid-row: 6;
+}
+
+.chronologie.exp-pro-prof,
+.point.exp-pro-prof::before {
+    grid-row: 10;
+}
+
+.chronologie.athl-pro-n2-rennes,
+.point.athl-pro-n2-rennes::before {
+    grid-row: 7 / 12;
+}
+
+.chronologie.form-inge,
+.point.form-inge::before {
+    grid-row: 11;
+}
+
+.chronologie.form-licence,
+.point.form-licence::before {
+    grid-row: 12;
+}
+
+.chronologie.exp-pro-secr,
+.point.exp-pro-secr::before {
+    grid-row: 13;
+}
+
+.chronologie.athl-pro-nancy,
+.point.athl-pro-nancy::before {
+    grid-row: 14;
+}
+
+.chronologie.form-bts,
+.point.form-bts::before {
+    grid-row: 14;
+}
+
+.chronologie.athl-pro-nantes,
+.point.athl-pro-nantes::before {
+    grid-row: 15;
+}
+
+.chronologie.athl-pro-istres,
+.point.athl-pro-istres::before {
+    grid-row: 16 / 18;
+}
+
+.chronologie.form-bac,
+.point.form-bac::before {
+    grid-row: 17;
+}
+
+.chronologie.form-lycee,
+.point.form-lycee::before {
+    grid-row: 18;
+}
+
+.chronologie.athl-pro-sable,
+.point.athl-pro-sable::before {
+    grid-row: 18;
+}
+
+dialog[open] {
+    margin: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+    display: inline-block !important;
+    line-height: 0 !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+dialog[open] img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 8px;
+
+    aspect-ratio: auto !important;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.9) !important;
+}
+
+img[onclick] {
+    cursor: pointer;
+}
+
+.liste-item {
+    grid-row: 2;
+    width: 80%;
+    margin: auto;
+}
+
+.liste-item.savoir-etre,
+.liste-item.savoir-faire,
+.liste-item.loisirs {
+    grid-row: auto;
+    grid-column: auto;
+    width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 3.5rem;
+}
+
+.liste-savoir {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: auto;
+    width: 80%;
+    margin-bottom: 1.5rem;
+    gap: var(--gap-grid);
+    align-items: start;
+}
+
+.liste-savoir.no-hover>ul {
+    line-height: 2;
+}
+
+.savoir {
+    list-style: none;
+    color: var(--couleur-texte-sombre);
+    width: 100%;
+    margin: 0;
+    text-align: left;
+    contain: layout;
+    padding: var(--padding-block) var(--padding-block) var(--padding-block) 2.5rem;
+    border-radius: var(--rayon-bordure-standard);
+}
+
+.savoir.savoir-etre>h4,
+.savoir.savoir-faire>h4 {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.savoir li {
+    line-height: 2rem;
+}
+
+.savoir li:not(.pays)::before {
+    content: "◆";
+    margin-right: 10px;
+    font-weight: bold;
+
+}
+
+.savoir.no-hover li:not(.pays)::before {
+    margin-left: -1rem;
+}
+
+[id^="ancre-"] {
+    display: block;
+    scroll-margin-top: 150px;
+}
+
+.savoir-etre {
+    border: 2px solid var(--couleur-fond-section-1);
+    border-left-width: 15px;
+}
+
+.savoir-faire {
+    border: 2px solid var(--couleur-timeline);
+    border-left-width: 15px;
+}
+
+.blocks-parcours.formation {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.timeline-item.formations {
+    grid-column: 1;
+}
+
+.diplome {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+    width: 40%;
+    height: auto;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: auto !important;
+    border: none !important;
+}
+
+.diplome img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: fill;
+    border-radius: 8px;
+}
+
+.blocks-parcours.experience-professionnelle {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-content: start;
+    justify-self: center;
+}
+
+.blocks-parcours.benevole {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto auto;
+    align-items: stretch;
+}
+
+.blocks-parcours.benevole .timeline-item {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.article-rec {
+    background-color: #212121;
+    color: var(--couleur-texte-clair);
+    font-family: Arial, sans-serif;
+    width: 75%;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.titre-article {
+    background-color: #997f0f;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.titre-article h3 {
+    color: var(--couleur-texte-clair);
+    margin: 0;
+}
+
+.contenu {
+    padding: 0 2rem;
+}
+
+.contenu p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+    color: var(--couleur-texte-clair);
+    text-align: justify;
+    font-size: 1.1rem;
+}
+
+.images-article {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+
+}
+
+.images-article img {
+    width: 45%;
+    height: auto;
+    display: block;
+}
+
+.citation {
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--couleur-texte-clair);
+}
+
+.auteur {
+    font-weight: bold;
+    font-style: normal;
+    margin-top: 1rem;
+    color: var(--couleur-texte-clair);
+}
+
+.citation p,
+.auteur p {
+    text-align: center;
+}
+
+
+.blocks-parcours.benevole .photos,
+.blocks-parcours.athlete .photos,
+.blocks-parcours.interets .photos {
+    display: grid;
+    height: 100%;
+    background-color: transparent;
+    place-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.blocks-parcours.athlete .photos.pro {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.blocks-parcours.athlete .photos.edf {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.blocks-parcours.athlete {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    /* C'est la ligne clé pour égaliser les hauteurs */
+    align-items: stretch;
+}
+
+.blocks-parcours.athlete .timeline-item.pro {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.blocks-parcours.athlete .timeline-item.edf {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.photos.pro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.photos.pro img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.photos.edf {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    align-items: center;
+}
+
+.edf-1 {
+    grid-column: 1/3;
+    grid-row: 1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.edf-2 {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.edf-1 img,
+.edf-2 img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.photos.interets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.photos.interets img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.blocks-parcours.competences,
+.blocks-parcours.interets {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: start;
+    width: 70%;
+    justify-self: center;
+    line-height: 1.5rem;
+}
+
+.blocks-parcours.athlete ul {
+    text-align: justify;
+    margin-top: 0.5rem;
+}
+
+.blocks-parcours.athlete .intro {
+    text-align: justify;
+    padding-bottom: 2rem;
+    --padding-left-right: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block) - var(--cercle-taille) / 2);
+    padding: 0 var(--padding-left-right) 1.5rem var(--padding-left-right);
+    ;
+}
+
+.savoir:not(.no-hover),
+.timeline-parcours,
+.chronologie,
+.photos img,
+.introduction img {
+    transition: transform 0.2s ease, background-color 0.2s ease;
+    will-change: transform;
+}
+
+.savoir:not(.no-hover):hover,
+.timeline-parcours:hover,
+.chronologie:hover,
+.savoir:not(.no-hover):focus-within,
+.timeline-parcours:focus-within,
+.chronologie:focus-within {
+    background-color: var(--couleur-fond-timeline);
+    border-radius: var(--rayon-bordure-standard);
+    transform: scale(1.02);
+}
+
+.photos img:hover,
+.introduction img:hover,
+.photos img:focus-visible,
+.introduction img:focus-visible {
+    transform: scale(1.05);
+}
+
+.timeline-item,
+.cv-chronologie-container,
+.liste-item,
+.contact-info {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item.experience-professionnelle {
+    grid-column: 3/5;
+    grid-row: 1;
+}
+
+.timeline-item.formation {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+
+.timeline-item.athlete {
+    grid-column: 3/5;
+    grid-row: 2;
+}
+
+.timeline-item.benevole {
+    grid-column: 2/4;
+    grid-row: 3;
+}
+
+.timeline-parcours {
+    position: relative;
+    display: grid;
+    grid-template-columns: var(--colonne-gauche-grid-largeur) 1fr;
+    align-items: start;
+    margin-bottom: 1.5rem;
+    padding: var(--padding-block);
+    border-radius: var(--rayon-bordure-standard);
+    text-align: left;
+    contain: layout;
+}
+
+.timeline-parcours::before {
+    content: '';
+    grid-column: 1;
+    justify-self: center;
+    width: var(--cercle-taille);
+    height: var(--cercle-taille);
+    background-color: var(--couleur-timeline);
+    border-radius: 50%;
+    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
+    box-shadow: 0 0 0 0.125rem var(--couleur-timeline);
+    margin-top: 0.25rem;
+}
+
+.timeline-parcours::after {
+    content: '';
+    position: absolute;
+    left: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block));
+    transform: translateX(-50%);
+    top: var(--top-trait);
+    bottom: var(--padding-block);
+    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
+}
+
+.timeline-parcours>.date,
+.timeline-parcours>.poste,
+.timeline-parcours>.niveau,
+.timeline-parcours>.lieu,
+.timeline-parcours>.detail,
+.chronologie>.date,
+.chronologie>.poste,
+.chronologie>.niveau,
+.chronologie>.lieu,
+.chronologie>.detail,
+.stage-inge>.date,
+.stage-inge>.poste,
+.stage-inge>.niveau,
+.stage-inge>.lieu {
+    grid-column: 2;
+    margin: 0;
+    text-align: justify;
+}
+
+.timeline-parcours>.date,
+.timeline-parcours>.poste,
+.timeline-parcours>.niveau,
+.timeline-parcours>.lieu,
+.timeline-parcours>.detail {
+    padding-left: 1rem;
+}
+
+.timeline-parcours>.date,
+.chronologie>.date {
+    font-size: 1.2rem;
+}
+
+.stage,
+.edf {
+    margin-top: 2rem;
+}
+
+.stage>.date,
+.edf>.date {
+    font-size: 1.1rem;
+}
+
+.timeline-parcours>.poste,
+.chronologie>.poste,
+.stage>.poste,
+.edf>.poste {
+    grid-column: 2;
+    margin: 0;
+    text-align: left;
+    color: var(--couleur-fond-section-1);
+    font-weight: bold;
+}
+
+.timeline-parcours>.poste,
+.chronologie>.poste {
+    font-size: 1.3rem;
+}
+
+.stage>.poste,
+.edf>.poste {
+    font-size: 1.2rem;
+}
+
+.timeline-parcours>.niveau,
+.chronologie>.niveau,
+.stage>.niveau,
+.edf>.niveau {
+    color: var(--couleur-fond-section-1);
+    font-weight: normal;
+    text-align: left;
+}
+
+.timeline-parcours>.niveau,
+.chronologie>.niveau {
+    font-size: 1.2rem;
+}
+
+.stage>.niveau,
+.edf>.niveau {
+    font-size: 1.1rem;
+}
+
+.timeline-parcours>.lieu,
+.chronologie>.lieu,
+.stage>.lieu,
+.edf>.lieu {
+    font-size: 1.1rem;
+    font-style: italic;
+    text-align: left;
+}
+
+.timeline-parcours>.lieu,
+.chronologie>.lieu {
+    font-size: 1.1rem;
+}
+
+.stage>.lieu,
+.edf>.lieu {
+    font-size: 1rem;
+}
+
+.timeline-parcours>.detail,
+.chronologie>.detail {
+    padding-top: 0.2rem;
+    line-height: 1.6;
+    padding-left: 4rem;
+}
+
+.timeline-parcours li .chronologie li {
+    font-size: 1.1rem;
+}
+
+.voir-detail {
+    display: block;
+    margin-left: auto;
+    /* Pousse l'élément vers la droite */
+    width: max-content;
+    /* L'élément s'adapte à la largeur du texte */
+    text-align: right;
+    grid-column: 2;
+    color: #3b3c3c;
+    font-style: italic;
+    margin-top: 0.5rem;
+    margin-bottom: 0.6rem;
+    margin-right: 1rem;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.stage>.voir-detail,
+.edf>.voir-detail {
+    font-size: 1rem;
+}
+
+.btn-telechargement {
+    display: inline-block;
+    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
+    color: var(--couleur-texte-clair);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.2s ease, background 0.2s ease;
+    margin: auto;
+    margin-top: 5rem;
+}
+
+.btn-telechargement:hover {
+    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+.slider {
+    width: 850px;
+    height: 478px;
+    margin: 40px auto;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.slides {
+    display: flex;
+    transition: transform .5s ease;
+    border-radius: 8px;
+}
+
+.slides img {
+    width: 100%;
+    height: 100%;
+    flex-shrink: 0;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+}
+
+.dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ffffff;
+    opacity: .35;
+    transition: .3s;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+.article-press {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8%;
+    padding: 3rem;
+}
+
+.article-press h3 {
+    flex-basis: 100%;
+    text-align: center;
+    color: var(--couleur-texte-clair);
+    font-size: 3.5rem;
+    margin: 0 0 4rem 0;
+}
+
+.article-container,
+.video-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.image-article,
+.image-page,
+video {
+    width: auto;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin: auto;
+}
+
+.article-container a:hover .image-article,
+.article-container a:hover .image-page,
+.video-container:hover video {
+    transform: scale(1.05);
+}
+
+.article-container h4,
+.video-container h4 {
+    margin-top: 10px;
+    color: var(--couleur-texte-clair);
+}
+
+.article-container p {
+    padding-top: 1rem;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
 .icone-mail:hover .logo-mail,
 .icone-telephone:hover .logo-telephone,
 .icone-maison:hover .logo-maison,
@@ -197,7 +1293,6 @@ section {
     transform: scale(1.1);
 }
 
-/* Contact Section */
 .contact-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -258,1340 +1353,7 @@ section {
     height: auto;
 }
 
-/* Introduction */
-.introduction {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: var(--width-intro);
-    margin: auto;
-    gap: var(--gap-grid);
-    /* gap entre l'intro et la photo */
-
-}
-
-.introduction div {
-    padding-right: 5rem;
-    grid-column: 1/3;
-    width: 100%;
-}
-
-.introduction h1 {
-    margin-bottom: 1rem;
-}
-
-.introduction p {
-    margin-bottom: 2rem;
-    text-align: justify;
-
-    /* 1. Autorise la coupure des mots avec des tirets (la clé du problème) */
-    -webkit-hyphens: auto;
-    /* Safari iPhone */
-    hyphens: auto;
-
-    /* 2. Indique que l'espacement doit se faire entre les mots uniquement */
-    text-justify: inter-word;
-
-    /* 3. Sécurité pour les mots trop longs qui pourraient dépasser */
-    word-break: break-word;
-
-    /* 4. Pour un rendu encore plus doux sur les navigateurs modernes */
-    overflow-wrap: break-word;
-}
-
-.introduction a {
-    display: block;
-    /* Important pour que margin fonctionne */
-    width: fit-content;
-    /* Le bouton prend uniquement la largeur de son texte */
-    margin: 0 auto;
-    /* Centre le bloc horizontalement */
-    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
-    color: var(--couleur-texte-clair);
-    border-radius: 3.125rem;
-    padding: var(--padding-cta);
-    text-align: center;
-}
-
-.introduction a:hover {
-    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
-    text-decoration: none;
-}
-
-.introduction a:hover,
-.introduction a:focus-visible {
-    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
-    text-decoration: none;
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.18);
-}
-
-/* On cible l'image à l'intérieur de son conteneur */
-.introduction img {
-    grid-column: 3/4;
-    /* Pour éviter qu'elle ne colle au texte */
-    display: block;
-    /* On force l'image à être un bloc pour que les marges fonctionnent correctement */
-    margin: 0 auto;
-    /* Centre horizontalement l'image */
-    align-self: center;
-    /* Centre verticalement l'image dans le conteneur flex */
-    /* 3. On s'assure que l'image ne dépasse pas */
-    width: 300px;
-    height: 300px;
-    object-fit: contain;
-    /* Garde les proportions et centre */
-
-    /* 2. Rend l'image circulaire */
-    border-radius: 50%;
-
-    /* 3. Recadre l'image pour qu'elle remplisse le cercle sans déformation */
-    object-fit: cover;
-    object-position: center;
-    /* Centre le visage dans le cercle */
-}
-
-.titre h1 {
-    width: var(--width-intro);
-    margin: auto;
-}
-
-/* Parcours & Blocks */
-.parcours {
-    display: grid;
-    background: linear-gradient(var(--couleur-fond-section-2-depart), var(--couleur-fond-section-2-arrivee));
-    padding: 4rem;
-    align-content: start;
-    justify-self: center;
-}
-
-.parcours h2 {
-    text-align: center;
-    margin-bottom: 5rem;
-}
-
-.blocks-parcours {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
-    gap: var(--gap-grid);
-    /* gap entre les grid */
-    /*margin-bottom: 0.9375rem;*/
-    text-align: center;
-    position: relative;
-    /*align-items: start;*/
-}
-
-.blocks-parcours.formation {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-.timeline-item.formations {
-    grid-column: 1;
-}
-
-.diplome {
-    display: block;
-    grid-column: 2;
-    width: 80%;
-    height: auto;
-    background: transparent !important;
-    padding: 0 !important;
-    margin: auto !important;
-    border: none !important;
-}
-
-.diplome img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: fill;
-    border-radius: 8px;
-}
-
-.blocks-parcours.experience-professionnelle {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-    align-content: start;
-    justify-self: center;
-}
-
-.blocks-parcours.benevole {
-    grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: auto auto;
-
-    /* C'est la ligne clé pour égaliser les hauteurs */
-    align-items: stretch;
-}
-
-.blocks-parcours.benevole .timeline-item {
-    grid-column: 1;
-    grid-row: 1;
-    /* Force sur la première ligne */
-}
-
-.article-rec {
-    background-color: #212121;
-    /* Gris très sombre */
-    color: var(--couleur-texte-clair);
-    /* Gris clair pour le texte */
-    font-family: Arial, sans-serif;
-    width: 75%;
-    margin: 0 auto;
-    padding-bottom: 1rem;
-}
-
-.titre-article {
-    background-color: #997f0f;
-    /* Brun-olive */
-    text-align: center;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.titre-article h3 {
-    color: var(--couleur-texte-clair);
-    margin: 0;
-}
-
-.contenu {
-    padding: 0 2rem;
-}
-
-.contenu p {
-    margin: 0 0 1rem 0;
-    line-height: 1.6;
-    color: var(--couleur-texte-clair);
-    text-align: justify;
-    font-size: 1.1rem;
-}
-
-.images-article {
-    display: flex;
-    justify-content: center;
-    /* Centre les images horizontalement */
-    gap: 2rem;
-    margin-bottom: 1.5rem;
-
-}
-
-.images-article img {
-    width: 45%;
-    height: auto;
-    display: block;
-}
-
-.citation {
-    font-style: italic;
-    line-height: 1.6;
-    color: var(--couleur-texte-clair);
-}
-
-.auteur {
-    font-weight: bold;
-    font-style: normal;
-    margin-top: 1rem;
-    color: var(--couleur-texte-clair);
-}
-
-.citation p,
-.auteur p {
-    text-align: center;
-}
-
-
-.blocks-parcours.benevole .photos,
-.blocks-parcours.athlete .photos,
-.blocks-parcours.interets .photos {
-    /* Maintien du grid */
-    display: grid;
-    height: 100%;
-    background-color: transparent;
-
-    /* CORRECTIONS POUR LE CENTRAGE */
-    place-items: center;
-    /* Centre horizontalement et verticalement */
-    padding: 0;
-    /* IMPORTANT : supprime tout padding qui décale l'image */
-    margin: 0;
-    /* IMPORTANT : supprime toute marge */
-}
-
-.blocks-parcours.athlete .photos.pro {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.blocks-parcours.athlete .photos.edf {
-    grid-column: 1;
-    grid-row: 2;
-}
-
-.blocks-parcours.athlete {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto auto;
-    /* C'est la ligne clé pour égaliser les hauteurs */
-    align-items: stretch;
-}
-
-.blocks-parcours.athlete .timeline-item.pro {
-    grid-column: 1;
-    grid-row: 1;
-}
-
-.blocks-parcours.athlete .timeline-item.edf {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.photos.pro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-/* On force le conteneur de chaque image */
-.photos.pro img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 8px;
-}
-
-.photos.edf {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto;
-    /* S'assure qu'elles sont côte à côte */
-    gap: 1rem;
-    /* Définit l'espace entre les deux images (ajuste la valeur selon tes besoins) */
-    align-items: center;
-}
-
-.edf-1 {
-    grid-column: 1/3;
-    grid-row: 1;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-}
-
-.edf-2 {
-    grid-column: 1/3;
-    grid-row: 2;
-}
-
-.edf-1 img,
-.edf-2 img {
-    width: 100%;
-    height: 250px;
-    /* Hauteur fixe identique pour toutes */
-    object-fit: cover;
-    /* Coupe proprement */
-    object-position: center;
-    /* Centre l'image */
-    border-radius: 8px;
-    /* Coins arrondis */
-}
-
-.photos.interets {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
-}
-
-/* On force le conteneur de chaque image */
-.photos.interets img {
-    width: 100%;
-    height: 300px;
-    /* Hauteur fixe identique pour toutes */
-    object-fit: cover;
-    /* Coupe proprement */
-    object-position: center;
-    /* Centre l'image */
-    border-radius: 8px;
-    /* Coins arrondis */
-}
-
-dialog[open] {
-    /* Remise à zéro agressive pour le dialog */
-    margin: auto !important;
-    padding: 0 !important;
-    border: none !important;
-    background: transparent !important;
-    overflow: visible !important;
-    display: inline-block !important;
-    line-height: 0 !important;
-    /* Annulation de toute ombre ou effet système */
-    box-shadow: none !important;
-    outline: none !important;
-}
-
-/* Forcer l'image à coller parfaitement */
-dialog[open] img {
-    display: block !important;
-    width: auto !important;
-    height: auto !important;
-    max-width: 90vw !important;
-    max-height: 90vh !important;
-    box-shadow: none !important;
-    border: none !important;
-    border-radius: 8px;
-
-    /* Ajoute uniquement cette ligne */
-    aspect-ratio: auto !important;
-}
-
-dialog::backdrop {
-    background: rgba(0, 0, 0, 0.9) !important;
-}
-
-img[onclick] {
-    cursor: pointer;
-}
-
-.blocks-parcours.competences,
-.blocks-parcours.interets {
-    display: grid;
-    /* On force 1 seule colonne qui s'adapte à la largeur dispo */
-    grid-template-columns: 1fr;
-    align-content: start;
-    /* On définit une largeur maximale pour ne pas que ce soit trop large sur PC */
-    width: 70%;
-    /*max-width: 600px;*/
-    /* Centrage du bloc dans la page */
-    justify-self: center;
-    /*gap: 2.5rem;*/
-    line-height: 1.5rem;
-}
-
-.blocks-parcours.athlete ul {
-    text-align: justify;
-    margin-top: 0.5rem;
-}
-
-.blocks-parcours.athlete .intro {
-    text-align: justify;
-    padding-bottom: 2rem;
-    --padding-left-right: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block) - var(--cercle-taille) / 2);
-    padding: 0 var(--padding-left-right) 1.5rem var(--padding-left-right);
-    ;
-}
-
-.blocks-parcours p {
-    color: var(--couleur-texte-sombre);
-    text-align: justify;
-    font-weight: bold;
-    gap: 4rem;
-}
-
-.liste-item.savoir-etre,
-.liste-item.savoir-faire,
-.liste-item.loisirs {
-    /* Nettoyage des positions forcées */
-    grid-row: auto;
-    grid-column: auto;
-    /* On assure que les éléments ne dépassent pas de la colonne */
-    width: 100%;
-    box-sizing: border-box;
-    padding-bottom: 3.5rem;
-}
-
-.blocks-parcours>div {
-    position: relative;
-    padding: var(--padding-grid);
-    background: var(--couleur-fond-block);
-    color: #242424;
-    border-radius: var(--rayon-bordure-standard);
-    /*min-height: 6.25rem;*/
-}
-
-/* Savoir */
-.liste-savoir {
-    display: grid;
-    grid-template-columns: 1fr;
-    margin: auto;
-    width: 80%;
-    /*grid-template-columns: repeat(2, 1fr);
-    grid-column: span 2;*/
-    margin-bottom: 1.5rem;
-    gap: var(--gap-grid);
-    /* gap entre les deux grid compétences page accueil */
-    align-items: start;
-    /* On impose une hauteur minimale pour éviter les sauts */
-    /* min-height: 10rem;*/
-}
-
-.liste-savoir.no-hover>ul {
-    line-height: 2;
-}
-
-.savoir {
-    list-style: none;
-    color: var(--couleur-texte-sombre);
-    width: 100%;
-    /* Change 80% par 100% pour remplir la grid */
-    margin: 0;
-    /* Retire le auto pour que ça ne soit pas centré */
-    text-align: left;
-    contain: layout;
-    padding: var(--padding-block) var(--padding-block) var(--padding-block) 2.5rem;
-    border-radius: var(--rayon-bordure-standard);
-}
-
-.savoir.savoir-etre>h4,
-.savoir.savoir-faire>h4 {
-    text-align: center;
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    /* On supprime position: relative et left:-1rem */
-}
-
-.savoir li {
-    line-height: 2rem;
-}
-
-/* Petit visuel de "check" avant chaque compétence */
-.savoir li:not(.pays)::before {
-    content: "◆";
-    margin-right: 10px;
-    font-weight: bold;
-
-}
-
-.savoir.no-hover li:not(.pays)::before {
-    /* Ajoute une marge négative pour décaler vers la gauche */
-    margin-left: -1rem;
-}
-
-/* Force le scroll à bien se caler sur le titre */
-#ancre-savoir-etre,
-#ancre-savoir-faire,
-#ancre-benevolat,
-#ancre-exp-pro-inge-oberthur,
-#ancre-athl-pro-elite-rennes,
-#ancre-exp-pro-prof,
-#ancre-athl-pro-n2-rennes,
-#ancre-formation-inge,
-#ancre-stage-inge-2,
-#ancre-stage-inge-1,
-#ancre-formation-licence,
-#ancre-stage-licence,
-#ancre-exp-pro-secr,
-#ancre-athl-pro-nancy,
-#ancre-formation-bts,
-#ancre-stage-bts,
-#ancre-athl-pro-nantes,
-#ancre-athl-edf-espoir,
-#ancre-athl-pro-istres,
-#ancre-athl-edf-junior,
-#ancre-athl-pro-sable,
-#ancre-athl-edf-cadette {
-    display: block;
-    /* Important pour que l'ancre soit un bloc */
-    scroll-margin-top: 150px;
-    /* Ajuste selon la hauteur de ton menu fixe */
-}
-
-/* Bordures latérales colorées */
-.savoir-etre {
-    border: 2px solid var(--couleur-fond-section-1);
-    border-left-width: 15px;
-}
-
-.savoir-faire {
-    border: 2px solid var(--couleur-timeline);
-    border-left-width: 15px;
-}
-
-.savoir:not(.no-hover),
-.timeline-parcours,
-.chronologie,
-.photos img,
-.introduction img {
-    transition: transform 0.2s ease, background-color 0.2s ease;
-    will-change: transform;
-}
-
-.savoir:not(.no-hover):hover,
-.timeline-parcours:hover,
-.chronologie:hover,
-.savoir:not(.no-hover):focus-within,
-.timeline-parcours:focus-within,
-.chronologie:focus-within {
-    background-color: var(--couleur-fond-timeline);
-    border-radius: var(--rayon-bordure-standard);
-    transform: scale(1.02);
-}
-
-.photos img:hover,
-.introduction img:hover,
-.photos img:focus-visible,
-.introduction img:focus-visible {
-    transform: scale(1.05);
-}
-
-.timeline-item,
-.cv-chronologie-container,
-.liste-item,
-.contact-info {
-    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);
-}
-
-/* Timeline */
-.liste-item {
-    grid-row: 2;
-    width: 80%;
-    margin: auto;
-}
-
-.timeline-item.experience-professionnelle {
-    grid-column: 3/5;
-    grid-row: 1;
-}
-
-.timeline-item.formation {
-    grid-column: 1/3;
-    grid-row: 2;
-}
-
-.timeline-item.athlete {
-    grid-column: 3/5;
-    grid-row: 2;
-}
-
-.timeline-item.benevole {
-    grid-column: 2/4;
-    grid-row: 3;
-}
-
-.timeline-parcours {
-    position: relative;
-    display: grid;
-    grid-template-columns: var(--colonne-gauche-grid-largeur) 1fr;
-    align-items: start;
-    margin-bottom: 1.5rem;
-    padding: var(--padding-block);
-    border-radius: var(--rayon-bordure-standard);
-    text-align: left;
-    contain: layout;
-}
-
-.timeline-parcours::before {
-    content: '';
-    grid-column: 1;
-    justify-self: center;
-    width: var(--cercle-taille);
-    height: var(--cercle-taille);
-    background-color: var(--couleur-timeline);
-    border-radius: 50%;
-    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
-    box-shadow: 0 0 0 0.125rem var(--couleur-timeline);
-    margin-top: 0.25rem;
-    /*transition: transform 0.3s ease;*/
-}
-
-.timeline-parcours::after {
-    content: '';
-    position: absolute;
-    left: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block));
-    transform: translateX(-50%);
-    top: var(--top-trait);
-    bottom: var(--padding-block);
-    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
-}
-
-
-
-
-
-
-.cv-chronologie-container {
-    position: relative;
-    grid-row: 1;
-    background-color: white;
-    z-index: 1;
-    /*padding-top: var(--padding-grid);
-    padding-bottom: var(--padding-grid);*/
-    /*border-radius: var(--rayon-bordure-standard);*/
-    /*box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.3);*/
-}
-
-.cv-chronologie {
-    display: grid;
-    grid-template-columns: 1fr var(--cercle-taille) 1fr;
-    grid-template-rows: repeat(14, auto);
-    row-gap: 2rem;
-    /*align-items: start;*/
-    position: relative;
-    /*margin-bottom: 1.5rem;*/
-    /*padding: var(--padding-block);*/
-    /*border: 3px solid red;*/
-}
-
-.point::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 0.5rem;
-    width: var(--cercle-taille);
-    height: var(--cercle-taille);
-    background-color: var(--couleur-timeline);
-    border-radius: 50%;
-    border: var(--epaisseur-trait) solid var(--couleur-fond-timeline);
-    box-shadow: 0 0 0 2px var(--couleur-timeline);
-    box-sizing: content-box;
-    z-index: 3;
-    grid-column: auto !important;
-    justify-self: auto !important;
-    transition: transform 0.2s ease;
-}
-
-.point.benev::before,
-.point.exp-pro-inge-oberthur::before,
-.point.athl-pro-elite-rennes::before,
-.point.exp-pro-prof::before,
-.point.athl-pro-n2-rennes::before,
-.point.stage-inge-2::before,
-.point.stage-inge-1::before,
-.point.form-inge::before,
-.point.stage-licence::before,
-.point.form-licence::before,
-.point.exp-pro-secr::before,
-.point.athl-pro-nancy::before,
-.point.stage-bts::before,
-.point.form-bts::before,
-.point.athl-pro-nantes::before,
-.point.athl-pro-istres::before,
-.point.athl-edf-espoir::before,
-.point.athl-edf-junior::before,
-.point.athl-edf-cadette::before,
-.point.athl-pro-sable::before {
-    grid-column: 2;
-}
-
-.chronologie {
-    position: relative;
-    background-color: white;
-    /*border: 3px solid red;*/
-    z-index: 2;
-}
-
-.cv-chronologie-container::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    /* On décale de la moitié de l'épaisseur du trait pour le centrer parfaitement sur l'axe */
-    transform: translateX(calc(var(--epaisseur-trait) / -2));
-    top: 6rem;
-    bottom: 2rem;
-    border-left: var(--epaisseur-trait) solid var(--couleur-timeline);
-    z-index: 0;
-}
-
-.chronologie.exp-pro-inge-oberthur,
-.chronologie.exp-pro-prof,
-.chronologie.stage-inge-2,
-.chronologie.stage-inge-1,
-.chronologie.form-inge,
-.chronologie.stage-licence,
-.chronologie.form-licence,
-.chronologie.exp-pro-secr,
-.chronologie.stage-bts,
-.chronologie.form-bts {
-    grid-column: 1;
-    justify-self: center;
-    align-self: stretch;
-    transform-origin: right center;
-    width: 90%;
-    text-align: left;
-    padding: var(--padding-grid);
-    border: var(--epaisseur-bordure) solid var(--couleur-fond-section-1);
-    border-radius: var(--rayon-bordure-standard);
-}
-
-.chronologie.benev,
-.chronologie.athl-pro-elite-rennes,
-.chronologie.athl-pro-n2-rennes,
-.chronologie.athl-pro-nancy,
-.chronologie.athl-pro-nantes,
-.chronologie.athl-pro-istres,
-.chronologie.athl-edf-espoir,
-.chronologie.athl-edf-junior,
-.chronologie.athl-edf-cadette,
-.chronologie.athl-pro-sable {
-    grid-column: 3;
-    justify-self: center;
-    align-self: stretch;
-    transform-origin: left center;
-    width: 90%;
-    text-align: left;
-    padding: var(--padding-grid);
-    border: var(--epaisseur-bordure) solid rgb(89, 37, 89);
-    border-radius: var(--rayon-bordure-standard);
-}
-
-/*.chronologie.benev:hover,
-.chronologie.athl-pro-elite-rennes:hover,
-.chronologie.athl-pro-n2-rennes:hover,
-.chronologie.athl-pro-nancy:hover,
-.chronologie.athl-pro-nantes:hover,
-.chronologie.athl-pro-istres:hover,
-.chronologie.athl-edf-espoir:hover,
-.chronologie.athl-edf-junior:hover,
-.chronologie.athl-edf-cadette:hover,
-.chronologie.athl-pro-sable:hover {
-    background-color: var(--couleur-fond-timeline);
-    border-radius: var(--rayon-bordure-standard);
-}*/
-
-.cv-chronologie:has(.point.benev:hover) .chronologie.benev,
-.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .chronologie.exp-pro-inge-oberthur,
-.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .chronologie.athl-pro-elite-rennes,
-.cv-chronologie:has(.point.exp-pro-prof:hover) .chronologie.exp-pro-prof,
-.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .chronologie.athl-pro-n2-rennes,
-.cv-chronologie:has(.point.stage-inge-2:hover) .chronologie.stage-inge-2,
-.cv-chronologie:has(.point.stage-inge-1:hover) .chronologie.stage-inge-1,
-.cv-chronologie:has(.point.form-inge:hover) .chronologie.form-inge,
-.cv-chronologie:has(.point.stage-licence:hover) .chronologie.stage-licence,
-.cv-chronologie:has(.point.form-licence:hover) .chronologie.form-licence,
-.cv-chronologie:has(.point.exp-pro-secr:hover) .chronologie.exp-pro-secr,
-.cv-chronologie:has(.point.athl-pro-nancy:hover) .chronologie.athl-pro-nancy,
-.cv-chronologie:has(.point.stage-bts:hover) .chronologie.stage-bts,
-.cv-chronologie:has(.point.form-bts:hover) .chronologie.form-bts,
-.cv-chronologie:has(.point.athl-pro-nantes:hover) .chronologie.athl-pro-nantes,
-.cv-chronologie:has(.point.athl-pro-istres:hover) .chronologie.athl-pro-istres,
-.cv-chronologie:has(.point.athl-edf-espoir:hover) .chronologie.athl-edf-espoir,
-.cv-chronologie:has(.point.athl-edf-junior:hover) .chronologie.athl-edf-junior,
-.cv-chronologie:has(.point.athl-edf-cadette:hover) .chronologie.athl-edf-cadette,
-.cv-chronologie:has(.point.athl-pro-sable:hover) .chronologie.athl-pro-sable {
-    background-color: var(--couleur-fond-timeline);
-    border-radius: var(--rayon-bordure-standard);
-    transform: scale(1.02);
-}
-
-.cv-chronologie:has(.point.benev:hover) .point.benev::before,
-.cv-chronologie:has(.point.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
-.cv-chronologie:has(.point.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
-.cv-chronologie:has(.point.exp-pro-prof:hover) .point.exp-pro-prof::before,
-.cv-chronologie:has(.point.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
-.cv-chronologie:has(.point.stage-inge-2:hover) .point.stage-inge-2::before,
-.cv-chronologie:has(.point.stage-inge-1:hover) .point.stage-inge-1::before,
-.cv-chronologie:has(.point.form-inge:hover) .point.form-inge::before,
-.cv-chronologie:has(.point.stage-licence:hover) .point.stage-licence::before,
-.cv-chronologie:has(.point.form-licence:hover) .point.form-licence::before,
-.cv-chronologie:has(.point.exp-pro-secr:hover) .point.exp-pro-secr::before,
-.cv-chronologie:has(.point.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
-.cv-chronologie:has(.point.stage-bts:hover) .point.stage-bts::before,
-.cv-chronologie:has(.point.form-bts:hover) .point.form-bts::before,
-.cv-chronologie:has(.point.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
-.cv-chronologie:has(.point.athl-pro-istres:hover) .point.athl-pro-istres::before,
-.cv-chronologie:has(.point.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
-.cv-chronologie:has(.point.athl-edf-junior:hover) .point.athl-edf-junior::before,
-.cv-chronologie:has(.point.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
-.cv-chronologie:has(.point.athl-pro-sable:hover) .point.athl-pro-sable::before {
-    transform: translateX(-50%) scale(1.2);
-}
-
-.cv-chronologie:has(.chronologie.benev:hover) .point.benev::before,
-.cv-chronologie:has(.chronologie.exp-pro-inge-oberthur:hover) .point.exp-pro-inge-oberthur::before,
-.cv-chronologie:has(.chronologie.athl-pro-elite-rennes:hover) .point.athl-pro-elite-rennes::before,
-.cv-chronologie:has(.chronologie.exp-pro-prof:hover) .point.exp-pro-prof::before,
-.cv-chronologie:has(.chronologie.athl-pro-n2-rennes:hover) .point.athl-pro-n2-rennes::before,
-.cv-chronologie:has(.chronologie.stage-inge-2:hover) .point.stage-inge-2::before,
-.cv-chronologie:has(.chronologie.stage-inge-1:hover) .point.stage-inge-1::before,
-.cv-chronologie:has(.chronologie.form-inge:hover) .point.form-inge::before,
-.cv-chronologie:has(.chronologie.stage-licence:hover) .point.stage-licence::before,
-.cv-chronologie:has(.chronologie.form-licence:hover) .point.form-licence::before,
-.cv-chronologie:has(.chronologie.exp-pro-secr:hover) .point.exp-pro-secr::before,
-.cv-chronologie:has(.chronologie.athl-pro-nancy:hover) .point.athl-pro-nancy::before,
-.cv-chronologie:has(.chronologie.stage-bts:hover) .point.stage-bts::before,
-.cv-chronologie:has(.chronologie.form-bts:hover) .point.form-bts::before,
-.cv-chronologie:has(.chronologie.athl-pro-nantes:hover) .point.athl-pro-nantes::before,
-.cv-chronologie:has(.chronologie.athl-pro-istres:hover) .point.athl-pro-istres::before,
-.cv-chronologie:has(.chronologie.athl-edf-espoir:hover) .point.athl-edf-espoir::before,
-.cv-chronologie:has(.chronologie.athl-edf-junior:hover) .point.athl-edf-junior::before,
-.cv-chronologie:has(.chronologie.athl-edf-cadette:hover) .point.athl-edf-cadette::before,
-.cv-chronologie:has(.chronologie.athl-pro-sable:hover) .point.athl-pro-sable::before {
-    transform: translateX(-50%) scale(1.2);
-}
-
-.point.benev::before,
-.point.athl-pro-elite-rennes::before,
-.point.athl-pro-n2-rennes::before,
-.point.athl-pro-nancy::before,
-.point.athl-pro-nantes::before,
-.point.athl-pro-istres::before,
-.point.athl-edf-espoir::before,
-.point.athl-edf-junior::before,
-.point.athl-edf-cadette::before,
-.point.athl-pro-sable::before {
-    background-color: rgb(89, 37, 89);
-    box-shadow: 0 0 0 3px rgb(89, 37, 89);
-}
-
-.point.exp-pro-inge-oberthur::before,
-.point.exp-pro-prof::before,
-.point.stage-inge-2::before,
-.point.stage-inge-1::before,
-.point.form-inge::before,
-.point.stage-licence::before,
-.point.form-licence::before,
-.point.exp-pro-secr::before,
-.point.stage-bts::before,
-.point.form-bts::before {
-    background-color: var(--couleur-fond-section-1);
-    box-shadow: 0 0 0 3px var(--couleur-fond-section-1);
-}
-
-/*.chronologie.exp-pro-inge:hover,
-.chronologie.exp-pro-prof:hover,
-.chronologie.form-inge:hover,
-.chronologie.exp-pro-stage:hover,
-.chronologie.form-licence:hover,
-.chronologie.form-bts:hover {
-    background-color: var(--couleur-fond-timeline);
-    border-radius: var(--rayon-bordure-standard);
-    transform: scale(1.02);
-}*/
-
-/*.chronologie.exp-pro-inge::before,
-.chronologie.exp-pro-prof::before,
-.chronologie.form-inge::before,
-.chronologie.exp-pro-stage::before,
-.chronologie.form-licence::before,
-.chronologie.form-bts::before {
-    right: calc(-1 * var(--cercle-taille) - var(--epaisseur-trait) - var(--padding-grid));
-    /*right: -0.93rem;*/
-/*left: auto;
-    background-color: var(--couleur-fond-section-1);
-    box-shadow: 0 0 0 3px var(--couleur-fond-section-1);
-}*/
-
-.chronologie-inge-titre {
-    grid-column: 1;
-    grid-row: 1;
-    /*text-decoration: underline;
-    text-underline-offset: 10px;*/
-}
-
-.chronologie-volley-titre {
-    grid-column: 3;
-    grid-row: 1;
-    /*text-decoration: underline;
-    text-underline-offset: 10px;*/
-}
-
-.chronologie.benev,
-.point.benev::before {
-    grid-row: 2 / 4;
-}
-
-.chronologie.exp-pro-inge-oberthur,
-.point.exp-pro-inge-oberthur::before {
-    grid-row: 3 / 10;
-}
-
-.chronologie.athl-pro-elite-rennes,
-.point.athl-pro-elite-rennes::before {
-    grid-row: 4 / 6;
-}
-
-.chronologie.exp-pro-prof,
-.point.exp-pro-prof::before {
-    grid-row: 10;
-}
-
-.chronologie.athl-pro-n2-rennes,
-.point.athl-pro-n2-rennes::before {
-    grid-row: 6 / 12;
-}
-
-.chronologie.form-inge,
-.point.form-inge::before {
-    grid-row: 11;
-}
-
-.chronologie.stage-licence,
-.point.stage-licence::before {
-    grid-row: 12;
-}
-
-.chronologie.form-licence,
-.point.form-licence::before {
-    grid-row: 12;
-}
-
-.chronologie.exp-pro-secr,
-.point.exp-pro-secr::before {
-    grid-row: 13;
-}
-
-.chronologie.athl-pro-nancy,
-.point.athl-pro-nancy::before {
-    grid-row: 14;
-}
-
-.chronologie.form-bts,
-.point.form-bts::before {
-    grid-row: 14;
-}
-
-.chronologie.athl-pro-nantes,
-.point.athl-pro-nantes::before {
-    grid-row: 15;
-}
-
-.chronologie.athl-pro-istres,
-.point.athl-pro-istres::before {
-    grid-row: 16;
-}
-
-.chronologie.athl-pro-sable,
-.point.athl-pro-sable::before {
-    grid-row: 17;
-}
-
-
-
-
-
-
-.timeline-parcours>.date,
-.timeline-parcours>.poste,
-.timeline-parcours>.niveau,
-.timeline-parcours>.lieu,
-.timeline-parcours>.detail,
-.chronologie>.date,
-.chronologie>.poste,
-.chronologie>.niveau,
-.chronologie>.lieu,
-.chronologie>.detail,
-.stage-inge>.date,
-.stage-inge>.poste,
-.stage-inge>.niveau,
-.stage-inge>.lieu {
-    grid-column: 2;
-    margin: 0;
-    /*transition: font-size 0.2s ease;*/
-    text-align: justify;
-}
-
-.timeline-parcours>.date,
-.timeline-parcours>.poste,
-.timeline-parcours>.niveau,
-.timeline-parcours>.lieu,
-.timeline-parcours>.detail {
-    padding-left: 1rem;
-}
-
-.timeline-parcours>.date .chronologie>.date {
-    font-size: 1.2rem;
-}
-
-.stage,
-.edf {
-    margin-top: 2rem;
-}
-
-.stage>.date,
-.edf>.date {
-    font-size: 1.1rem;
-}
-
-.timeline-parcours>.poste,
-.chronologie>.poste,
-.stage>.poste,
-.edf>.poste {
-    grid-column: 2;
-    margin: 0;
-    /*transition: font-size 0.2s ease;*/
-    text-align: left;
-    color: var(--couleur-fond-section-1);
-    font-weight: bold;
-}
-
-.timeline-parcours>.poste,
-.chronologie>.poste {
-    font-size: 1.3rem;
-}
-
-.stage>.poste,
-.edf>.poste {
-    font-size: 1.2rem;
-}
-
-.timeline-parcours>.niveau,
-.chronologie>.niveau,
-.stage>.niveau,
-.edf>.niveau {
-    color: var(--couleur-fond-section-1);
-    font-weight: normal;
-}
-
-.timeline-parcours>.niveau,
-.chronologie>.niveau {
-    font-size: 1.2rem;
-}
-
-.stage>.niveau,
-.edf>.niveau {
-    font-size: 1.1rem;
-}
-
-.timeline-parcours>.lieu,
-.chronologie>.lieu,
-.stage>.lieu,
-.edf>.lieu {
-    font-size: 1.1rem;
-    font-style: italic;
-}
-
-.timeline-parcours>.lieu,
-.chronologie>.lieu {
-    font-size: 1.1rem;
-}
-
-.stage>.lieu,
-.edf>.lieu {
-    font-size: 1rem;
-}
-
-.timeline-parcours>.detail,
-.chronologie>.detail {
-    padding-top: 0.2rem;
-    line-height: 1.6;
-    padding-left: 4rem;
-}
-
-.timeline-parcours li .chronologie li {
-    font-size: 1.1rem;
-}
-
-.stage>.voir-detail,
-.edf>.voir-detail {
-    font-size: 1rem;
-}
-
-.voir-detail {
-    display: block;
-    margin-left: auto;
-    /* Pousse l'élément vers la droite */
-    width: max-content;
-    /* L'élément s'adapte à la largeur du texte */
-    text-align: right;
-    grid-column: 2;
-    color: #3b3c3c;
-    font-style: italic;
-    margin-top: 0.5rem;
-    margin-bottom: 0.6rem;
-    margin-right: 1rem;
-    text-decoration: underline;
-    font-weight: bold;
-}
-
-.btn-telechargement {
-    display: inline-block;
-    background: linear-gradient(var(--couleur-degrade-cta-depart), var(--couleur-degrade-cta-arrivee));
-    color: var(--couleur-texte-clair);
-    padding: 1rem 2rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-    transition: transform 0.2s ease, background 0.2s ease;
-    margin: auto;
-    /* Centré par défaut */
-    margin-top: 5rem;
-}
-
-.btn-telechargement:hover {
-    background: linear-gradient(var(--couleur-degrade-cta-hover-depart), var(--couleur-degrade-cta-hover-arrivee));
-    transform: scale(1.05);
-    text-decoration: none;
-}
-
-.slider {
-    width: 750px;
-    height: 422px;
-    margin: 40px auto;
-    overflow: hidden;
-    border-radius: 8px;
-}
-
-.slides {
-    display: flex;
-    transition: transform .5s ease;
-}
-
-.slides img {
-    width: 100%;
-    height: 100%;
-    flex-shrink: 0;
-    object-fit: contain;
-    /* ou cover selon le rendu souhaité */
-    object-position: center;
-}
-
-.dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.dot {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #ffffff;
-    opacity: .35;
-
-    transition: .3s;
-}
-
-.dot.active {
-    opacity: 1;
-}
-
-/* 1. La section globale : active le Flexbox pour tout centrer */
-.article-press {
-    display: flex;
-    flex-wrap: wrap;
-    /* Permet de passer à la ligne sur mobile */
-    justify-content: center;
-    gap: 8%;
-    padding: 3rem;
-}
-
-/* 2. Le titre prend toute la largeur et se place au-dessus */
-.article-press h3 {
-    flex-basis: 100%;
-    text-align: center;
-    color: var(--couleur-texte-clair);
-    font-size: 3.5rem;
-    margin: 0 0 4rem 0;
-}
-
-/* 3. Conteneurs : largeur fixe pour aligner les blocs sur la ligne 2 */
-.article-container,
-.video-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    /* Aligne le titre, l'image et le texte verticalement */
-    /* Largeur identique pour tous */
-}
-
-/* 5. Style et zoom de l'image */
-.image-article,
-.image-page,
-video {
-    width: auto;
-    height: 250px;
-    /* Hauteur identique */
-    object-fit: cover;
-    /* Rogne intelligemment pour remplir l'espace */
-    border-radius: 8px;
-    display: block;
-    margin: auto;
-}
-
-/* Zoom au survol sur l'image via le lien */
-.article-container a:hover .image-article,
-.article-container a:hover .image-page,
-.video-container:hover video {
-    transform: scale(1.05);
-}
-
-/* 6. Style pour les titres des blocs (h4) */
-.article-container h4,
-.video-container h4 {
-    margin-top: 10px;
-    color: var(--couleur-texte-clair);
-}
-
-/* 7. Style du paragraphe */
-.article-container p {
-    padding-top: 1rem;
-}
-
-.sr-only {
-    position: absolute !important;
-    width: 1px !important;
-    height: 1px !important;
-    padding: 0 !important;
-    margin: -1px !important;
-    overflow: hidden !important;
-    clip: rect(0, 0, 0, 0) !important;
-    white-space: nowrap !important;
-    border: 0 !important;
-}
-
-.scroll-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-
-    /* Bordure du conteneur parent */
-    padding-bottom: 5rem;
-}
-
-.logo-parcours {
-    display: block;
-    grid-column: 1;
-    grid-row: 1;
-
-    justify-self: center;
-    align-self: center;
-
-    width: 50%;
-    height: auto;
-
-    opacity: 0.85;
-}
-
-.scroll-text {
-    grid-column: 1;
-    grid-row: 1;
-
-    display: flex;
-
-
-    width: 38%;
-    height: auto;
-    margin: auto;
-
-    overflow: hidden;
-
-    z-index: 2;
-}
-
-.scroll-text h2 {
-    margin: 0 auto;
-    white-space: nowrap;
-    animation: marquee 8s linear infinite;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(100%);
-    }
-
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-@media screen and (max-width: 1425px) {
+@media screen and (max-width: 1550px) {
     .burger-menu {
         display: flex !important;
         align-items: center !important;
@@ -1604,16 +1366,13 @@ video {
     .menu-text {
         font-weight: bold;
         font-size: 1.8rem;
-        /* Ajuste la taille selon ton besoin */
         color: var(--couleur-texte-sombre);
         margin-right: 0.5rem;
     }
 
     .burger-icon {
         width: 3rem;
-        /* Ajuste la taille de ton icône */
         height: auto;
-        /* Garde les proportions */
         display: block;
     }
 
@@ -1629,8 +1388,6 @@ video {
         z-index: 1000;
         text-align: center;
         box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
-
-        /* Ajoute ces deux lignes : */
         max-height: calc(100vh - var(--hauteur-header));
         overflow-y: auto;
     }
@@ -1643,16 +1400,13 @@ video {
         display: flex !important;
     }
 
-    /* 1. Centrage et empilement de l'introduction */
     .introduction {
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        /* Force le centrage horizontal de l'image ET du bloc texte */
         width: 90%;
         padding: 4rem var(--padding-grid);
         gap: 3rem;
-        /* Ton écart uniforme entre l'image et le bloc texte */
     }
 
     .introduction div {
@@ -1670,18 +1424,13 @@ video {
 
     .introduction img {
         grid-column: 1;
-        /* Place l'image sous le texte */
         order: -1;
-        /* Optionnel : si tu veux l'image tout en haut */
         margin: 0 auto;
-        /* Centre l'image horizontalement */
         display: block;
-        /* Nécessaire pour que margin auto fonctionne */
         width: 350px;
         height: 350px;
     }
 
-    /* Contact Section */
     .contact-info {
         display: grid;
         grid-template-columns: 1fr;
@@ -1711,7 +1460,6 @@ video {
         grid-row: 4;
     }
 
-    /* 1. On simplifie la grille des parcours pour forcer l'empilement */
     .blocks-parcours {
         grid-template-columns: 1fr !important;
         /* Force une seule colonne */
@@ -1726,7 +1474,6 @@ video {
         width: 60%;
     }
 
-    /* 2. On libère tous les éléments de leurs positions spécifiques */
     .liste-item,
     .timeline-item,
     .timeline-item.athlete,
@@ -1760,22 +1507,18 @@ video {
         flex-direction: column;
     }
 
-    /* Le premier article (Ouest-France) reste en 1 */
     .article-container:nth-of-type(1) {
         order: 1;
     }
 
-    /* La vidéo passe en 2 */
     .video-container {
         order: 2;
     }
 
-    /* Wikipédia passe en 3 */
     .article-container:nth-of-type(2) {
         order: 3;
     }
 
-    /* Ajustement des dimensions sur mobile */
     .article-container,
     .video-container {
         width: 90%;
@@ -1790,7 +1533,6 @@ video {
         border-radius: 8px;
         display: block;
         margin: 0 auto;
-        /* Centrage des éléments */
     }
 
     .article-rec {
@@ -1821,11 +1563,14 @@ video {
         font-size: 1.7rem;
     }
 
+    .introduction p {
+        font-size: 1.8rem;
+    }
+
     p {
         font-size: 2rem;
     }
 
-    /* Typography & Links */
     a {
         font-size: 1.6rem;
     }
@@ -1853,6 +1598,11 @@ video {
     .stage>.voir-detail,
     .edf>.voir-detail {
         font-size: 1.3rem;
+    }
+
+    .cv-chronologie {
+        grid-template-columns: minmax(0, 1fr) var(--cercle-taille) minmax(0, 1fr) !important;
+        column-gap: 5px !important;
     }
 
     .timeline-parcours>.date,
@@ -1910,5 +1660,16 @@ video {
         height: auto;
     }
 
+    .blocks-parcours>div {
+        padding: var(--padding-grid) 1rem var(--padding-grid) 1rem;
+    }
+
+    .chronologie[class*="form-"],
+    .chronologie[class*="exp-pro-"],
+    .chronologie[class*="stage-"],
+    .chronologie.benev,
+    .chronologie[class*="athl-"] {
+        width: 90%;
+    }
 
 }

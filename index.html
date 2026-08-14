@@ -3,6 +3,8 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="description"
+        content="Découvrez le parcours professionnel parralèle d'une Ingénieure en Informatique Industrielle et ancienne sportive de haut niveau.">
     <title>Accueil - CV Lénaïg LE MOIGNE</title>
     <link href="style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,15 +43,21 @@
             <div>
                 <h1>Lénaïg LE MOIGNE</h1>
                 <p>
-                    « Ingénieure avec 7 ans d'expérience en systèmes industriels. Mon parcours hors norme allie des
-                    compétences techniques à la discipline de 16 ans de volleyball de haut niveau (Équipe de France
-                    jeune, Pro A et Elite). Ma réactivité de Libéro est mon meilleur atout pour concevoir, développer et
-                    dépanner des systèmes en environnement de production. »
+                    « Ingénieure en Informatique industrielle avec 7 ans d'expérience, j'interviens au cœur des
+                    environnements de production pour concevoir, développer et dépanner les systèmes. Alliant la méthode
+                    technique à la rigueur acquise au cours de mes 16 années de volleyball de haut niveau (Équipe de
+                    France jeune, Pro A, Élite), j'apporte un sens aigu du terrain, de l'engagement, de l'adaptation, un
+                    goût pour la performance et une vraie réactivité face aux imprévus du quotidien.
+                </p>
+                <p>
+                    Développé de A à Z dans le cadre d'un projet
+                    d'autoformation, ce site web a été pensé pour présenter mon parcours de manière plus vivante,
+                    détaillée et claire qu'un CV traditionnel. »
                 </p>
                 <a href="contact.html">ON TRAVAILLE ENSEMBLE ? CONTACTEZ-MOI</a>
             </div>
 
-            <img src="images/lenaig.jpeg" alt="Photo de Lénaïg LE MOIGNE"
+            <img src="images/lenaig-600px.jpg" width="600" height="400" alt="Photo de Lénaïg LE MOIGNE"
                 onclick="document.getElementById('modal-groupe').showModal()">
             <dialog id="modal-groupe" onclick="this.close()">
                 <img src="images/lenaig.jpeg" alt="Photo de Lénaïg LE MOIGNE">
@@ -59,10 +67,10 @@
 
         <section class="parcours">
             <div class="scroll-container">
-                <img src="images/parcours.svg" class="logo-parcours">
+                <img src="images/parcours.svg" alt="Image parcours" class="logo-parcours">
 
                 <div class="scroll-text">
-                    <h2>Parcours parallèles: Sportive & Ingénieure</h2>
+                    <h2>Parcours parallèles : Ingénieure & Sportive</h2>
                 </div>
             </div>
 
@@ -76,9 +84,20 @@
 
                         <h3 class="chronologie-volley-titre">Sportive Haut Niveau</h3>
 
+                        <div class="point form-openclassroom"></div>
+                        <div class="chronologie form-openclassroom">
+                            <time class="date">Mars 2026 - A ce jour</time>
+                            <h4 class="poste">Autoformations Numériques sur Internet</h4>
+                            <div class="niveau">Web Front, Deep Learning, Agent IA</div>
+                            <div class="lieu">Site Openclassroom</div>
+                            <a href="formation.html#ancre-formation-openclassroom" class="voir-detail">Voir formation
+                                Openclassroom</a>
+                        </div>
+
+
                         <div class="point benev"></div>
                         <div class="chronologie benev">
-                            <time class="date">2024 - Aujourd'hui</time>
+                            <time class="date">2024 - A ce jour</time>
                             <h4 class="poste">Responsable Volley et VIP</h4>
                             <div class="lieu">REC Volley, Rennes</div>
                             <a href="engagement-associatif.html#ancre-benevolat" class="voir-detail">Voir parcours
@@ -203,24 +222,22 @@
                             <div class="lieu">VBN, Nantes</div>
                             <a href="athlete-haut-niveau.html#ancre-athl-pro-nantes" class="voir-detail">Voir
                                 club pro Nantes</a>
-                            <div class="edf">
-                                <h4 class="poste">Equipe de France Espoir (Poste : Libéro)</h4>
-                                <div class="niveau">Universiades (Jeux olympiques universitaires)</div>
-                                <div class="lieu">Schenzhen, Chine</div>
-                                <a href="athlete-haut-niveau.html#ancre-athl-edf-espoir" class="voir-detail">Voir
-                                    EDF Espoir</a>
-                            </div>
                         </div>
 
                         <div class="point athl-pro-istres"></div>
                         <div class="chronologie athl-pro-istres">
-                            <time class="date">2008 - 2011</time>
+                            <time class="date">2007 - 2011</time>
                             <h4 class="poste">Volleyeuse Professionnelle (Poste : Libéro)</h4>
                             <div class="niveau">Ligue AF (1ère division)</div>
                             <div class="lieu">IOPV, Istres</div>
                             <a href="athlete-haut-niveau.html#ancre-athl-pro-istres" class="voir-detail">Voir
                                 club pro Istres</a>
                             <div class="edf">
+                                <h4 class="poste">Equipe de France Espoir (Poste : Libéro)</h4>
+                                <div class="niveau">Universiades (Jeux olympiques universitaires)</div>
+                                <div class="lieu">Schenzhen, Chine</div>
+                                <a href="athlete-haut-niveau.html#ancre-athl-edf-espoir" class="voir-detail">Voir
+                                    EDF Espoir</a>
                                 <h4 class="poste">Equipe de France Junior (Poste : Libéro)</h4>
                                 <div class="niveau">Tournoi de qualification au Championnats du Monde</div>
                                 <div class="lieu">Pérouse, Italie</div>
@@ -231,11 +248,27 @@
                             </div>
                         </div>
 
+                        <div class="point form-bac"></div>
+                        <div class="chronologie form-bac">
+                            <time class="date">2007 - 2008</time>
+                            <h4 class="poste">Baccalauréat Série S, obtenu</h4>
+                            <div class="lieu">Lycée Arthur Rimbault, Istres</div>
+                            <a href="formation.html#ancre-formation-bac" class="voir-detail">Voir formation Bac</a>
+                        </div>
+
+                        <div class="point form-lycee"></div>
+                        <div class="chronologie form-lycee">
+                            <time class="date">2005 - 2007</time>
+                            <h4 class="poste">Seconde et Première Série S</h4>
+                            <div class="lieu">Lycée Colbert de Torcy, Sablé sur Sarthe</div>
+                            <a href="formation.html#ancre-formation-lycee" class="voir-detail">Voir formation Lycée</a>
+                        </div>
+
                         <div class="point athl-pro-sable"></div>
                         <div class="chronologie athl-pro-sable">
-                            <time class="date">2005 - 2008</time>
-                            <h4 class="poste">Volleyeuse Amateur (Poste : Attaquante)</h4>
-                            <div class="niveau">Pôle espoir</div>
+                            <time class="date">2005 - 2007</time>
+                            <h4 class="poste">Pôle Espoir (Poste : Attaquante)</h4>
+                            <div class="niveau">Formation de Haut Niveau</div>
                             <div class="lieu">Sablé sur Sarthe</div>
                             <a href="athlete-haut-niveau.html#ancre-athl-pro-sable" class="voir-detail">Voir
                                 Pôle Espoir</a>
