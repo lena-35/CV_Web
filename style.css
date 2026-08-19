@@ -1354,323 +1354,320 @@ video {
     height: auto;
 }
 
-@media screen and (max-width: 1530px) {
-    .burger-menu {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        height: 4.5rem !important;
-        padding: 0 1rem !important;
-        margin: 0 !important;
-    }
+nav.is-overflowing .burger-menu {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 4.5rem !important;
+    padding: 0 1rem !important;
+    margin: 0 !important;
+}
 
-    .menu-text {
-        font-weight: bold;
-        font-size: 1.8rem;
-        color: var(--couleur-texte-sombre);
-        margin-right: 0.5rem;
-    }
+nav.is-overflowing .menu-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--couleur-texte-sombre);
+    margin-right: 0.5rem;
+}
 
-    .burger-icon {
-        width: 3rem;
-        height: auto;
-        display: block;
-    }
+nav.is-overflowing .burger-icon {
+    width: 3rem;
+    height: auto;
+    display: block;
+}
 
-    .menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(240, 242, 245, 0.95);
-        padding: 1.875rem 0;
-        z-index: 1000;
-        text-align: center;
-        box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
-        max-height: calc(100vh - var(--hauteur-header));
-        overflow-y: auto;
-    }
+nav.is-overflowing .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(240, 242, 245, 0.95);
+    padding: 1.875rem 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - var(--hauteur-header));
+    overflow-y: auto;
+}
 
-    .menu a {
-        font-size: 2rem;
-    }
+nav.is-overflowing .menu a {
+    font-size: 2rem;
+}
 
-    .menu.active {
-        display: flex !important;
-    }
+nav.is-overflowing .menu.active {
+    display: flex !important;
+}
 
-    .introduction {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important;
-        width: 90%;
-        padding: 4rem var(--padding-grid);
-        gap: 3rem;
-    }
+nav.is-overflowing .introduction {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 90%;
+    padding: 4rem var(--padding-grid);
+    gap: 3rem;
+}
 
-    .introduction div {
-        display: flex;
-        flex-direction: column;
-        /* L'écart uniforme entre h1, p et a */
-        padding-right: 0;
-        text-align: center;
-    }
+nav.is-overflowing .introduction div {
+    display: flex;
+    flex-direction: column;
+    /* L'écart uniforme entre h1, p et a */
+    padding-right: 0;
+    text-align: center;
+}
 
-    .introduction div a {
-        display: block !important;
-        margin-top: 1rem;
-    }
+nav.is-overflowing .introduction div a {
+    display: block !important;
+    margin-top: 1rem;
+}
 
-    .introduction img {
-        grid-column: 1;
-        order: -1;
-        margin: 0 auto;
-        display: block;
-        width: 350px;
-        height: 350px;
-    }
+nav.is-overflowing .introduction img {
+    grid-column: 1;
+    order: -1;
+    margin: 0 auto;
+    display: block;
+    width: 350px;
+    height: 350px;
+}
 
-    .contact-info {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        width: 75%;
-        margin: 0 auto;
-    }
+nav.is-overflowing .contact-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    width: 75%;
+    margin: 0 auto;
+}
 
-    .contact-info .mail {
-        grid-column: 1;
-        grid-row: 1;
-    }
+nav.is-overflowing .contact-info .mail {
+    grid-column: 1;
+    grid-row: 1;
+}
 
-    .contact-info .tel {
-        grid-column: 1;
-        grid-row: 2;
-        margin-top: 4rem;
-    }
+nav.is-overflowing .contact-info .tel {
+    grid-column: 1;
+    grid-row: 2;
+    margin-top: 4rem;
+}
 
-    .contact-info .home {
-        grid-column: 1;
-        grid-row: 3;
-    }
+nav.is-overflowing .contact-info .home {
+    grid-column: 1;
+    grid-row: 3;
+}
 
-    .contact-info .social {
-        grid-column: 1;
-        grid-row: 4;
-    }
+nav.is-overflowing .contact-info .social {
+    grid-column: 1;
+    grid-row: 4;
+}
 
-    .blocks-parcours {
-        grid-template-columns: 1fr !important;
-        /* Force une seule colonne */
-    }
+nav.is-overflowing .blocks-parcours {
+    grid-template-columns: 1fr !important;
+    /* Force une seule colonne */
+}
 
-    .blocks-parcours.formation {
-        display: flex !important;
-        flex-direction: column !important;
-    }
+nav.is-overflowing .blocks-parcours.formation {
+    display: flex !important;
+    flex-direction: column !important;
+}
 
-    .diplome {
-        width: 60%;
-    }
+nav.is-overflowing .diplome {
+    width: 60%;
+}
 
-    .liste-item,
-    .timeline-item,
-    .timeline-item.athlete,
-    .timeline-item.benevole {
-        grid-column: 1 !important;
-        grid-row: auto !important;
-    }
+nav.is-overflowing .liste-item,
+nav.is-overflowing .timeline-item,
+nav.is-overflowing .timeline-item.athlete,
+nav.is-overflowing .timeline-item.benevole {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+}
 
-    .timeline-item.pro {
-        grid-column: 1 !important;
-        grid-row: 1 !important;
-    }
+nav.is-overflowing .timeline-item.pro {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+}
 
-    .photos.pro {
-        grid-column: 1 !important;
-        grid-row: 2 !important;
-    }
+nav.is-overflowing .photos.pro {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+}
 
-    .timeline-item.edf {
-        grid-column: 1 !important;
-        grid-row: 3 !important;
-    }
+nav.is-overflowing .timeline-item.edf {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+}
 
-    .photos.edf {
-        grid-column: 1 !important;
-        grid-row: 4 !important;
-    }
+nav.is-overflowing .photos.edf {
+    grid-column: 1 !important;
+    grid-row: 4 !important;
+}
 
-    .article-press {
-        display: flex;
-        flex-direction: column;
-    }
+nav.is-overflowing .article-press {
+    display: flex;
+    flex-direction: column;
+}
 
-    .article-container:nth-of-type(1) {
-        order: 1;
-    }
+nav.is-overflowing .article-container:nth-of-type(1) {
+    order: 1;
+}
 
-    .video-container {
-        order: 2;
-    }
+.video-container {
+    order: 2;
+}
 
-    .article-container:nth-of-type(2) {
-        order: 3;
-    }
+nav.is-overflowing .article-container:nth-of-type(2) {
+    order: 3;
+}
 
-    .article-container,
-    .video-container {
-        width: 90%;
-        margin: 0 auto 30px auto;
-    }
+nav.is-overflowing .article-container,
+nav.is-overflowing .video-container {
+    width: 90%;
+    margin: 0 auto 30px auto;
+}
 
-    .image-article,
-    .image-page,
-    video {
-        width: 60%;
-        height: auto;
-        border-radius: 8px;
-        display: block;
-        margin: 0 auto;
-    }
+nav.is-overflowing .image-article,
+nav.is-overflowing .image-page,
+nav.is-overflowing video {
+    width: 60%;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
 
-    .article-rec {
-        width: 90%;
-    }
+nav.is-overflowing .article-rec {
+    width: 90%;
+}
 
-    .photos.interets img {
-        height: 200px;
-    }
+nav.is-overflowing .photos.interets img {
+    height: 200px;
+}
 
-    h1 {
-        font-size: 4rem;
-    }
+nav.is-overflowing h1 {
+    font-size: 4rem;
+}
 
-    .titre h1 {
-        font-size: 2.7rem;
-    }
+nav.is-overflowing .titre h1 {
+    font-size: 2.7rem;
+}
 
-    h2 {
-        font-size: 2.7rem;
-    }
+nav.is-overflowing h2 {
+    font-size: 2.7rem;
+}
 
-    h3 {
-        font-size: 2rem;
-    }
+nav.is-overflowing h3 {
+    font-size: 2rem;
+}
 
-    h4 {
-        font-size: 1.7rem;
-    }
+nav.is-overflowing h4 {
+    font-size: 1.7rem;
+}
 
-    .introduction p {
-        font-size: 1.8rem;
-    }
+nav.is-overflowing .introduction p {
+    font-size: 1.8rem;
+}
 
-    p {
-        font-size: 2rem;
-    }
+nav.is-overflowing p {
+    font-size: 2rem;
+}
 
-    a {
-        font-size: 1.6rem;
-    }
+nav.is-overflowing a {
+    font-size: 1.6rem;
+}
 
-    li {
-        font-size: 1.5rem;
-    }
+nav.is-overflowing li {
+    font-size: 1.5rem;
+}
 
-    .intro p {
-        font-size: 1.8rem;
-    }
+nav.is-overflowing .intro p {
+    font-size: 1.8rem;
+}
 
-    .blocks-parcours.competences {
-        width: 100%;
-    }
+nav.is-overflowing .blocks-parcours.competences {
+    width: 100%;
+}
 
-    .liste-savoir {
-        margin-bottom: 3rem;
-    }
+nav.is-overflowing .liste-savoir {
+    margin-bottom: 3rem;
+}
 
-    .voir-detail {
-        font-size: 1.3rem;
-    }
+nav.is-overflowing .voir-detail {
+    font-size: 1.3rem;
+}
 
-    .stage>.voir-detail,
-    .edf>.voir-detail {
-        font-size: 1.2rem;
-    }
+nav.is-overflowing .stage>.voir-detail,
+nav.is-overflowing .edf>.voir-detail {
+    font-size: 1.2rem;
+}
 
-    .cv-chronologie {
-        grid-template-columns: minmax(0, 1fr) var(--cercle-taille) minmax(0, 1fr) !important;
-        column-gap: 5px !important;
-    }
+nav.is-overflowing .cv-chronologie {
+    grid-template-columns: minmax(0, 1fr) var(--cercle-taille) minmax(0, 1fr) !important;
+    column-gap: 5px !important;
+}
 
-    .timeline-parcours>.date,
-    .chronologie>.date {
-        font-size: 1.4rem;
-    }
+nav.is-overflowing .timeline-parcours>.date,
+nav.is-overflowing .chronologie>.date {
+    font-size: 1.4rem;
+}
 
-    .stage>.date,
-    .edf>.date {
-        font-size: 1.3rem;
-    }
+nav.is-overflowing .stage>.date,
+nav.is-overflowing .edf>.date {
+    font-size: 1.3rem;
+}
 
-    .timeline-parcours>.poste,
-    .chronologie>.poste {
-        font-size: 1.6rem;
-    }
+nav.is-overflowing .timeline-parcours>.poste,
+nav.is-overflowing .chronologie>.poste {
+    font-size: 1.6rem;
+}
 
-    .stage>.poste,
-    .edf>.poste {
-        font-size: 1.5rem;
-    }
+nav.is-overflowing .stage>.poste,
+nav.is-overflowing .edf>.poste {
+    font-size: 1.5rem;
+}
 
-    .timeline-parcours>.niveau,
-    .chronologie>.niveau {
-        font-size: 1.5rem;
-    }
+nav.is-overflowing .timeline-parcours>.niveau,
+nav.is-overflowing .chronologie>.niveau {
+    font-size: 1.5rem;
+}
 
-    .stage>.niveau,
-    .edf>.niveau {
-        font-size: 1.4rem;
-    }
+nav.is-overflowing .stage>.niveau,
+nav.is-overflowing .edf>.niveau {
+    font-size: 1.4rem;
+}
 
-    .timeline-parcours>.lieu,
-    .chronologie>.lieu {
-        font-size: 1.4rem;
-    }
+nav.is-overflowing .timeline-parcours>.lieu,
+nav.is-overflowing .chronologie>.lieu {
+    font-size: 1.4rem;
+}
 
-    .stage>.lieu,
-    .edf>.lieu {
-        font-size: 1.3rem;
-    }
+nav.is-overflowing .stage>.lieu,
+nav.is-overflowing .edf>.lieu {
+    font-size: 1.3rem;
+}
 
-    .timeline-parcours>.detail,
-    .chronologie>.detail {
-        font-size: 1.4rem;
-    }
+nav.is-overflowing .timeline-parcours>.detail,
+nav.is-overflowing .chronologie>.detail {
+    font-size: 1.4rem;
+}
 
-    .logo-parcours {
-        width: 80%;
-        height: auto;
-    }
+nav.is-overflowing .logo-parcours {
+    width: 80%;
+    height: auto;
+}
 
-    .scroll-text {
-        width: 60%;
-        height: auto;
-    }
+nav.is-overflowing .scroll-text {
+    width: 60%;
+    height: auto;
+}
 
-    .blocks-parcours>div {
-        padding: var(--padding-grid) 1rem var(--padding-grid) 1rem;
-    }
+.blocks-parcours>div {
+    padding: var(--padding-grid) 1rem var(--padding-grid) 1rem;
+}
 
-    .chronologie[class*="form-"],
-    .chronologie[class*="exp-pro-"],
-    .chronologie[class*="stage-"],
-    .chronologie.benev,
-    .chronologie[class*="athl-"] {
-        width: 90%;
-    }
-
+nav.is-overflowing .chronologie[class*="form-"],
+nav.is-overflowing .chronologie[class*="exp-pro-"],
+nav.is-overflowing .chronologie[class*="stage-"],
+nav.is-overflowing .chronologie.benev,
+nav.is-overflowing .chronologie[class*="athl-"] {
+    width: 90%;
 }
