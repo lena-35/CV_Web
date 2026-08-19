@@ -1527,10 +1527,20 @@ nav.is-overflowing .menu.active {
     }
 
     .image-article,
-    .image-page,
-    video {
+    .image-page {
         width: 60%;
         height: auto;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .video {
+        width: 80%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
         border-radius: 8px;
         display: block;
         margin: 0 auto;
