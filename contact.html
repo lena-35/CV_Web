@@ -10,6 +10,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
+<script>
+    function adaptMenu() {
+        const nav = document.querySelector('header nav');
+        const menu = document.getElementById('menu-mobile');
+        const burger = document.querySelector('.burger-menu');
+        const logo = document.querySelector('.lien-icone');
+
+        // Réinitialisation pour mesurer la largeur naturelle du menu à plat
+        nav.classList.remove('is-overflowing');
+
+        // Calcul de l'espace disponible dans le nav (largeur nav - largeur logo - marges de sécurité)
+        const availableWidth = nav.clientWidth - logo.offsetWidth - 40;
+
+        // Largeur nécessaire pour afficher tous tes liens d'affilée
+        const requiredWidth = menu.scrollWidth;
+
+        // Si le menu dépasse, on active le mode burger
+        if (requiredWidth > availableWidth) {
+            nav.classList.add('is-overflowing');
+        } else {
+            nav.classList.remove('is-overflowing');
+        }
+    }
+
+    // Événements d'exécution
+    window.addEventListener('load', adaptMenu);
+    window.addEventListener('resize', adaptMenu);
+
+    // Ouverture/fermeture du menu mobile au clic sur le burger
+    const burgerBtn = document.querySelector('.burger-menu');
+    burgerBtn.addEventListener('click', () => {
+        const menu = document.getElementById('menu-mobile');
+        const isOpen = menu.classList.toggle('is-open');
+        burgerBtn.setAttribute('aria-expanded', isOpen);
+    });
+</script>
+
 <body>
     <header>
         <nav>
