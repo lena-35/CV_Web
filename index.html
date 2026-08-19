@@ -12,43 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
-<script>
-    function adaptMenu() {
-        const nav = document.querySelector('header nav');
-        const menu = document.getElementById('menu-mobile');
-        const burger = document.querySelector('.burger-menu');
-        const logo = document.querySelector('.lien-icone');
-
-        // Réinitialisation pour mesurer la largeur naturelle du menu à plat
-        nav.classList.remove('is-overflowing');
-
-        // Calcul de l'espace disponible dans le nav (largeur nav - largeur logo - marges de sécurité)
-        const availableWidth = nav.clientWidth - logo.offsetWidth - 40;
-
-        // Largeur nécessaire pour afficher tous tes liens d'affilée
-        const requiredWidth = menu.scrollWidth;
-
-        // Si le menu dépasse, on active le mode burger
-        if (requiredWidth > availableWidth) {
-            nav.classList.add('is-overflowing');
-        } else {
-            nav.classList.remove('is-overflowing');
-        }
-    }
-
-    // Événements d'exécution
-    window.addEventListener('load', adaptMenu);
-    window.addEventListener('resize', adaptMenu);
-
-    // Ouverture/fermeture du menu mobile au clic sur le burger
-    const burgerBtn = document.querySelector('.burger-menu');
-    burgerBtn.addEventListener('click', () => {
-        const menu = document.getElementById('menu-mobile');
-        const isOpen = menu.classList.toggle('is-open');
-        burgerBtn.setAttribute('aria-expanded', isOpen);
-    });
-</script>
-
 <body>
     <header>
         <nav>
@@ -401,19 +364,37 @@
     <script>
         const burger = document.querySelector('.burger-menu');
         const menuMobile = document.getElementById('menu-mobile');
+        const nav = document.querySelector('header nav');
+        const logo = document.querySelector('.lien-icone');
 
-        // Fonction unique pour basculer le menu
+        function adaptMenu() {
+            if (!nav || !menuMobile || !logo) return;
+
+            nav.classList.remove('is-overflowing');
+
+            const availableWidth = nav.clientWidth - logo.offsetWidth - 30;
+            const requiredWidth = menuMobile.scrollWidth;
+
+            if (requiredWidth > availableWidth) {
+                nav.classList.add('is-overflowing');
+            } else {
+                nav.classList.remove('is-overflowing');
+                menuMobile.classList.remove('active');
+                if (burger) burger.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        window.addEventListener('load', adaptMenu);
+        window.addEventListener('resize', adaptMenu);
+
         function toggleMenu() {
             const estOuvert = burger.getAttribute('aria-expanded') === 'true';
             burger.setAttribute('aria-expanded', !estOuvert);
             menuMobile.classList.toggle('active');
 
-            // Si le menu vient d'être ouvert, on déplace le focus sur le 1er lien
             if (!estOuvert) {
-                // Trouve le premier lien à l'intérieur du menu ouvert
                 const premierLien = menuMobile.querySelector('a');
                 if (premierLien) {
-                    // Petit délai (setTimeout) pour laisser le temps à la classe active d'être appliquée
                     setTimeout(() => {
                         premierLien.focus();
                     }, 100);
@@ -421,25 +402,36 @@
             }
         }
 
-        // Gestion du clic
-        burger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            toggleMenu();
-        });
-
-        // Gestion du clavier (Entrée et Espace)
-        burger.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
+        if (burger) {
+            burger.addEventListener('click', (e) => {
+                e.stopPropagation();
                 toggleMenu();
+            });
+
+            burger.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleMenu();
+                }
+            });
+        }
+
+        // Clic en dehors du menu pour fermer
+        document.addEventListener('click', (e) => {
+            if (burger && !burger.contains(e.target) && menuMobile.classList.contains('active')) {
+                menuMobile.classList.remove('active');
+                burger.setAttribute('aria-expanded', 'false');
             }
         });
 
-        // Fermeture au clic extérieur
-        document.addEventListener('click', (e) => {
-            if (!burger.contains(e.target) && menuMobile.classList.contains('active')) {
+        // Touche Échap pour fermer le menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuMobile.classList.contains('active')) {
                 menuMobile.classList.remove('active');
-                burger.setAttribute('aria-expanded', 'false');
+                if (burger) {
+                    burger.setAttribute('aria-expanded', 'false');
+                    burger.focus();
+                }
             }
         });
     </script>
