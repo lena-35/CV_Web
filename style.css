@@ -1354,7 +1354,7 @@ video {
     height: auto;
 }
 
-@media screen and (max-width: 1550px), screen and (min-resolution: 1.25dppx) {
+@media screen and (max-width: 1400px) {
     .burger-menu {
         display: flex !important;
         align-items: center !important;
