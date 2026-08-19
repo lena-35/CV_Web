@@ -1400,274 +1400,277 @@ nav.is-overflowing .menu.active {
     display: flex !important;
 }
 
-nav.is-overflowing .introduction {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 90%;
-    padding: 4rem var(--padding-grid);
-    gap: 3rem;
-}
+@media screen and (max-width: 1024px) {
+    .introduction {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 90%;
+        padding: 4rem var(--padding-grid);
+        gap: 3rem;
+    }
 
-nav.is-overflowing .introduction div {
-    display: flex;
-    flex-direction: column;
-    /* L'écart uniforme entre h1, p et a */
-    padding-right: 0;
-    text-align: center;
-}
+    .introduction div {
+        display: flex;
+        flex-direction: column;
+        /* L'écart uniforme entre h1, p et a */
+        padding-right: 0;
+        text-align: center;
+    }
 
-nav.is-overflowing .introduction div a {
-    display: block !important;
-    margin-top: 1rem;
-}
+    .introduction div a {
+        display: block !important;
+        margin-top: 1rem;
+    }
 
-nav.is-overflowing .introduction img {
-    grid-column: 1;
-    order: -1;
-    margin: 0 auto;
-    display: block;
-    width: 350px;
-    height: 350px;
-}
+    .introduction img {
+        grid-column: 1;
+        order: -1;
+        margin: 0 auto;
+        display: block;
+        width: 350px;
+        height: 350px;
+    }
 
-nav.is-overflowing .contact-info {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    width: 75%;
-    margin: 0 auto;
-}
+    .contact-info {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        width: 75%;
+        margin: 0 auto;
+    }
 
-nav.is-overflowing .contact-info .mail {
-    grid-column: 1;
-    grid-row: 1;
-}
+    .contact-info .mail {
+        grid-column: 1;
+        grid-row: 1;
+    }
 
-nav.is-overflowing .contact-info .tel {
-    grid-column: 1;
-    grid-row: 2;
-    margin-top: 4rem;
-}
+    .contact-info .tel {
+        grid-column: 1;
+        grid-row: 2;
+        margin-top: 4rem;
+    }
 
-nav.is-overflowing .contact-info .home {
-    grid-column: 1;
-    grid-row: 3;
-}
+    .contact-info .home {
+        grid-column: 1;
+        grid-row: 3;
+    }
 
-nav.is-overflowing .contact-info .social {
-    grid-column: 1;
-    grid-row: 4;
-}
+    .contact-info .social {
+        grid-column: 1;
+        grid-row: 4;
+    }
 
-nav.is-overflowing .blocks-parcours {
-    grid-template-columns: 1fr !important;
-    /* Force une seule colonne */
-}
+    .blocks-parcours {
+        grid-template-columns: 1fr !important;
+        /* Force une seule colonne */
+    }
 
-nav.is-overflowing .blocks-parcours.formation {
-    display: flex !important;
-    flex-direction: column !important;
-}
+    .blocks-parcours.formation {
+        display: flex !important;
+        flex-direction: column !important;
+    }
 
-nav.is-overflowing .diplome {
-    width: 60%;
-}
+    .diplome {
+        width: 60%;
+    }
 
-nav.is-overflowing .liste-item,
-nav.is-overflowing .timeline-item,
-nav.is-overflowing .timeline-item.athlete,
-nav.is-overflowing .timeline-item.benevole {
-    grid-column: 1 !important;
-    grid-row: auto !important;
-}
+    .liste-item,
+    .timeline-item,
+    .timeline-item.athlete,
+    .timeline-item.benevole {
+        grid-column: 1 !important;
+        grid-row: auto !important;
+    }
 
-nav.is-overflowing .timeline-item.pro {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-}
+    .timeline-item.pro {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+    }
 
-nav.is-overflowing .photos.pro {
-    grid-column: 1 !important;
-    grid-row: 2 !important;
-}
+    .photos.pro {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+    }
 
-nav.is-overflowing .timeline-item.edf {
-    grid-column: 1 !important;
-    grid-row: 3 !important;
-}
+    .timeline-item.edf {
+        grid-column: 1 !important;
+        grid-row: 3 !important;
+    }
 
-nav.is-overflowing .photos.edf {
-    grid-column: 1 !important;
-    grid-row: 4 !important;
-}
+    .photos.edf {
+        grid-column: 1 !important;
+        grid-row: 4 !important;
+    }
 
-nav.is-overflowing .article-press {
-    display: flex;
-    flex-direction: column;
-}
+    .article-press {
+        display: flex;
+        flex-direction: column;
+    }
 
-nav.is-overflowing .article-container:nth-of-type(1) {
-    order: 1;
-}
+    .article-container:nth-of-type(1) {
+        order: 1;
+    }
 
-.video-container {
-    order: 2;
-}
+    .video-container {
+        order: 2;
+    }
 
-nav.is-overflowing .article-container:nth-of-type(2) {
-    order: 3;
-}
+    .article-container:nth-of-type(2) {
+        order: 3;
+    }
 
-nav.is-overflowing .article-container,
-nav.is-overflowing .video-container {
-    width: 90%;
-    margin: 0 auto 30px auto;
-}
+    .article-container,
+    .video-container {
+        width: 90%;
+        margin: 0 auto 30px auto;
+    }
 
-nav.is-overflowing .image-article,
-nav.is-overflowing .image-page,
-nav.is-overflowing video {
-    width: 60%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    margin: 0 auto;
-}
+    .image-article,
+    .image-page,
+    video {
+        width: 60%;
+        height: auto;
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+    }
 
-nav.is-overflowing .article-rec {
-    width: 90%;
-}
+    .article-rec {
+        width: 90%;
+    }
 
-nav.is-overflowing .photos.interets img {
-    height: 200px;
-}
+    .photos.interets img {
+        height: 200px;
+    }
 
-nav.is-overflowing h1 {
-    font-size: 4rem;
-}
+    h1 {
+        font-size: 4rem;
+    }
 
-nav.is-overflowing .titre h1 {
-    font-size: 2.7rem;
-}
+    .titre h1 {
+        font-size: 2.7rem;
+    }
 
-nav.is-overflowing h2 {
-    font-size: 2.7rem;
-}
+    h2 {
+        font-size: 2.7rem;
+    }
 
-nav.is-overflowing h3 {
-    font-size: 2rem;
-}
+    h3 {
+        font-size: 2rem;
+    }
 
-nav.is-overflowing h4 {
-    font-size: 1.7rem;
-}
+    h4 {
+        font-size: 1.7rem;
+    }
 
-nav.is-overflowing .introduction p {
-    font-size: 1.8rem;
-}
+    .introduction p {
+        font-size: 1.8rem;
+    }
 
-nav.is-overflowing p {
-    font-size: 2rem;
-}
+    p {
+        font-size: 2rem;
+    }
 
-nav.is-overflowing a {
-    font-size: 1.6rem;
-}
+    a {
+        font-size: 1.6rem;
+    }
 
-nav.is-overflowing li {
-    font-size: 1.5rem;
-}
+    li {
+        font-size: 1.5rem;
+    }
 
-nav.is-overflowing .intro p {
-    font-size: 1.8rem;
-}
+    .intro p {
+        font-size: 1.8rem;
+    }
 
-nav.is-overflowing .blocks-parcours.competences {
-    width: 100%;
-}
+    .blocks-parcours.competences {
+        width: 100%;
+    }
 
-nav.is-overflowing .liste-savoir {
-    margin-bottom: 3rem;
-}
+    .liste-savoir {
+        margin-bottom: 3rem;
+    }
 
-nav.is-overflowing .voir-detail {
-    font-size: 1.3rem;
-}
+    .voir-detail {
+        font-size: 1.3rem;
+    }
 
-nav.is-overflowing .stage>.voir-detail,
-nav.is-overflowing .edf>.voir-detail {
-    font-size: 1.2rem;
-}
+    .stage>.voir-detail,
+    .edf>.voir-detail {
+        font-size: 1.2rem;
+    }
 
-nav.is-overflowing .cv-chronologie {
-    grid-template-columns: minmax(0, 1fr) var(--cercle-taille) minmax(0, 1fr) !important;
-    column-gap: 5px !important;
-}
+    .cv-chronologie {
+        grid-template-columns: minmax(0, 1fr) var(--cercle-taille) minmax(0, 1fr) !important;
+        column-gap: 5px !important;
+    }
 
-nav.is-overflowing .timeline-parcours>.date,
-nav.is-overflowing .chronologie>.date {
-    font-size: 1.4rem;
-}
+    .timeline-parcours>.date,
+    .chronologie>.date {
+        font-size: 1.4rem;
+    }
 
-nav.is-overflowing .stage>.date,
-nav.is-overflowing .edf>.date {
-    font-size: 1.3rem;
-}
+    .stage>.date,
+    .edf>.date {
+        font-size: 1.3rem;
+    }
 
-nav.is-overflowing .timeline-parcours>.poste,
-nav.is-overflowing .chronologie>.poste {
-    font-size: 1.6rem;
-}
+    .timeline-parcours>.poste,
+    .chronologie>.poste {
+        font-size: 1.6rem;
+    }
 
-nav.is-overflowing .stage>.poste,
-nav.is-overflowing .edf>.poste {
-    font-size: 1.5rem;
-}
+    .stage>.poste,
+    .edf>.poste {
+        font-size: 1.5rem;
+    }
 
-nav.is-overflowing .timeline-parcours>.niveau,
-nav.is-overflowing .chronologie>.niveau {
-    font-size: 1.5rem;
-}
+    .timeline-parcours>.niveau,
+    .chronologie>.niveau {
+        font-size: 1.5rem;
+    }
 
-nav.is-overflowing .stage>.niveau,
-nav.is-overflowing .edf>.niveau {
-    font-size: 1.4rem;
-}
+    .stage>.niveau,
+    .edf>.niveau {
+        font-size: 1.4rem;
+    }
 
-nav.is-overflowing .timeline-parcours>.lieu,
-nav.is-overflowing .chronologie>.lieu {
-    font-size: 1.4rem;
-}
+    .timeline-parcours>.lieu,
+    .chronologie>.lieu {
+        font-size: 1.4rem;
+    }
 
-nav.is-overflowing .stage>.lieu,
-nav.is-overflowing .edf>.lieu {
-    font-size: 1.3rem;
-}
+    .stage>.lieu,
+    .edf>.lieu {
+        font-size: 1.3rem;
+    }
 
-nav.is-overflowing .timeline-parcours>.detail,
-nav.is-overflowing .chronologie>.detail {
-    font-size: 1.4rem;
-}
+    .timeline-parcours>.detail,
+    .chronologie>.detail {
+        font-size: 1.4rem;
+    }
 
-nav.is-overflowing .logo-parcours {
-    width: 80%;
-    height: auto;
-}
+    .logo-parcours {
+        width: 80%;
+        height: auto;
+    }
 
-nav.is-overflowing .scroll-text {
-    width: 60%;
-    height: auto;
-}
+    .scroll-text {
+        width: 60%;
+        height: auto;
+    }
 
-.blocks-parcours>div {
-    padding: var(--padding-grid) 1rem var(--padding-grid) 1rem;
-}
+    .blocks-parcours>div {
+        padding: var(--padding-grid) 1rem var(--padding-grid) 1rem;
+    }
 
-nav.is-overflowing .chronologie[class*="form-"],
-nav.is-overflowing .chronologie[class*="exp-pro-"],
-nav.is-overflowing .chronologie[class*="stage-"],
-nav.is-overflowing .chronologie.benev,
-nav.is-overflowing .chronologie[class*="athl-"] {
-    width: 90%;
+    .chronologie[class*="form-"],
+    .chronologie[class*="exp-pro-"],
+    .chronologie[class*="stage-"],
+    .chronologie.benev,
+    .chronologie[class*="athl-"] {
+        width: 90%;
+    }
+
 }
