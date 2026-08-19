@@ -36,6 +36,11 @@
     box-sizing: border-box;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
     font-family: 'Manrope', sans-serif;
     font-size: 1rem;
@@ -174,7 +179,7 @@ section {
 
 .introduction {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: var(--width-intro);
     margin: auto;
     gap: var(--gap-grid);
@@ -931,7 +936,6 @@ img[onclick] {
     padding-bottom: 2rem;
     --padding-left-right: calc(var(--colonne-gauche-grid-largeur) / 2 + var(--padding-block) - var(--cercle-taille) / 2);
     padding: 0 var(--padding-left-right) 1.5rem var(--padding-left-right);
-    ;
 }
 
 .savoir:not(.no-hover),
@@ -1131,7 +1135,8 @@ img[onclick] {
     padding-left: 4rem;
 }
 
-.timeline-parcours li .chronologie li {
+.timeline-parcours li,
+.chronologie li {
     font-size: 1.1rem;
 }
 
@@ -1401,6 +1406,7 @@ nav.is-overflowing .menu.active {
 }
 
 @media screen and (max-width: 1024px) {
+
     .introduction {
         display: flex !important;
         flex-direction: column !important;
