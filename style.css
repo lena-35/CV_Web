@@ -235,8 +235,8 @@ section {
     display: block;
     margin: 0 auto;
     align-self: center;
-    width: 350px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
@@ -1441,6 +1441,11 @@ nav.is-overflowing .menu.active {
         display: block;
         width: 350px;
         height: 350px;
+    }
+
+    .slider {
+        width: 750px;
+        height: 422px;
     }
 
     .contact-info {
