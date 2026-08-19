@@ -135,7 +135,7 @@ nav {
 
 .menu a {
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding-bottom: var(--hauteur-barre-active);
     border-bottom: var(--hauteur-barre-active) solid transparent;
 }
@@ -159,7 +159,7 @@ section {
 }
 
 .logo-llm {
-    height: 2.5rem;
+    height: 3rem;
     width: auto;
     display: block;
 }
