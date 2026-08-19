@@ -1439,8 +1439,8 @@ nav.is-overflowing .menu.active {
         order: -1;
         margin: 0 auto;
         display: block;
-        width: 375px;
-        height: 375px;
+        width: 400px;
+        height: 400px;
     }
 
     .slider {
