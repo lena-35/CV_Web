@@ -1407,6 +1407,11 @@ nav.is-overflowing .menu.active {
 
 @media screen and (max-width: 1024px) {
 
+    .logo-llm {
+        height: 3rem;
+        width: auto;
+    }
+
     .introduction {
         display: flex !important;
         flex-direction: column !important;
